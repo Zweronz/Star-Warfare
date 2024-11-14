@@ -1,0 +1,2290 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1660381931465182}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
+--- !u!1 &1660381931465182
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4877393898875888}
+  - 114: {fileID: 114748286534294914}
+  m_Layer: 0
+  m_Name: HUDAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4877393898875888
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660381931465182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114748286534294914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660381931465182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: 78308262bbe1e944c97a4a20c2553e38, type: 2}
+  sprites:
+  - name: hud_11
+    outer:
+      serializedVersion: 2
+      x: 438
+      y: 656
+      width: 32
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 438
+      y: 656
+      width: 32
+      height: 36
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_114
+    outer:
+      serializedVersion: 2
+      x: 491
+      y: 338
+      width: 255
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 491
+      y: 338
+      width: 255
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_115
+    outer:
+      serializedVersion: 2
+      x: 752
+      y: 323
+      width: 52
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 752
+      y: 323
+      width: 52
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_116
+    outer:
+      serializedVersion: 2
+      x: 683
+      y: 559
+      width: 52
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 683
+      y: 559
+      width: 52
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_117
+    outer:
+      serializedVersion: 2
+      x: 155
+      y: 762
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 155
+      y: 762
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_12
+    outer:
+      serializedVersion: 2
+      x: 438
+      y: 693
+      width: 30
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 438
+      y: 693
+      width: 30
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_13
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 986
+      width: 40
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 986
+      width: 40
+      height: 37
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_15
+    outer:
+      serializedVersion: 2
+      x: 612
+      y: 734
+      width: 68
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 612
+      y: 734
+      width: 68
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_16
+    outer:
+      serializedVersion: 2
+      x: 543
+      y: 734
+      width: 68
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 543
+      y: 734
+      width: 68
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_17
+    outer:
+      serializedVersion: 2
+      x: 722
+      y: 741
+      width: 68
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 722
+      y: 741
+      width: 68
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_18
+    outer:
+      serializedVersion: 2
+      x: 612
+      y: 689
+      width: 68
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 612
+      y: 689
+      width: 68
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_19
+    outer:
+      serializedVersion: 2
+      x: 543
+      y: 689
+      width: 68
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 543
+      y: 689
+      width: 68
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_20
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 795
+      width: 68
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 795
+      width: 68
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_25
+    outer:
+      serializedVersion: 2
+      x: 243
+      y: 440
+      width: 125
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 243
+      y: 440
+      width: 125
+      height: 27
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_26
+    outer:
+      serializedVersion: 2
+      x: 243
+      y: 412
+      width: 125
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 243
+      y: 412
+      width: 125
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_27
+    outer:
+      serializedVersion: 2
+      x: 997
+      y: 627
+      width: 22
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 997
+      y: 627
+      width: 22
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_28
+    outer:
+      serializedVersion: 2
+      x: 337
+      y: 620
+      width: 22
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 337
+      y: 620
+      width: 22
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_29
+    outer:
+      serializedVersion: 2
+      x: 433
+      y: 750
+      width: 34
+      height: 35
+    inner:
+      serializedVersion: 2
+      x: 433
+      y: 750
+      width: 34
+      height: 35
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_30
+    outer:
+      serializedVersion: 2
+      x: 997
+      y: 600
+      width: 26
+      height: 26
+    inner:
+      serializedVersion: 2
+      x: 997
+      y: 600
+      width: 26
+      height: 26
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_31
+    outer:
+      serializedVersion: 2
+      x: 997
+      y: 573
+      width: 26
+      height: 26
+    inner:
+      serializedVersion: 2
+      x: 997
+      y: 573
+      width: 26
+      height: 26
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_32
+    outer:
+      serializedVersion: 2
+      x: 363
+      y: 557
+      width: 102
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 363
+      y: 557
+      width: 102
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_33
+    outer:
+      serializedVersion: 2
+      x: 369
+      y: 458
+      width: 102
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 369
+      y: 458
+      width: 102
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_34
+    outer:
+      serializedVersion: 2
+      x: 805
+      y: 354
+      width: 80
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 805
+      y: 354
+      width: 80
+      height: 78
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_35
+    outer:
+      serializedVersion: 2
+      x: 752
+      y: 303
+      width: 53
+      height: 19
+    inner:
+      serializedVersion: 2
+      x: 752
+      y: 303
+      width: 53
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_36
+    outer:
+      serializedVersion: 2
+      x: 472
+      y: 477
+      width: 210
+      height: 211
+    inner:
+      serializedVersion: 2
+      x: 472
+      y: 477
+      width: 210
+      height: 211
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_37
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 509
+      width: 210
+      height: 211
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 509
+      width: 210
+      height: 211
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_38
+    outer:
+      serializedVersion: 2
+      x: 915
+      y: 34
+      width: 108
+      height: 109
+    inner:
+      serializedVersion: 2
+      x: 915
+      y: 34
+      width: 108
+      height: 107
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_39
+    outer:
+      serializedVersion: 2
+      x: 491
+      y: 303
+      width: 260
+      height: 34
+    inner:
+      serializedVersion: 2
+      x: 491
+      y: 303
+      width: 260
+      height: 34
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_40
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 34
+      width: 509
+      height: 33
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 34
+      width: 509
+      height: 31
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_41
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 68
+      width: 403
+      height: 108
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 68
+      width: 403
+      height: 108
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_42
+    outer:
+      serializedVersion: 2
+      x: 511
+      y: 34
+      width: 403
+      height: 108
+    inner:
+      serializedVersion: 2
+      x: 511
+      y: 34
+      width: 403
+      height: 108
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_43
+    outer:
+      serializedVersion: 2
+      x: 508
+      y: 211
+      width: 393
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 508
+      y: 211
+      width: 393
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_44
+    outer:
+      serializedVersion: 2
+      x: 510
+      y: 143
+      width: 393
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 510
+      y: 143
+      width: 393
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_45
+    outer:
+      serializedVersion: 2
+      x: 388
+      y: 359
+      width: 102
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 388
+      y: 359
+      width: 102
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_46
+    outer:
+      serializedVersion: 2
+      x: 388
+      y: 260
+      width: 102
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 388
+      y: 260
+      width: 102
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_47
+    outer:
+      serializedVersion: 2
+      x: 804
+      y: 573
+      width: 192
+      height: 141
+    inner:
+      serializedVersion: 2
+      x: 804
+      y: 573
+      width: 192
+      height: 141
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_50
+    outer:
+      serializedVersion: 2
+      x: 405
+      y: 161
+      width: 102
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 405
+      y: 161
+      width: 102
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_57
+    outer:
+      serializedVersion: 2
+      x: 683
+      y: 663
+      width: 46
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 683
+      y: 663
+      width: 46
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_58
+    outer:
+      serializedVersion: 2
+      x: 683
+      y: 612
+      width: 46
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 683
+      y: 612
+      width: 46
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_59
+    outer:
+      serializedVersion: 2
+      x: 904
+      y: 163
+      width: 116
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 904
+      y: 163
+      width: 116
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_62
+    outer:
+      serializedVersion: 2
+      x: 217
+      y: 455
+      width: 25
+      height: 24
+    inner:
+      serializedVersion: 2
+      x: 217
+      y: 455
+      width: 25
+      height: 24
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_63
+    outer:
+      serializedVersion: 2
+      x: 405
+      y: 146
+      width: 103
+      height: 14
+    inner:
+      serializedVersion: 2
+      x: 405
+      y: 146
+      width: 103
+      height: 14
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_64
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 473
+      width: 215
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 473
+      width: 215
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_65
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 455
+      width: 215
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 455
+      width: 215
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_66
+    outer:
+      serializedVersion: 2
+      x: 804
+      y: 537
+      width: 215
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 804
+      y: 537
+      width: 215
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_67
+    outer:
+      serializedVersion: 2
+      x: 804
+      y: 519
+      width: 215
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 804
+      y: 519
+      width: 215
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_68
+    outer:
+      serializedVersion: 2
+      x: 804
+      y: 501
+      width: 215
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 804
+      y: 501
+      width: 215
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_69
+    outer:
+      serializedVersion: 2
+      x: 804
+      y: 483
+      width: 215
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 804
+      y: 483
+      width: 215
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_70
+    outer:
+      serializedVersion: 2
+      x: 804
+      y: 465
+      width: 215
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 804
+      y: 465
+      width: 215
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_71
+    outer:
+      serializedVersion: 2
+      x: 804
+      y: 447
+      width: 215
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 804
+      y: 447
+      width: 215
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_72
+    outer:
+      serializedVersion: 2
+      x: 512
+      y: 1
+      width: 510
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 512
+      y: 1
+      width: 510
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_73
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 1
+      width: 510
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 1
+      width: 510
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_8
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 908
+      width: 58
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 908
+      width: 58
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud0
+    outer:
+      serializedVersion: 2
+      x: 78
+      y: 721
+      width: 76
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 78
+      y: 721
+      width: 76
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud1
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 721
+      width: 76
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 721
+      width: 76
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud10
+    outer:
+      serializedVersion: 2
+      x: 602
+      y: 779
+      width: 66
+      height: 49
+    inner:
+      serializedVersion: 2
+      x: 602
+      y: 779
+      width: 66
+      height: 49
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud11
+    outer:
+      serializedVersion: 2
+      x: 895
+      y: 348
+      width: 127
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 895
+      y: 348
+      width: 127
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud12
+    outer:
+      serializedVersion: 2
+      x: 902
+      y: 262
+      width: 108
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 902
+      y: 262
+      width: 108
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud13
+    outer:
+      serializedVersion: 2
+      x: 433
+      y: 726
+      width: 35
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 433
+      y: 726
+      width: 35
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud2
+    outer:
+      serializedVersion: 2
+      x: 405
+      y: 68
+      width: 104
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 405
+      y: 68
+      width: 104
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud3
+    outer:
+      serializedVersion: 2
+      x: 879
+      y: 733
+      width: 76
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 879
+      y: 733
+      width: 76
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud4
+    outer:
+      serializedVersion: 2
+      x: 802
+      y: 733
+      width: 76
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 802
+      y: 733
+      width: 76
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud5
+    outer:
+      serializedVersion: 2
+      x: 361
+      y: 656
+      width: 76
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 361
+      y: 656
+      width: 76
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud6
+    outer:
+      serializedVersion: 2
+      x: 433
+      y: 786
+      width: 28
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 433
+      y: 786
+      width: 28
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud7
+    outer:
+      serializedVersion: 2
+      x: 212
+      y: 677
+      width: 76
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 212
+      y: 677
+      width: 76
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud8
+    outer:
+      serializedVersion: 2
+      x: 212
+      y: 626
+      width: 76
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 212
+      y: 626
+      width: 76
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud9
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 376
+      width: 57
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 376
+      width: 57
+      height: 36
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: options
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 491
+      width: 211
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 491
+      width: 211
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: p1
+    outer:
+      serializedVersion: 2
+      x: 142
+      y: 844
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 142
+      y: 844
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: p2
+    outer:
+      serializedVersion: 2
+      x: 183
+      y: 840
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 183
+      y: 840
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: p3
+    outer:
+      serializedVersion: 2
+      x: 101
+      y: 813
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 101
+      y: 813
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: p4
+    outer:
+      serializedVersion: 2
+      x: 142
+      y: 803
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 142
+      y: 803
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: p5
+    outer:
+      serializedVersion: 2
+      x: 101
+      y: 772
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 101
+      y: 772
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: p6
+    outer:
+      serializedVersion: 2
+      x: 60
+      y: 803
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 60
+      y: 803
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: p7
+    outer:
+      serializedVersion: 2
+      x: 681
+      y: 755
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 681
+      y: 755
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: p8
+    outer:
+      serializedVersion: 2
+      x: 681
+      y: 714
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 681
+      y: 714
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: quit
+    outer:
+      serializedVersion: 2
+      x: 491
+      y: 371
+      width: 255
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 491
+      y: 371
+      width: 255
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: restart
+    outer:
+      serializedVersion: 2
+      x: 804
+      y: 555
+      width: 210
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 804
+      y: 555
+      width: 210
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: resume
+    outer:
+      serializedVersion: 2
+      x: 802
+      y: 715
+      width: 178
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 802
+      y: 715
+      width: 178
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_0
+    outer:
+      serializedVersion: 2
+      x: 356
+      y: 841
+      width: 65
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 356
+      y: 841
+      width: 65
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_1
+    outer:
+      serializedVersion: 2
+      x: 454
+      y: 824
+      width: 65
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 454
+      y: 824
+      width: 65
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_10
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 845
+      width: 60
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 845
+      width: 60
+      height: 61
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_11
+    outer:
+      serializedVersion: 2
+      x: 741
+      y: 413
+      width: 62
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 741
+      y: 413
+      width: 62
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_12
+    outer:
+      serializedVersion: 2
+      x: 289
+      y: 711
+      width: 71
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 289
+      y: 711
+      width: 71
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_13
+    outer:
+      serializedVersion: 2
+      x: 361
+      y: 774
+      width: 71
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 361
+      y: 774
+      width: 71
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_14
+    outer:
+      serializedVersion: 2
+      x: 361
+      y: 707
+      width: 71
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 361
+      y: 707
+      width: 71
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_15
+    outer:
+      serializedVersion: 2
+      x: 471
+      y: 689
+      width: 71
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 471
+      y: 689
+      width: 71
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_16
+    outer:
+      serializedVersion: 2
+      x: 730
+      y: 674
+      width: 71
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 730
+      y: 674
+      width: 71
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_17
+    outer:
+      serializedVersion: 2
+      x: 289
+      y: 644
+      width: 71
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 289
+      y: 644
+      width: 71
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_18
+    outer:
+      serializedVersion: 2
+      x: 586
+      y: 849
+      width: 65
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 586
+      y: 849
+      width: 65
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_19
+    outer:
+      serializedVersion: 2
+      x: 520
+      y: 849
+      width: 65
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 520
+      y: 849
+      width: 65
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_2
+    outer:
+      serializedVersion: 2
+      x: 284
+      y: 778
+      width: 71
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 284
+      y: 778
+      width: 71
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_3
+    outer:
+      serializedVersion: 2
+      x: 212
+      y: 728
+      width: 71
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 212
+      y: 728
+      width: 71
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_4
+    outer:
+      serializedVersion: 2
+      x: 739
+      y: 541
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 739
+      y: 541
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_5
+    outer:
+      serializedVersion: 2
+      x: 739
+      y: 476
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 739
+      y: 476
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_6
+    outer:
+      serializedVersion: 2
+      x: 956
+      y: 735
+      width: 67
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 956
+      y: 735
+      width: 67
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_7
+    outer:
+      serializedVersion: 2
+      x: 736
+      y: 606
+      width: 67
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 736
+      y: 606
+      width: 67
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_8
+    outer:
+      serializedVersion: 2
+      x: 535
+      y: 779
+      width: 66
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 535
+      y: 779
+      width: 66
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_9
+    outer:
+      serializedVersion: 2
+      x: 468
+      y: 756
+      width: 66
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 468
+      y: 756
+      width: 66
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: skill_bk
+    outer:
+      serializedVersion: 2
+      x: 806
+      y: 279
+      width: 88
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 806
+      y: 279
+      width: 88
+      height: 74
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sp1
+    outer:
+      serializedVersion: 2
+      x: 422
+      y: 873
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 422
+      y: 873
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sp2
+    outer:
+      serializedVersion: 2
+      x: 422
+      y: 852
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 422
+      y: 852
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sp3
+    outer:
+      serializedVersion: 2
+      x: 433
+      y: 831
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 433
+      y: 831
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sp4
+    outer:
+      serializedVersion: 2
+      x: 433
+      y: 810
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 433
+      y: 810
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sp5
+    outer:
+      serializedVersion: 2
+      x: 997
+      y: 714
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 997
+      y: 714
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sp6
+    outer:
+      serializedVersion: 2
+      x: 997
+      y: 693
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 997
+      y: 693
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sp7
+    outer:
+      serializedVersion: 2
+      x: 997
+      y: 672
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 997
+      y: 672
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sp8
+    outer:
+      serializedVersion: 2
+      x: 997
+      y: 651
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 997
+      y: 651
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-1 copy
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 177
+      width: 386
+      height: 234
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 177
+      width: 386
+      height: 234
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-111 copy
+    outer:
+      serializedVersion: 2
+      x: 217
+      y: 480
+      width: 150
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 217
+      y: 480
+      width: 150
+      height: 57
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-2 copy
+    outer:
+      serializedVersion: 2
+      x: 491
+      y: 279
+      width: 314
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 491
+      y: 279
+      width: 314
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-222 copy
+    outer:
+      serializedVersion: 2
+      x: 212
+      y: 538
+      width: 150
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 212
+      y: 538
+      width: 150
+      height: 57
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-3 copy
+    outer:
+      serializedVersion: 2
+      x: 212
+      y: 596
+      width: 124
+      height: 29
+    inner:
+      serializedVersion: 2
+      x: 212
+      y: 596
+      width: 124
+      height: 29
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-32 copy
+    outer:
+      serializedVersion: 2
+      x: 62
+      y: 854
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 62
+      y: 854
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-33 copy
+    outer:
+      serializedVersion: 2
+      x: 337
+      y: 596
+      width: 22
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 337
+      y: 596
+      width: 22
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-34 copy
+    outer:
+      serializedVersion: 2
+      x: 683
+      y: 477
+      width: 55
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 683
+      y: 477
+      width: 55
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-35 copy
+    outer:
+      serializedVersion: 2
+      x: 224
+      y: 840
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 224
+      y: 840
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-36 copy
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 803
+      width: 58
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 803
+      width: 58
+      height: 41
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-37 copy
+    outer:
+      serializedVersion: 2
+      x: 683
+      y: 518
+      width: 55
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 683
+      y: 518
+      width: 55
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-4 copy
+    outer:
+      serializedVersion: 2
+      x: 904
+      y: 144
+      width: 119
+      height: 18
+    inner:
+      serializedVersion: 2
+      x: 904
+      y: 144
+      width: 119
+      height: 18
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-5 copy
+    outer:
+      serializedVersion: 2
+      x: 1
+      y: 412
+      width: 241
+      height: 42
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 412
+      width: 241
+      height: 42
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-6 copy
+    outer:
+      serializedVersion: 2
+      x: 491
+      y: 433
+      width: 247
+      height: 43
+    inner:
+      serializedVersion: 2
+      x: 491
+      y: 433
+      width: 247
+      height: 43
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-64 copy
+    outer:
+      serializedVersion: 2
+      x: 155
+      y: 721
+      width: 56
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 155
+      y: 721
+      width: 56
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Untitled-7 copy
+    outer:
+      serializedVersion: 2
+      x: 491
+      y: 389
+      width: 249
+      height: 43
+    inner:
+      serializedVersion: 2
+      x: 491
+      y: 389
+      width: 249
+      height: 43
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}

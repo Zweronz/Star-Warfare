@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1539208875273197}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
+--- !u!1 &1539208875273197
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4363542751022971}
+  - 114: {fileID: 114939769531654417}
+  m_Layer: 0
+  m_Name: Font5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4363542751022971
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539208875273197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114939769531654417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539208875273197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a68422e122212f3eb86c19ce6ed442e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mMat: {fileID: 0}
+  mUVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0.5
+    height: 1
+  mFont:
+    mSize: 25
+    mBase: 20
+    mWidth: 32
+    mHeight: 32
+    mSpriteName: hud_5_0
+    mSaved:
+    - index: 36
+      x: 0
+      y: 0
+      width: 6
+      height: 9
+      offsetX: 0
+      offsetY: 0
+      advance: 6
+      channel: 15
+      kerning:
+    - index: 44
+      x: 28
+      y: 16
+      width: 2
+      height: 3
+      offsetX: 0
+      offsetY: 0
+      advance: 2
+      channel: 15
+      kerning:
+    - index: 47
+      x: 16
+      y: 16
+      width: 5
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 5
+      channel: 15
+      kerning:
+    - index: 48
+      x: 16
+      y: 0
+      width: 7
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 7
+      channel: 15
+      kerning:
+    - index: 49
+      x: 22
+      y: 16
+      width: 5
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 5
+      channel: 15
+      kerning:
+    - index: 50
+      x: 24
+      y: 0
+      width: 7
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 7
+      channel: 15
+      kerning:
+    - index: 51
+      x: 0
+      y: 10
+      width: 7
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 7
+      channel: 15
+      kerning:
+    - index: 52
+      x: 7
+      y: 0
+      width: 8
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 8
+      channel: 15
+      kerning:
+    - index: 53
+      x: 8
+      y: 8
+      width: 7
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 7
+      channel: 15
+      kerning:
+    - index: 54
+      x: 16
+      y: 8
+      width: 7
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 7
+      channel: 15
+      kerning:
+    - index: 55
+      x: 24
+      y: 8
+      width: 7
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 7
+      channel: 15
+      kerning:
+    - index: 56
+      x: 0
+      y: 18
+      width: 7
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 7
+      channel: 15
+      kerning:
+    - index: 57
+      x: 8
+      y: 16
+      width: 7
+      height: 7
+      offsetX: 0
+      offsetY: 0
+      advance: 7
+      channel: 15
+      kerning:
+  mSpacingX: 1
+  mSpacingY: 0
+  mAtlas: {fileID: 114794513013315710, guid: 4701147dd518cf14daa34f33bc1c0ad4, type: 2}
+  mReplacement: {fileID: 0}
+  mPixelSize: 1
+  mSymbols: []
+  mDynamicFont: {fileID: 0}
+  mDynamicFontSize: 16
+  mDynamicFontStyle: 0
+  mDynamicFontOffset: 0

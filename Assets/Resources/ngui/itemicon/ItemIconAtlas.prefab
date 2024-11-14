@@ -1,0 +1,1120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1600099780419348}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
+--- !u!1 &1600099780419348
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4432074370130623}
+  - 114: {fileID: 114162579066893347}
+  m_Layer: 0
+  m_Name: ItemIconAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4432074370130623
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1600099780419348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114162579066893347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1600099780419348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: 07d46db32c97f0f48912129bbbab0e9b, type: 2}
+  sprites:
+  - name: item_0
+    outer:
+      serializedVersion: 2
+      x: 2
+      y: 617
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 2
+      y: 617
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_1
+    outer:
+      serializedVersion: 2
+      x: 2
+      y: 476
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 2
+      y: 476
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_10
+    outer:
+      serializedVersion: 2
+      x: 2
+      y: 2
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 2
+      y: 2
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_2
+    outer:
+      serializedVersion: 2
+      x: 546
+      y: 284
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 546
+      y: 284
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_3
+    outer:
+      serializedVersion: 2
+      x: 274
+      y: 284
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 274
+      y: 284
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_4
+    outer:
+      serializedVersion: 2
+      x: 2
+      y: 284
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 2
+      y: 284
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_5
+    outer:
+      serializedVersion: 2
+      x: 546
+      y: 143
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 546
+      y: 143
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_6
+    outer:
+      serializedVersion: 2
+      x: 274
+      y: 143
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 274
+      y: 143
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_7
+    outer:
+      serializedVersion: 2
+      x: 2
+      y: 143
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 2
+      y: 143
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_8
+    outer:
+      serializedVersion: 2
+      x: 546
+      y: 2
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 546
+      y: 2
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: item_9
+    outer:
+      serializedVersion: 2
+      x: 274
+      y: 2
+      width: 270
+      height: 139
+    inner:
+      serializedVersion: 2
+      x: 274
+      y: 2
+      width: 270
+      height: 139
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_0
+    outer:
+      serializedVersion: 2
+      x: 682
+      y: 583
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 682
+      y: 583
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_1
+    outer:
+      serializedVersion: 2
+      x: 580
+      y: 583
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 580
+      y: 583
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_10
+    outer:
+      serializedVersion: 2
+      x: 478
+      y: 634
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 478
+      y: 634
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_11
+    outer:
+      serializedVersion: 2
+      x: 478
+      y: 555
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 478
+      y: 555
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_12
+    outer:
+      serializedVersion: 2
+      x: 478
+      y: 476
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 478
+      y: 476
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_13
+    outer:
+      serializedVersion: 2
+      x: 410
+      y: 871
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 410
+      y: 871
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_14
+    outer:
+      serializedVersion: 2
+      x: 410
+      y: 792
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 410
+      y: 792
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_15
+    outer:
+      serializedVersion: 2
+      x: 410
+      y: 713
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 410
+      y: 713
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_16
+    outer:
+      serializedVersion: 2
+      x: 376
+      y: 634
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 376
+      y: 634
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_17
+    outer:
+      serializedVersion: 2
+      x: 376
+      y: 555
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 376
+      y: 555
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_18
+    outer:
+      serializedVersion: 2
+      x: 376
+      y: 476
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 376
+      y: 476
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_19
+    outer:
+      serializedVersion: 2
+      x: 308
+      y: 871
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 308
+      y: 871
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_2
+    outer:
+      serializedVersion: 2
+      x: 886
+      y: 555
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 886
+      y: 555
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_20
+    outer:
+      serializedVersion: 2
+      x: 308
+      y: 792
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 308
+      y: 792
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_21
+    outer:
+      serializedVersion: 2
+      x: 308
+      y: 713
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 308
+      y: 713
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_22
+    outer:
+      serializedVersion: 2
+      x: 274
+      y: 634
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 274
+      y: 634
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_23
+    outer:
+      serializedVersion: 2
+      x: 274
+      y: 555
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 274
+      y: 555
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_24
+    outer:
+      serializedVersion: 2
+      x: 274
+      y: 476
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 274
+      y: 476
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_25
+    outer:
+      serializedVersion: 2
+      x: 206
+      y: 916
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 206
+      y: 916
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_26
+    outer:
+      serializedVersion: 2
+      x: 206
+      y: 837
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 206
+      y: 837
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_27
+    outer:
+      serializedVersion: 2
+      x: 206
+      y: 758
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 206
+      y: 758
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_28
+    outer:
+      serializedVersion: 2
+      x: 104
+      y: 916
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 104
+      y: 916
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_29
+    outer:
+      serializedVersion: 2
+      x: 104
+      y: 837
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 104
+      y: 837
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_3
+    outer:
+      serializedVersion: 2
+      x: 784
+      y: 555
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 784
+      y: 555
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_30
+    outer:
+      serializedVersion: 2
+      x: 104
+      y: 758
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 104
+      y: 758
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_31
+    outer:
+      serializedVersion: 2
+      x: 2
+      y: 916
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 2
+      y: 916
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_32
+    outer:
+      serializedVersion: 2
+      x: 2
+      y: 837
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 2
+      y: 837
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_33
+    outer:
+      serializedVersion: 2
+      x: 2
+      y: 758
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 2
+      y: 758
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_34
+    outer:
+      serializedVersion: 2
+      x: 920
+      y: 397
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 920
+      y: 397
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_35
+    outer:
+      serializedVersion: 2
+      x: 818
+      y: 397
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 818
+      y: 397
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_36
+    outer:
+      serializedVersion: 2
+      x: 920
+      y: 318
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 920
+      y: 318
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_37
+    outer:
+      serializedVersion: 2
+      x: 818
+      y: 318
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 818
+      y: 318
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_38
+    outer:
+      serializedVersion: 2
+      x: 920
+      y: 239
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 920
+      y: 239
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_39
+    outer:
+      serializedVersion: 2
+      x: 818
+      y: 239
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 818
+      y: 239
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_4
+    outer:
+      serializedVersion: 2
+      x: 682
+      y: 504
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 682
+      y: 504
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_40
+    outer:
+      serializedVersion: 2
+      x: 920
+      y: 160
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 920
+      y: 160
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_41
+    outer:
+      serializedVersion: 2
+      x: 920
+      y: 81
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 920
+      y: 81
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_42
+    outer:
+      serializedVersion: 2
+      x: 818
+      y: 160
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 818
+      y: 160
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_43
+    outer:
+      serializedVersion: 2
+      x: 818
+      y: 81
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 818
+      y: 81
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_44
+    outer:
+      serializedVersion: 2
+      x: 920
+      y: 2
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 920
+      y: 2
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_45
+    outer:
+      serializedVersion: 2
+      x: 818
+      y: 2
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 818
+      y: 2
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_46
+    outer:
+      serializedVersion: 2
+      x: 580
+      y: 662
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 580
+      y: 662
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_47
+    outer:
+      serializedVersion: 2
+      x: 682
+      y: 662
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 682
+      y: 662
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_5
+    outer:
+      serializedVersion: 2
+      x: 580
+      y: 504
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 580
+      y: 504
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_6
+    outer:
+      serializedVersion: 2
+      x: 886
+      y: 476
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 886
+      y: 476
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_7
+    outer:
+      serializedVersion: 2
+      x: 784
+      y: 476
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 784
+      y: 476
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_8
+    outer:
+      serializedVersion: 2
+      x: 682
+      y: 425
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 682
+      y: 425
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapons_9
+    outer:
+      serializedVersion: 2
+      x: 580
+      y: 425
+      width: 100
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 580
+      y: 425
+      width: 100
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}

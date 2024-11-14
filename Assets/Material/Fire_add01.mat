@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Fire_add01
+  m_Shader: {fileID: 4800000, guid: 69e7b8a1ee9eafc4a8dda5cdfd1dff5f, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _Blend_Texture
+      second:
+        m_Texture: {fileID: 2800000, guid: 69fadd81e4d2fd84d9e7cec5a261744d, type: 3}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Blend_Texture01
+      second:
+        m_Texture: {fileID: 2800000, guid: 69fadd81e4d2fd84d9e7cec5a261744d, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 8d4d771b033c6c84eb73641ecd6f22bd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Blend
+      second: 0.5
+    - first:
+        name: _InvFade
+      second: 1
+    - first:
+        name: _Lighten
+      second: 1.2
+    - first:
+        name: _LightenMain
+      second: 0.8
+    - first:
+        name: _Speed01
+      second: 30
+    - first:
+        name: _Speed02
+      second: -25
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _Color01
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _Color02
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _Color03
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _TintColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

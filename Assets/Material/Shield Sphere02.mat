@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Shield Sphere02
+  m_Shader: {fileID: 4800000, guid: a5c78c33ae8f4a64983c7dcb66679496, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _DetailTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 9737198915b6b4a4b9bc2b37c7878cc4, type: 3}
+        m_Scale: {x: 1, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 9a4be0ce1d4aeac4c808e7e4a69ef572, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _MMultiplier
+      second: 2
+    - first:
+        name: _Outline
+      second: 0.005
+    - first:
+        name: _Scroll2X
+      second: 0
+    - first:
+        name: _Scroll2Y
+      second: 1
+    - first:
+        name: _ScrollX
+      second: 5
+    - first:
+        name: _ScrollY
+      second: 0
+    - first:
+        name: _SineAmplX
+      second: 0
+    - first:
+        name: _SineAmplX2
+      second: 0
+    - first:
+        name: _SineAmplY
+      second: 0
+    - first:
+        name: _SineAmplY2
+      second: 0
+    - first:
+        name: _SineFreqX
+      second: 0
+    - first:
+        name: _SineFreqX2
+      second: 10
+    - first:
+        name: _SineFreqY
+      second: 0
+    - first:
+        name: _SineFreqY2
+      second: 10
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 0.588, g: 0.588, b: 0.588, a: 1}
+    - first:
+        name: _OutlineColor
+      second: {r: 0, g: 0, b: 0, a: 1}

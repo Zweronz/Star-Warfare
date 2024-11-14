@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: joke_warning01
+  m_Shader: {fileID: 4800000, guid: 4126fdb2d36262b45818369986a9bc58, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: e110ed54d0744d9468a36712ab27f212, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Bias
+      second: 0.1
+    - first:
+        name: _BlinkingTimeOffsScale
+      second: 5
+    - first:
+        name: _FadeOutDistFar
+      second: 1000
+    - first:
+        name: _FadeOutDistNear
+      second: 0
+    - first:
+        name: _InvFade
+      second: 1
+    - first:
+        name: _MaxGrowSize
+      second: 1
+    - first:
+        name: _Multiplier
+      second: 1
+    - first:
+        name: _NoiseAmount
+      second: 0
+    - first:
+        name: _SizeGrowEndDist
+      second: 50
+    - first:
+        name: _SizeGrowStartDist
+      second: 50
+    - first:
+        name: _TimeOffDuration
+      second: 0.15
+    - first:
+        name: _TimeOnDuration
+      second: 0.25
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 0.60630417, b: 0.38805968, a: 1}
+    - first:
+        name: _TintColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
