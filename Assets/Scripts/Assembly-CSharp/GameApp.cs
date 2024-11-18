@@ -86,7 +86,7 @@ public class GameApp
 			instance.PreviousOrientation = DeviceOrientation.Portrait;
 			instance.LogoFirstPop = true;
 			instance.AdsPoped = false;
-			Application.targetFrameRate = 60;
+			Application.targetFrameRate = 240;
 		}
 		return instance;
 	}
@@ -299,11 +299,7 @@ public class GameApp
 	{
 		if (userState.bInit)
 		{
-			string text = Application.dataPath + "/../../Documents/";
-			if (Application.platform == RuntimePlatform.Android)
-			{
-				text = Application.persistentDataPath + "/";
-			}
+			string text = Application.persistentDataPath + "/";
 			if (!Directory.Exists(text))
 			{
 				Directory.CreateDirectory(text);
@@ -331,11 +327,7 @@ public class GameApp
 
 	public byte Load()
 	{
-		string text = Application.dataPath + "/../../Documents/";
-		if (Application.platform == RuntimePlatform.Android)
-		{
-			text = Application.persistentDataPath + "/";
-		}
+		string text = Application.persistentDataPath + "/";
 		if (File.Exists(text + "starWarfareMap_01") && File.Exists(text + "starWarfareMap_02"))
 		{
 			Stream stream = File.Open(text + "starWarfareMap_01", FileMode.Open);

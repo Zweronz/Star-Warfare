@@ -21,6 +21,15 @@ public class StateJoyStick : MonoBehaviour
 
 	private bool init;
 
+	private void Start()
+	{
+		if (!Application.isMobilePlatform)
+		{
+			moveJoyStickCenter.gameObject.SetActive(false);
+			shootJoyStickCenter.gameObject.SetActive(false);
+		}
+	}
+
 	private void Update()
 	{
 		if (!init)

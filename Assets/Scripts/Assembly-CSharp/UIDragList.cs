@@ -261,13 +261,13 @@ public class UIDragList : MonoBehaviour
 		}
 	}
 
-	public void Reposition()
+	public void Reposition(int idx = -1)
 	{
 		if (mItemList.Count == 0 || dir != Dir.Vertical)
 		{
 			return;
 		}
-		int index = GetIndex();
+		int index = idx == -1 ? GetIndex() : idx;
 		int num = index;
 		int num2 = index;
 		int num3 = (num2 + 1) % mItemList.Count;

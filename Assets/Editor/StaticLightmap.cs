@@ -91,9 +91,8 @@ public class StaticLightmap : Editor
 				{
 					if (unIndented.StartsWith("- "))
 					{
-						string guid = null;
-
-						try
+                        string guid;
+                        try
 						{
 							guid = unIndented.Substring(unIndented.IndexOf("guid: ") + 6);
 							guid = guid.Substring(0, guid.IndexOf(','));
