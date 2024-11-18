@@ -61,7 +61,7 @@ public class UIUtil
 						gameObject3.transform.localRotation = Quaternion.identity;
 					}
 				}
-				Transform transform3 = gameObject.transform.FindChild(UIConstant.SUB_AVATAR[type]);
+				Transform transform3 = gameObject.transform.Find(UIConstant.SUB_AVATAR[type]);
 				GameObject gameObject4 = Object.Instantiate(original) as GameObject;
 				gameObject4.transform.parent = gameObject.transform;
 				GameObject gameObject5 = Object.Instantiate(original2) as GameObject;
@@ -124,7 +124,7 @@ public class UIUtil
 
 	public void SetShader(GameObject obj, Shader shader)
 	{
-		Material[] materials = obj.renderer.materials;
+		Material[] materials = obj.GetComponent<Renderer>().materials;
 		foreach (Material material in materials)
 		{
 			Texture texture = material.mainTexture;

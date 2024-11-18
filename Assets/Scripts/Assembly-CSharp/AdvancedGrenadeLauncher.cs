@@ -248,11 +248,11 @@ public class AdvancedGrenadeLauncher : Weapon
 
 	protected void PlayGunAnimation(string name, WrapMode mode)
 	{
-		if (!gun.animation.IsPlaying(name))
+		if (!gun.GetComponent<Animation>().IsPlaying(name))
 		{
-			gun.animation[name].wrapMode = mode;
-			gun.animation[name].speed = 1f;
-			gun.animation.Play(name);
+			gun.GetComponent<Animation>()[name].wrapMode = mode;
+			gun.GetComponent<Animation>()[name].speed = 1f;
+			gun.GetComponent<Animation>().Play(name);
 		}
 	}
 }

@@ -198,7 +198,7 @@ public class StatisticsBaseUI : UIHandler, IUIHandle
 					return;
 				}
 				string update = UIConstant.SHOW_SCORE_STR + " " + AndroidSwPluginScript.GetVersionUrl();
-				Application.CaptureScreenshot("tempscreens.png");
+				ScreenCapture.CaptureScreenshot("tempscreens.png");
 				string url = Application.persistentDataPath + "/tempscreens.png";
 				WWW wWW = new WWW(url);
 				TwitterAndroid.postUpdateWithImage(update, wWW.bytes);
@@ -215,7 +215,7 @@ public class StatisticsBaseUI : UIHandler, IUIHandle
 		{
 			if (GameApp.GetInstance().IsConnectedToInternet())
 			{
-				Application.CaptureScreenshot("tempscreens.png");
+				ScreenCapture.CaptureScreenshot("tempscreens.png");
 				if (!FacebookAndroid.isLoggedIn())
 				{
 					Lobby.GetInstance().IsPostingScoreToSocialNetwork = true;

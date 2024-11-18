@@ -50,7 +50,7 @@ internal class DropTheFlagResponse : Response
 		if (GameApp.GetInstance().GetGameMode().ModePlay == Mode.VS_CTF_FFA && gameWorld.FlagDirObj != null)
 		{
 			Color white = Color.white;
-			gameWorld.FlagDirObj.transform.GetChild(0).renderer.material.SetColor("_TintColor", white);
+			gameWorld.FlagDirObj.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_TintColor", white);
 		}
 		playerByUserID.CreatePlayerSign();
 		GameObject gameObject = GameObject.Find("GameUI");

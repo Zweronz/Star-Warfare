@@ -134,11 +134,11 @@ public class UIScrollBar : MonoBehaviour
 				localScale.y = x;
 				transform.localScale = localScale;
 				ForceUpdate();
-				if (mBG.collider != null)
+				if (mBG.GetComponent<Collider>() != null)
 				{
 					NGUITools.AddWidgetCollider(mBG.gameObject);
 				}
-				if (mFG.collider != null)
+				if (mFG.GetComponent<Collider>() != null)
 				{
 					NGUITools.AddWidgetCollider(mFG.gameObject);
 				}
@@ -308,13 +308,13 @@ public class UIScrollBar : MonoBehaviour
 
 	private void Start()
 	{
-		if (background != null && background.collider != null)
+		if (background != null && background.GetComponent<Collider>() != null)
 		{
 			UIEventListener uIEventListener = UIEventListener.Get(background.gameObject);
 			uIEventListener.onPress = (UIEventListener.BoolDelegate)Delegate.Combine(uIEventListener.onPress, new UIEventListener.BoolDelegate(OnPressBackground));
 			uIEventListener.onDrag = (UIEventListener.VectorDelegate)Delegate.Combine(uIEventListener.onDrag, new UIEventListener.VectorDelegate(OnDragBackground));
 		}
-		if (foreground != null && foreground.collider != null)
+		if (foreground != null && foreground.GetComponent<Collider>() != null)
 		{
 			UIEventListener uIEventListener2 = UIEventListener.Get(foreground.gameObject);
 			uIEventListener2.onPress = (UIEventListener.BoolDelegate)Delegate.Combine(uIEventListener2.onPress, new UIEventListener.BoolDelegate(OnPressForeground));

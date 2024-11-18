@@ -13,8 +13,8 @@ public class AdvancedShotgunAnimationScript : MonoBehaviour
 	{
 		if (aniTimer.Ready())
 		{
-			base.animation["fire"].wrapMode = WrapMode.Once;
-			base.animation.Play("fire");
+			base.GetComponent<Animation>()["fire"].wrapMode = WrapMode.Once;
+			base.GetComponent<Animation>().Play("fire");
 			aniTimer.Do();
 		}
 	}

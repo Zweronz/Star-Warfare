@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlasmaNeo : Weapon
 {
@@ -222,9 +223,9 @@ public class PlasmaNeo : Weapon
 			gunfireObj.SetActiveRecursively(true);
 		}
 		HashSet<Enemy> hashSet = new HashSet<Enemy>();
-		Camera mainCamera = Camera.mainCamera;
+		Camera mainCamera = Camera.main;
 		Transform transform = mainCamera.transform;
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		Ray ray = default(Ray);
 		Vector3 vector = mainCamera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 0.1f));
 		Vector3 normalized = (vector - transform.position).normalized;

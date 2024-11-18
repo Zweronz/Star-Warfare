@@ -8,9 +8,9 @@ public class LookAtCameraScript : MonoBehaviour
 
 	private void Start()
 	{
-		if (Camera.mainCamera != null)
+		if (Camera.main != null)
 		{
-			cameraTransform = Camera.mainCamera.transform;
+			cameraTransform = Camera.main.transform;
 		}
 	}
 

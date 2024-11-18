@@ -67,7 +67,7 @@ public class RemotePlayer : Player
 		playerObj.layer = PhysicsLayer.REMOTE_PLAYER;
 		PlayAnimation(AnimationString.Run + "_rifle", WrapMode.Loop);
 		PlayAnimation(AnimationString.Idle + "_rifle", WrapMode.Loop);
-		Transform transform = playerTransform.FindChild(BoneName.Bag).FindChild("Bag");
+		Transform transform = playerTransform.Find(BoneName.Bag).Find("Bag");
 		if (transform != null)
 		{
 			transform.localPosition = Vector3.zero;

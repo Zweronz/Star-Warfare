@@ -42,14 +42,14 @@ public class UIAnchor : MonoBehaviour
 	private void Awake()
 	{
 		mTrans = base.transform;
-		mAnim = base.animation;
+		mAnim = base.GetComponent<Animation>();
 		mRect = default(Rect);
 	}
 
 	private void Start()
 	{
 		mRoot = NGUITools.FindInParents<UIRoot>(base.gameObject);
-		mNeedsHalfPixelOffset = Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.XBOX360 || Application.platform == RuntimePlatform.WindowsWebPlayer || Application.platform == RuntimePlatform.WindowsEditor;
+		mNeedsHalfPixelOffset = Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.XBOX360 || Application.platform == RuntimePlatform.WindowsEditor;
 		if (mNeedsHalfPixelOffset)
 		{
 			mNeedsHalfPixelOffset = SystemInfo.graphicsShaderLevel < 40;

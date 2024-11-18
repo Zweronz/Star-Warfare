@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LaserRifle : Weapon
 {
@@ -70,7 +71,7 @@ public class LaserRifle : Weapon
 	{
 		if (gunfireObj != null)
 		{
-			gunfireObj.renderer.enabled = false;
+			gunfireObj.GetComponent<Renderer>().enabled = false;
 		}
 		if (firelineObjectPool != null)
 		{
@@ -107,7 +108,7 @@ public class LaserRifle : Weapon
 			component.beginPos = gunfire.position;
 			component.endPos = gunfire.position + normalized * 100f;
 		}
-		gunfireObj.renderer.enabled = true;
+		gunfireObj.GetComponent<Renderer>().enabled = true;
 	}
 
 	public override void Attack(float deltaTime)
@@ -115,12 +116,12 @@ public class LaserRifle : Weapon
 		GameApp.GetInstance().GetUserState().UseEnegy(enegyConsume);
 		if (gunfire != null)
 		{
-			gunfireObj.renderer.enabled = true;
+			gunfireObj.GetComponent<Renderer>().enabled = true;
 		}
 		HashSet<Enemy> hashSet = new HashSet<Enemy>();
-		Camera mainCamera = Camera.mainCamera;
+		Camera mainCamera = Camera.main;
 		Transform transform = mainCamera.transform;
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		Ray ray = default(Ray);
 		Vector3 vector = mainCamera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 50f));
 		Vector3 normalized = (vector - transform.position).normalized;

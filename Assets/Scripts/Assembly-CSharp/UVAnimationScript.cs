@@ -26,15 +26,15 @@ public class UVAnimationScript : MonoBehaviour
 		float num = Time.time * scrollSpeed % 1f;
 		if (u && v)
 		{
-			base.renderer.material.SetTextureOffset(texturePropertyName, new Vector2(num, num));
+			base.GetComponent<Renderer>().material.SetTextureOffset(texturePropertyName, new Vector2(num, num));
 		}
 		else if (u)
 		{
-			base.renderer.material.SetTextureOffset(texturePropertyName, new Vector2(num, 0f));
+			base.GetComponent<Renderer>().material.SetTextureOffset(texturePropertyName, new Vector2(num, 0f));
 		}
 		else if (v)
 		{
-			base.renderer.material.SetTextureOffset(texturePropertyName, new Vector2(0f, num));
+			base.GetComponent<Renderer>().material.SetTextureOffset(texturePropertyName, new Vector2(0f, num));
 		}
 	}
 }

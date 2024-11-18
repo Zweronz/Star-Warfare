@@ -30,6 +30,6 @@ public class UVOffsetScript : MonoBehaviour
 	private void Update()
 	{
 		int num = (int)(Time.time * scrollSpeed) % (cols * rows);
-		base.renderer.materials[materialIndex].SetTextureOffset(texturePropertyName, new Vector2(xStep * (float)(num % cols), 1f - yStep * (float)(num / cols)));
+		base.GetComponent<Renderer>().materials[materialIndex].SetTextureOffset(texturePropertyName, new Vector2(xStep * (float)(num % cols), 1f - yStep * (float)(num / cols)));
 	}
 }

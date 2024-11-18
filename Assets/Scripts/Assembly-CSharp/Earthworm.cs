@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Earthworm : EnemyBoss
 {
@@ -347,18 +348,18 @@ public class Earthworm : EnemyBoss
 	public override void Init(GameObject gObject)
 	{
 		base.Init(gObject);
-		bipObject = enemyObject.transform.FindChild(BoneName.EarthwormBip01).gameObject;
+		bipObject = enemyObject.transform.Find(BoneName.EarthwormBip01).gameObject;
 		touchColliders = new Collider[3];
-		touchColliders[0] = enemyObject.transform.FindChild(BoneName.EarthwormNeck).gameObject.collider;
-		touchColliders[1] = enemyObject.transform.FindChild(BoneName.EarthwormSpine1).gameObject.collider;
-		touchColliders[2] = enemyObject.transform.FindChild(BoneName.EarthwormRightThigh).gameObject.collider;
+		touchColliders[0] = enemyObject.transform.Find(BoneName.EarthwormNeck).gameObject.GetComponent<Collider>();
+		touchColliders[1] = enemyObject.transform.Find(BoneName.EarthwormSpine1).gameObject.GetComponent<Collider>();
+		touchColliders[2] = enemyObject.transform.Find(BoneName.EarthwormRightThigh).gameObject.GetComponent<Collider>();
 		tailColliders = new Collider[6];
-		tailColliders[0] = enemyObject.transform.FindChild(BoneName.EarthwormTail2).gameObject.collider;
-		tailColliders[1] = enemyObject.transform.FindChild(BoneName.EarthwormTail4).gameObject.collider;
-		tailColliders[2] = enemyObject.transform.FindChild(BoneName.EarthwormTail6).gameObject.collider;
-		tailColliders[3] = enemyObject.transform.FindChild(BoneName.EarthwormTail8).gameObject.collider;
-		tailColliders[4] = enemyObject.transform.FindChild(BoneName.EarthwormTail10).gameObject.collider;
-		tailColliders[5] = enemyObject.transform.FindChild(BoneName.EarthwormTail12).gameObject.collider;
+		tailColliders[0] = enemyObject.transform.Find(BoneName.EarthwormTail2).gameObject.GetComponent<Collider>();
+		tailColliders[1] = enemyObject.transform.Find(BoneName.EarthwormTail4).gameObject.GetComponent<Collider>();
+		tailColliders[2] = enemyObject.transform.Find(BoneName.EarthwormTail6).gameObject.GetComponent<Collider>();
+		tailColliders[3] = enemyObject.transform.Find(BoneName.EarthwormTail8).gameObject.GetComponent<Collider>();
+		tailColliders[4] = enemyObject.transform.Find(BoneName.EarthwormTail10).gameObject.GetComponent<Collider>();
+		tailColliders[5] = enemyObject.transform.Find(BoneName.EarthwormTail12).gameObject.GetComponent<Collider>();
 		bodyCollider = touchColliders[0];
 		trails = new GameObject[1];
 		GameObject original = Resources.Load("Effect/update_effect/efffect_worm_move_001") as GameObject;
@@ -587,7 +588,7 @@ public class Earthworm : EnemyBoss
 	public void Shot(float angleH, float angleV, float scale)
 	{
 		GameObject original = Resources.Load("Effect/update_effect/efffect_worm_Poison_fly_001") as GameObject;
-		Vector3 position = enemyTransform.FindChild(BoneName.EarthwormMouth).position;
+		Vector3 position = enemyTransform.Find(BoneName.EarthwormMouth).position;
 		GameObject gameObject = UnityEngine.Object.Instantiate(original, position, Quaternion.identity) as GameObject;
 		Vector3 vector = targetToLookAt - position;
 		vector.y = 0f;
@@ -676,7 +677,7 @@ public class Earthworm : EnemyBoss
 				PlaySound("Audio/enemy/Earthworm/attack_tail2");
 				earthwormTailGroundAudioTimer.Do();
 				GameObject original = Resources.Load("Effect/update_effect/efffect_worm_attack_001") as GameObject;
-				Transform transform = enemyObject.transform.FindChild(BoneName.EarthwormTail12);
+				Transform transform = enemyObject.transform.Find(BoneName.EarthwormTail12);
 				Vector3 vector = transform.position - 2f * transform.right;
 				Vector3 position = new Vector3(vector.x, 0.02f, vector.z);
 				Quaternion rotation = Quaternion.EulerAngles(0f, Random.Range(0f, 360f), 0f);
@@ -694,7 +695,7 @@ public class Earthworm : EnemyBoss
 		float num = animation[AnimationString.EARTHWORM_NORMAL_ATTACK].time / animation[AnimationString.EARTHWORM_NORMAL_ATTACK].clip.length;
 		if (num > 0.51f && num < 0.61f)
 		{
-			Transform transform = enemyObject.transform.FindChild(BoneName.EarthwormTail12);
+			Transform transform = enemyObject.transform.Find(BoneName.EarthwormTail12);
 			Vector3 vector = transform.position - 2f * transform.right;
 			Vector3 vector2 = new Vector3(vector.x, 0.02f, vector.z);
 			float sqrMagnitude = (player.GetTransform().position - vector2).sqrMagnitude;
@@ -716,7 +717,7 @@ public class Earthworm : EnemyBoss
 		float num = animation[AnimationString.ENEMY_RAGE].time / animation[AnimationString.ENEMY_RAGE].clip.length;
 		if ((num > 0.32f && num < 0.42f) || (num > 0.65f && num < 0.75f))
 		{
-			Transform transform = enemyObject.transform.FindChild(BoneName.EarthwormTail12);
+			Transform transform = enemyObject.transform.Find(BoneName.EarthwormTail12);
 			Vector3 vector = transform.position - 2f * transform.right;
 			Vector3 vector2 = new Vector3(vector.x, 0.02f, vector.z);
 			float sqrMagnitude = (player.GetTransform().position - vector2).sqrMagnitude;
@@ -905,7 +906,7 @@ public class Earthworm : EnemyBoss
 			PlaySound("Audio/enemy/Earthworm/attack_tail2");
 			earthwormTailGroundAudioTimer2.Do();
 			GameObject original = Resources.Load("Effect/update_effect/efffect_worm_attack_001") as GameObject;
-			Transform transform = enemyObject.transform.FindChild(BoneName.EarthwormTail12);
+			Transform transform = enemyObject.transform.Find(BoneName.EarthwormTail12);
 			Vector3 vector = transform.position - 2f * transform.right;
 			Vector3 position = new Vector3(vector.x, 0.02f, vector.z);
 			Quaternion rotation = Quaternion.EulerAngles(0f, Random.Range(0f, 360f), 0f);
@@ -916,7 +917,7 @@ public class Earthworm : EnemyBoss
 			PlaySound("Audio/enemy/Earthworm/attack_tail2");
 			earthwormTailGroundAudioTimer.Do();
 			GameObject original2 = Resources.Load("Effect/update_effect/efffect_worm_attack_001") as GameObject;
-			Transform transform2 = enemyObject.transform.FindChild(BoneName.EarthwormTail12);
+			Transform transform2 = enemyObject.transform.Find(BoneName.EarthwormTail12);
 			Vector3 vector2 = transform2.position - 2f * transform2.right;
 			Vector3 position2 = new Vector3(vector2.x, 0.02f, vector2.z);
 			Quaternion rotation2 = Quaternion.EulerAngles(0f, Random.Range(0f, 360f), 0f);
@@ -1220,9 +1221,9 @@ public class Earthworm : EnemyBoss
 	protected override bool GetHitPoint(out Vector3 hitPoint)
 	{
 		hitPoint = Vector3.zero;
-		Camera mainCamera = Camera.mainCamera;
+		Camera mainCamera = Camera.main;
 		Transform transform = mainCamera.transform;
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		Vector3 vector = mainCamera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 0.1f));
 		Vector3 vector2 = vector - transform.position;
 		vector2.Normalize();

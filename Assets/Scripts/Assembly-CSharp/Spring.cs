@@ -43,15 +43,15 @@ public class Spring : Weapon
 	public override void Init(Player player)
 	{
 		gameWorld = GameApp.GetInstance().GetGameWorld();
-		gameCamera = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
-		cameraComponent = gameCamera.camera;
+		gameCamera = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
+		cameraComponent = gameCamera.GetComponent<Camera>();
 		cameraTransform = gameCamera.CameraTransform;
 		base.player = player;
 		hitForce = 0f;
 		weaponBoneTrans = player.GetTransform().Find(BoneName.Weapon);
 		CreateGun();
 		gun.transform.parent = weaponBoneTrans;
-		shootAudio = gun.audio;
+		shootAudio = gun.GetComponent<AudioSource>();
 		if (shootAudio == null)
 		{
 		}

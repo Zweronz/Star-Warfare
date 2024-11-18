@@ -54,7 +54,7 @@ public class CMIGift
 	{
 		m_giftObject = Object.Instantiate(prefab) as GameObject;
 		m_giftObject.name = name;
-		m_effectObj = m_giftObject.transform.FindChild(BoneName.GiftEffectPoint).gameObject;
+		m_effectObj = m_giftObject.transform.Find(BoneName.GiftEffectPoint).gameObject;
 	}
 
 	public void CreateObj(GameObject prefab, Vector3 pos, string name)
@@ -62,7 +62,7 @@ public class CMIGift
 		m_giftObject = Object.Instantiate(prefab) as GameObject;
 		m_giftObject.transform.position = pos;
 		m_giftObject.name = name;
-		m_effectObj = m_giftObject.transform.FindChild(BoneName.GiftEffectPoint).gameObject;
+		m_effectObj = m_giftObject.transform.Find(BoneName.GiftEffectPoint).gameObject;
 	}
 
 	public void Loop(float deltaTime)
@@ -80,7 +80,7 @@ public class CMIGift
 			{
 				PlayAnimation("jump02", WrapMode.ClampForever);
 			}
-			else if (AnimationPlayed("jump02", 1f) || (m_giftObject != null && !m_giftObject.animation.isPlaying))
+			else if (AnimationPlayed("jump02", 1f) || (m_giftObject != null && !m_giftObject.GetComponent<Animation>().isPlaying))
 			{
 				PlayAnimation("jump01", WrapMode.Loop);
 			}
@@ -89,11 +89,11 @@ public class CMIGift
 
 	private bool AnimationPlayed(string name, float percent)
 	{
-		if (m_giftObject == null || m_giftObject.animation[name] == null)
+		if (m_giftObject == null || m_giftObject.GetComponent<Animation>()[name] == null)
 		{
 			return true;
 		}
-		if (m_giftObject.animation[name].time >= m_giftObject.animation[name].clip.length * percent)
+		if (m_giftObject.GetComponent<Animation>()[name].time >= m_giftObject.GetComponent<Animation>()[name].clip.length * percent)
 		{
 			return true;
 		}
@@ -102,10 +102,10 @@ public class CMIGift
 
 	private void PlayAnimation(string name, WrapMode mode)
 	{
-		if (!(m_giftObject == null) && !(m_giftObject.animation[name] == null) && !m_giftObject.animation.IsPlaying(name))
+		if (!(m_giftObject == null) && !(m_giftObject.GetComponent<Animation>()[name] == null) && !m_giftObject.GetComponent<Animation>().IsPlaying(name))
 		{
-			m_giftObject.animation[name].wrapMode = mode;
-			m_giftObject.animation.CrossFade(name);
+			m_giftObject.GetComponent<Animation>()[name].wrapMode = mode;
+			m_giftObject.GetComponent<Animation>().CrossFade(name);
 		}
 	}
 

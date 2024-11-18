@@ -469,7 +469,7 @@ public class StoreUI : UIHandler, IUIHandle
 		GameObject gameObject = GameObject.Find("Main Camera");
 		gameObject.transform.position = new Vector3(-0.5f, 1f, 0f);
 		Rect rct = new Rect(0.117f, 0f, 0.62f, 1f);
-		gameObject.camera.rect = UIConstant.GetRectForScreenAdaptived2(rct);
+		gameObject.GetComponent<Camera>().rect = UIConstant.GetRectForScreenAdaptived2(rct);
 		if (userState.GetShowNotify() == 1 && userState.GetDiscountStatus() == 1)
 		{
 			userState.SetDiscountStatus(2);
@@ -663,13 +663,13 @@ public class StoreUI : UIHandler, IUIHandle
 		int selection = 0;
 		float num = 120f;
 		float num2 = 135f;
-		float x = avatarFrame.GetModel().transform.FindChild(UIConstant.SUB_AVATAR[1]).position.x;
+		float x = avatarFrame.GetModel().transform.Find(UIConstant.SUB_AVATAR[1]).position.x;
 		Vector3 zero3 = Vector3.zero;
 		if (type < 5)
 		{
 			List<List<Armor>> armor = userState.GetArmor();
 			List<Armor> list = armor[type];
-			zero2 = ((type != 4) ? avatarFrame.GetModel().transform.FindChild(UIConstant.SUB_AVATAR[type]).position : new Vector3(-0.7232f, 1.6f, 3.32f));
+			zero2 = ((type != 4) ? avatarFrame.GetModel().transform.Find(UIConstant.SUB_AVATAR[type]).position : new Vector3(-0.7232f, 1.6f, 3.32f));
 			zero3 = list[m_equipSel[type]].Center;
 			zero = swapAvatar.ToPixelScreen(new Vector2(x, zero2.y + 1.2f * zero3.z));
 			for (int k = 0; k < list.Count; k++)
@@ -684,7 +684,7 @@ public class StoreUI : UIHandler, IUIHandle
 				{
 					selection = k;
 				}
-				Transform transform = avatar3D.m_obj.GetModel().transform.FindChild(UIConstant.SUB_AVATAR[type]);
+				Transform transform = avatar3D.m_obj.GetModel().transform.Find(UIConstant.SUB_AVATAR[type]);
 				if (transform != null)
 				{
 					avatar3D.m_obj.AddSubModel(transform.gameObject);
@@ -722,15 +722,15 @@ public class StoreUI : UIHandler, IUIHandle
 				avatar3D.m_obj.SetScale(new Vector3(avatar3D.m_scale, avatar3D.m_scale, avatar3D.m_scale));
 				float num3 = (0f - (avatar3D.m_scale - 1.2f)) * list[index].Center.z;
 				avatar3D.m_obj.SetPosition(new Vector3(x, zero2.y + num3, zero2.z));
-				Transform transform2 = avatar3D.m_obj.GetModel().transform.FindChild("lock(Clone)");
+				Transform transform2 = avatar3D.m_obj.GetModel().transform.Find("lock(Clone)");
 				transform2.gameObject.transform.position = new Vector3(x - 0.02f, zero2.y + list[index].Center.z + 0.02f, 2.5f);
-				transform2.gameObject.transform.LookAt(Camera.mainCamera.transform);
-				Transform transform3 = avatar3D.m_obj.GetModel().transform.FindChild("unlock(Clone)");
+				transform2.gameObject.transform.LookAt(Camera.main.transform);
+				Transform transform3 = avatar3D.m_obj.GetModel().transform.Find("unlock(Clone)");
 				transform3.gameObject.transform.position = new Vector3(x - 0.02f, zero2.y + list[index].Center.z + 0.02f, 2.5f);
-				transform3.gameObject.transform.LookAt(Camera.mainCamera.transform);
-				Transform transform4 = avatar3D.m_obj.GetModel().transform.FindChild("unlock1(Clone)");
+				transform3.gameObject.transform.LookAt(Camera.main.transform);
+				Transform transform4 = avatar3D.m_obj.GetModel().transform.Find("unlock1(Clone)");
 				transform4.gameObject.transform.position = new Vector3(x - 0.02f, zero2.y + list[index].Center.z + 0.02f, 2.5f);
-				transform4.gameObject.transform.LookAt(Camera.mainCamera.transform);
+				transform4.gameObject.transform.LookAt(Camera.main.transform);
 				avatar3D.m_state = list[index].Level;
 				if (list[index].Mithril == 0)
 				{
@@ -809,18 +809,18 @@ public class StoreUI : UIHandler, IUIHandle
 				avatar3D2.m_obj.SetScale(new Vector3(avatar3D2.m_scale, avatar3D2.m_scale, avatar3D2.m_scale));
 				float num5 = (0f - (1.2f - avatar3D2.m_scale)) * weapons[num4].Center.y;
 				avatar3D2.m_obj.SetPosition(new Vector3(x, zero2.y + num5, zero2.z));
-				Transform transform5 = avatar3D2.m_obj.GetModel().transform.FindChild("lock(Clone)");
+				Transform transform5 = avatar3D2.m_obj.GetModel().transform.Find("lock(Clone)");
 				transform5.gameObject.transform.localScale = new Vector3(UIConstant.PRICE_SCALE[num4], UIConstant.PRICE_SCALE[num4], UIConstant.PRICE_SCALE[num4]);
 				transform5.gameObject.transform.position = new Vector3(x + weapons[num4].Center.y - 0.02f + UIConstant.PRICE_OFFSET[num4, 0], zero2.y + weapons[num4].Center.z + 0.02f + UIConstant.PRICE_OFFSET[num4, 1], 2.5f + UIConstant.PRICE_OFFSET[num4, 2]);
-				transform5.gameObject.transform.LookAt(Camera.mainCamera.transform);
-				Transform transform6 = avatar3D2.m_obj.GetModel().transform.FindChild("unlock(Clone)");
+				transform5.gameObject.transform.LookAt(Camera.main.transform);
+				Transform transform6 = avatar3D2.m_obj.GetModel().transform.Find("unlock(Clone)");
 				transform6.gameObject.transform.localScale = new Vector3(UIConstant.PRICE_SCALE[num4], UIConstant.PRICE_SCALE[num4], UIConstant.PRICE_SCALE[num4]);
 				transform6.gameObject.transform.position = new Vector3(x + weapons[num4].Center.y - 0.02f + UIConstant.PRICE_OFFSET[num4, 0], zero2.y + weapons[num4].Center.z + 0.02f + UIConstant.PRICE_OFFSET[num4, 1], 2.5f + UIConstant.PRICE_OFFSET[num4, 2]);
-				transform6.gameObject.transform.LookAt(Camera.mainCamera.transform);
-				Transform transform7 = avatar3D2.m_obj.GetModel().transform.FindChild("unlock1(Clone)");
+				transform6.gameObject.transform.LookAt(Camera.main.transform);
+				Transform transform7 = avatar3D2.m_obj.GetModel().transform.Find("unlock1(Clone)");
 				transform7.gameObject.transform.localScale = new Vector3(UIConstant.PRICE_SCALE[num4], UIConstant.PRICE_SCALE[num4], UIConstant.PRICE_SCALE[num4]);
 				transform7.gameObject.transform.position = new Vector3(x + weapons[num4].Center.y - 0.02f + UIConstant.PRICE_OFFSET[num4, 0], zero2.y + weapons[num4].Center.z + 0.02f + UIConstant.PRICE_OFFSET[num4, 1], 2.5f + UIConstant.PRICE_OFFSET[num4, 2]);
-				transform7.gameObject.transform.LookAt(Camera.mainCamera.transform);
+				transform7.gameObject.transform.LookAt(Camera.main.transform);
 				avatar3D2.m_state = weapons[num4].Level;
 				if (weapons[num4].Mithril == 0)
 				{
@@ -1787,7 +1787,7 @@ public class StoreUI : UIHandler, IUIHandle
 					TwitterAndroid.showLoginDialog();
 					return;
 				}
-				Application.CaptureScreenshot("tempscreens.png");
+				ScreenCapture.CaptureScreenshot("tempscreens.png");
 				string url = Application.persistentDataPath + "/tempscreens.png";
 				WWW wWW = new WWW(url);
 				TwitterAndroid.postUpdateWithImage(update, wWW.bytes);

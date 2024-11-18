@@ -10,60 +10,60 @@ internal class WeaponResourceConfig
 		{
 		case 24:
 		case 25:
-			list.Add(weaponObj.transform.GetChild(1).renderer);
+			list.Add(weaponObj.transform.GetChild(1).GetComponent<Renderer>());
 			break;
 		case 39:
-			list.Add(weaponObj.transform.GetChild(1).renderer);
-			list.Add(weaponObj.transform.GetChild(1).GetChild(0).renderer);
+			list.Add(weaponObj.transform.GetChild(1).GetComponent<Renderer>());
+			list.Add(weaponObj.transform.GetChild(1).GetChild(0).GetComponent<Renderer>());
 			break;
 		case 28:
-			list.Add(weaponObj.transform.GetChild(0).renderer);
-			list.Add(weaponObj.transform.GetChild(1).renderer);
+			list.Add(weaponObj.transform.GetChild(0).GetComponent<Renderer>());
+			list.Add(weaponObj.transform.GetChild(1).GetComponent<Renderer>());
 			break;
 		case 31:
-			list.Add(weaponObj.transform.Find("CRAB").renderer);
+			list.Add(weaponObj.transform.Find("CRAB").GetComponent<Renderer>());
 			break;
 		case 32:
-			list.Add(weaponObj.transform.Find("Morpheus").renderer);
+			list.Add(weaponObj.transform.Find("Morpheus").GetComponent<Renderer>());
 			break;
 		case 36:
-			list.Add(weaponObj.renderer);
-			list.Add(weaponObj.transform.GetChild(0).GetChild(0).renderer);
+			list.Add(weaponObj.GetComponent<Renderer>());
+			list.Add(weaponObj.transform.GetChild(0).GetChild(0).GetComponent<Renderer>());
 			break;
 		case 37:
-			list.Add(weaponObj.renderer);
-			list.Add(weaponObj.transform.GetChild(0).GetChild(0).renderer);
-			list.Add(weaponObj.transform.GetChild(0).GetChild(1).renderer);
+			list.Add(weaponObj.GetComponent<Renderer>());
+			list.Add(weaponObj.transform.GetChild(0).GetChild(0).GetComponent<Renderer>());
+			list.Add(weaponObj.transform.GetChild(0).GetChild(1).GetComponent<Renderer>());
 			break;
 		case 41:
-			list.Add(weaponObj.transform.Find("Gun").renderer);
-			list.Add(weaponObj.transform.Find("Gun01").renderer);
-			list.Add(weaponObj.transform.Find("halo").renderer);
+			list.Add(weaponObj.transform.Find("Gun").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Gun01").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("halo").GetComponent<Renderer>());
 			break;
 		case 43:
-			list.Add(weaponObj.renderer);
-			list.Add(weaponObj.transform.Find("Point02").GetChild(0).renderer);
-			list.Add(weaponObj.transform.Find("Point03").GetChild(0).renderer);
+			list.Add(weaponObj.GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Point02").GetChild(0).GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Point03").GetChild(0).GetComponent<Renderer>());
 			break;
 		case 45:
-			list.Add(weaponObj.transform.Find("Object02").renderer);
-			list.Add(weaponObj.transform.Find("Object02/Point02/Object01").renderer);
-			list.Add(weaponObj.transform.Find("Object02/Point03/Object03").renderer);
-			list.Add(weaponObj.transform.Find("Object02/Point04/Object08").renderer);
-			list.Add(weaponObj.transform.Find("Object02/Point05/Object05").renderer);
-			list.Add(weaponObj.transform.Find("Object02/Point06/Object06").renderer);
-			list.Add(weaponObj.transform.Find("Object02/Point07/Object07").renderer);
+			list.Add(weaponObj.transform.Find("Object02").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object02/Point02/Object01").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object02/Point03/Object03").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object02/Point04/Object08").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object02/Point05/Object05").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object02/Point06/Object06").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object02/Point07/Object07").GetComponent<Renderer>());
 			break;
 		case 46:
-			list.Add(weaponObj.transform.Find("Object025").renderer);
-			list.Add(weaponObj.transform.Find("Object026").renderer);
-			list.Add(weaponObj.transform.Find("Object025/Point002/Object029").renderer);
-			list.Add(weaponObj.transform.Find("Object025/Point003/Object030").renderer);
-			list.Add(weaponObj.transform.Find("Object025/Point004/Object028").renderer);
-			list.Add(weaponObj.transform.Find("Object025/Point005/Object027").renderer);
+			list.Add(weaponObj.transform.Find("Object025").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object026").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object025/Point002/Object029").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object025/Point003/Object030").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object025/Point004/Object028").GetComponent<Renderer>());
+			list.Add(weaponObj.transform.Find("Object025/Point005/Object027").GetComponent<Renderer>());
 			break;
 		default:
-			list.Add(weaponObj.renderer);
+			list.Add(weaponObj.GetComponent<Renderer>());
 			break;
 		}
 		return list.ToArray();

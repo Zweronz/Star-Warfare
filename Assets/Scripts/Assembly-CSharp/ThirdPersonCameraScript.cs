@@ -98,7 +98,7 @@ public class ThirdPersonCameraScript : MonoBehaviour
 		base.transform.position = target.TransformPoint(cameraDistanceFromPlayer);
 		base.transform.rotation = Quaternion.Euler(0f - angelV, angelH, 0f);
 		Screen.lockCursor = true;
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		reticlePosition = new Vector3(Screen.width / 2, Screen.height / 2, 0f);
 		if (Application.platform == RuntimePlatform.WindowsPlayer)
 		{
@@ -113,9 +113,9 @@ public class ThirdPersonCameraScript : MonoBehaviour
 		{
 			array[i] = 100f;
 		}
-		base.camera.layerCullDistances = array;
+		base.GetComponent<Camera>().layerCullDistances = array;
 		started = true;
-		base.camera.fov = CAMERA_NORMAL_FOV;
+		base.GetComponent<Camera>().fov = CAMERA_NORMAL_FOV;
 	}
 
 	public virtual void CreateScreenBlood(float damage)
@@ -132,7 +132,7 @@ public class ThirdPersonCameraScript : MonoBehaviour
 
 	private void Awake()
 	{
-		cameraTransform = Camera.mainCamera.transform;
+		cameraTransform = Camera.main.transform;
 	}
 
 	private void Start()

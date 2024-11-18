@@ -11,7 +11,7 @@ public class UIOrthoCamera : MonoBehaviour
 
 	private void Start()
 	{
-		mCam = base.camera;
+		mCam = base.GetComponent<Camera>();
 		mTrans = base.transform;
 		mCam.orthographic = true;
 	}

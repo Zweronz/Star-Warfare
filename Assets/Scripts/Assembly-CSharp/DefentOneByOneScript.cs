@@ -8,7 +8,7 @@ public class DefentOneByOneScript : MonoBehaviour
 
 	private void Start()
 	{
-		base.renderer.enabled = false;
+		base.GetComponent<Renderer>().enabled = false;
 		appearTime = 9999999f;
 	}
 
@@ -16,11 +16,11 @@ public class DefentOneByOneScript : MonoBehaviour
 	{
 		if (Time.time - appearTime > 0f)
 		{
-			base.renderer.enabled = true;
+			base.GetComponent<Renderer>().enabled = true;
 		}
 		else
 		{
-			base.renderer.enabled = false;
+			base.GetComponent<Renderer>().enabled = false;
 		}
 	}
 }

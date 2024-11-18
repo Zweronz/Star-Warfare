@@ -51,15 +51,15 @@ public class WeaponTheArrow : Weapon
 	public override void Init(Player player)
 	{
 		gameWorld = GameApp.GetInstance().GetGameWorld();
-		gameCamera = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
-		cameraComponent = gameCamera.camera;
+		gameCamera = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
+		cameraComponent = gameCamera.GetComponent<Camera>();
 		cameraTransform = gameCamera.CameraTransform;
 		base.player = player;
 		hitForce = 0f;
 		weaponBoneTrans = player.GetTransform().Find(BoneName.WeaponL);
 		CreateGun();
 		gun.transform.parent = weaponBoneTrans;
-		shootAudio = gun.audio;
+		shootAudio = gun.GetComponent<AudioSource>();
 		if (shootAudio == null)
 		{
 		}
@@ -81,14 +81,14 @@ public class WeaponTheArrow : Weapon
 
 	public override void GunOn()
 	{
-		gun.transform.GetChild(1).renderer.enabled = true;
+		gun.transform.GetChild(1).GetComponent<Renderer>().enabled = true;
 	}
 
 	public override void GunOff()
 	{
 		if (gun != null)
 		{
-			gun.transform.GetChild(1).renderer.enabled = false;
+			gun.transform.GetChild(1).GetComponent<Renderer>().enabled = false;
 		}
 		StopFire();
 	}

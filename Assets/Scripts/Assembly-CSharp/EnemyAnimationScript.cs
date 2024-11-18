@@ -8,13 +8,13 @@ public class EnemyAnimationScript : MonoBehaviour
 
 	private void Update()
 	{
-		if (base.animation.IsPlaying(AnimationScript.Hurt) && base.animation[AnimationScript.Hurt].time >= base.animation[AnimationScript.Hurt].clip.length)
+		if (base.GetComponent<Animation>().IsPlaying(AnimationScript.Hurt) && base.GetComponent<Animation>()[AnimationScript.Hurt].time >= base.GetComponent<Animation>()[AnimationScript.Hurt].clip.length)
 		{
-			base.animation.CrossFade(AnimationScript.Run);
+			base.GetComponent<Animation>().CrossFade(AnimationScript.Run);
 		}
-		if (base.animation.IsPlaying(AnimationScript.Attack) && base.animation[AnimationScript.Attack].time >= base.animation[AnimationScript.Attack].clip.length)
+		if (base.GetComponent<Animation>().IsPlaying(AnimationScript.Attack) && base.GetComponent<Animation>()[AnimationScript.Attack].time >= base.GetComponent<Animation>()[AnimationScript.Attack].clip.length)
 		{
-			base.animation.CrossFade(AnimationScript.Idle);
+			base.GetComponent<Animation>().CrossFade(AnimationScript.Idle);
 		}
 	}
 }

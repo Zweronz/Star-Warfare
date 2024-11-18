@@ -33,9 +33,9 @@ internal class RevivalItem : Item
 		player.SetState(Player.IDLE_STATE);
 		if (player.IsLocal())
 		{
-			Transform transform = Camera.mainCamera.transform.Find("Screen_DeadBlood");
-			transform.renderer.enabled = false;
-			ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+			Transform transform = Camera.main.transform.Find("Screen_DeadBlood");
+			transform.GetComponent<Renderer>().enabled = false;
+			ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 			if (null != component)
 			{
 				component.ResetAngleV();

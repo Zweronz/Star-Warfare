@@ -13,7 +13,7 @@ public class AutoDisableEmitterScript : MonoBehaviour
 	{
 		if (timer.Ready())
 		{
-			base.particleEmitter.emit = false;
+			base.GetComponent<ParticleEmitter>().emit = false;
 			timer.Do();
 		}
 	}

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Zergling : Enemy
 {
@@ -89,7 +90,7 @@ public class Zergling : Enemy
 		base.DoLogic(deltaTime);
 		if ((Lobby.GetInstance().IsMasterPlayer || GameApp.GetInstance().GetGameMode().IsSingle()) && state != JUMP_STATE && state != Enemy.GRAVEBORN_STATE)
 		{
-			CharacterController characterController = enemyObject.collider as CharacterController;
+			CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 			if (characterController != null)
 			{
 				characterController.Move(new Vector3(0f, -5f, 0f) * deltaTime);
@@ -141,7 +142,7 @@ public class Zergling : Enemy
 
 	public override void DoMove(float deltaTime)
 	{
-		CharacterController characterController = enemyObject.collider as CharacterController;
+		CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 		if (characterController != null)
 		{
 			characterController.Move((dir * runSpeed + Vector3.down * 10f) * deltaTime);
@@ -166,7 +167,7 @@ public class Zergling : Enemy
 
 	public bool JumpInOne(float deltaTime)
 	{
-		CharacterController characterController = enemyObject.collider as CharacterController;
+		CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 		if (AnimationPlayed(AnimationString.ENEMY_JUMP, 0.2f) && !AnimationPlayed(AnimationString.ENEMY_JUMP, 0.66f) && characterController != null)
 		{
 			characterController.Move(speed * deltaTime);

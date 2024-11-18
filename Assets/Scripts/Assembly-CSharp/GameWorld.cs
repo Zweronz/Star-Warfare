@@ -285,7 +285,7 @@ public class GameWorld
 			DropTheFlagRequest request = new DropTheFlagRequest(-1, array[num].transform.position + Vector3.up * 0f, true);
 			GameApp.GetInstance().GetNetworkManager().SendRequest(request);
 		}
-		tpcs = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		tpcs = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		tpcs.Init();
 		State = GameState.Playing;
 		vsClock = Lobby.GetInstance().GetVSClock();
@@ -852,7 +852,7 @@ public class GameWorld
 				{
 					Color color = UIConstant.COLOR_TEAM_PLAYER_ICONS[(int)remotePlayerByUserID2.Team];
 					color = new Color(color.r * 0.5f, color.g * 0.5f, color.b * 0.5f, color.a);
-					VIPDirObj.transform.GetChild(0).renderer.material.SetColor("_TintColor", color);
+					VIPDirObj.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_TintColor", color);
 					vipTeamDirObj = (DirObjTeamName)remotePlayerByUserID2.Team;
 				}
 			}

@@ -408,7 +408,7 @@ public class Mantis : EnemyBoss
 	public override void Init(GameObject gObject)
 	{
 		base.Init(gObject);
-		Transform mouthTransform = enemyTransform.FindChild(BoneName.MantisMouth);
+		Transform mouthTransform = enemyTransform.Find(BoneName.MantisMouth);
 		GameObject original = Resources.Load("Effect/Mantis/sfx_laser") as GameObject;
 		mantisLaserObj = Object.Instantiate(original, Vector3.zero, Quaternion.identity) as GameObject;
 		MantisLaserScript component = mantisLaserObj.GetComponent<MantisLaserScript>();
@@ -417,17 +417,17 @@ public class Mantis : EnemyBoss
 		mantisLaserFireObj = Object.Instantiate(original2, Vector3.zero, Quaternion.identity) as GameObject;
 		MantisLaserFireScript component2 = mantisLaserFireObj.GetComponent<MantisLaserFireScript>();
 		component2.mouthTransform = mouthTransform;
-		bipObject = enemyObject.transform.FindChild(BoneName.MantisBip01).gameObject;
-		bodyCollider = bipObject.collider;
-		flyBodyCollider = enemyObject.transform.FindChild(BoneName.MantisPelvis).gameObject.collider;
-		leftArmCollider = enemyObject.transform.FindChild(BoneName.MantisLeftArm).gameObject.collider;
-		rightArmCollider = enemyObject.transform.FindChild(BoneName.MantisRightArm).gameObject.collider;
+		bipObject = enemyObject.transform.Find(BoneName.MantisBip01).gameObject;
+		bodyCollider = bipObject.GetComponent<Collider>();
+		flyBodyCollider = enemyObject.transform.Find(BoneName.MantisPelvis).gameObject.GetComponent<Collider>();
+		leftArmCollider = enemyObject.transform.Find(BoneName.MantisLeftArm).gameObject.GetComponent<Collider>();
+		rightArmCollider = enemyObject.transform.Find(BoneName.MantisRightArm).gameObject.GetComponent<Collider>();
 		trails = new GameObject[1];
 		GameObject original3 = Resources.Load("Effect/Dragon/dragon_trail") as GameObject;
 		Vector3 position = new Vector3(enemyTransform.position.x, 0.5f, enemyTransform.position.z);
 		trails[0] = Object.Instantiate(original3, position, Quaternion.identity) as GameObject;
-		leftArmTrail = enemyObject.transform.FindChild(BoneName.MantisLeftArm).FindChild("Trail").gameObject;
-		rightArmTrail = enemyObject.transform.FindChild(BoneName.MantisRightArm).FindChild("Trail").gameObject;
+		leftArmTrail = enemyObject.transform.Find(BoneName.MantisLeftArm).Find("Trail").gameObject;
+		rightArmTrail = enemyObject.transform.Find(BoneName.MantisRightArm).Find("Trail").gameObject;
 		mantisflyAudioTimer.SetTimer(0.3f, false);
 		walkAudioTimer.SetTimer(0.4f, false);
 		touchtimer.SetTimer(2f, false);
@@ -579,7 +579,7 @@ public class Mantis : EnemyBoss
 	public void FlyShot()
 	{
 		GameObject original = Resources.Load("Effect/Mantis/sfx_blade") as GameObject;
-		Vector3 position = enemyTransform.FindChild(BoneName.MantisLeftArm).position;
+		Vector3 position = enemyTransform.Find(BoneName.MantisLeftArm).position;
 		position.y -= 1f;
 		GameObject[] array = new GameObject[3];
 		for (int i = 0; i < array.Length; i++)
@@ -600,7 +600,7 @@ public class Mantis : EnemyBoss
 	public void FlyBoomerang()
 	{
 		GameObject original = Resources.Load("Effect/Mantis/sfx_boomerang") as GameObject;
-		Vector3 position = enemyTransform.FindChild(BoneName.MantisLeftArm).position;
+		Vector3 position = enemyTransform.Find(BoneName.MantisLeftArm).position;
 		GameObject gameObject = Object.Instantiate(original, position, Quaternion.identity) as GameObject;
 		gameObject.transform.LookAt(targetToLookAt);
 		gameObject.transform.RotateAround(gameObject.transform.position, gameObject.transform.right, 0f - boomerangVerticalAngleL);
@@ -616,7 +616,7 @@ public class Mantis : EnemyBoss
 		component2.attackSpeedValue = boomerangAttackSpeedL;
 		component2.angularVelocity = boomerangAngularVelocityL;
 		component2.risingTime = boomerangRisingTimeL;
-		Vector3 position2 = enemyTransform.FindChild(BoneName.MantisRightArm).position;
+		Vector3 position2 = enemyTransform.Find(BoneName.MantisRightArm).position;
 		GameObject gameObject2 = Object.Instantiate(original, position2, Quaternion.identity) as GameObject;
 		gameObject2.transform.LookAt(target.position);
 		gameObject2.transform.RotateAround(gameObject2.transform.position, gameObject2.transform.right, 0f - boomerangVerticalAngleR);
@@ -637,7 +637,7 @@ public class Mantis : EnemyBoss
 
 	public void FlyLaserStart()
 	{
-		Transform transform = enemyTransform.FindChild(BoneName.MantisMouth);
+		Transform transform = enemyTransform.Find(BoneName.MantisMouth);
 		Vector3 worldPosition = new Vector3(targetToLookAt.x, 0.5f, targetToLookAt.z);
 		mantisLaserObj.transform.position = transform.position;
 		mantisLaserObj.transform.Translate(0.1f * Vector3.down);
@@ -671,7 +671,7 @@ public class Mantis : EnemyBoss
 	public void Fly()
 	{
 		LookAtTarget();
-		CharacterController characterController = enemyObject.collider as CharacterController;
+		CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 		if (characterController != null)
 		{
 			Vector3 vector = enemyTransform.forward * flySpeed;

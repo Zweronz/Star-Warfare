@@ -33,7 +33,7 @@ public class FlagScript : MonoBehaviour
 			base.transform.Rotate(rotationSpeed * deltaTime);
 			deltaTime = 0f;
 			if (GameApp.GetInstance().GetGameMode().IsCatchTheFlagMode() && GameApp.GetInstance().GetGameWorld().GetPlayer()
-				.InPlayingState() && base.collider.bounds.Intersects(GameApp.GetInstance().GetGameWorld().GetPlayer()
+				.InPlayingState() && base.GetComponent<Collider>().bounds.Intersects(GameApp.GetInstance().GetGameWorld().GetPlayer()
 				.GetCollider()
 				.bounds) && lastPickUpRequestTimer.Ready())
 				{

@@ -167,7 +167,7 @@ public class UICamera : MonoBehaviour
 		{
 			if (mCam == null)
 			{
-				mCam = base.camera;
+				mCam = base.GetComponent<Camera>();
 			}
 			return mCam;
 		}

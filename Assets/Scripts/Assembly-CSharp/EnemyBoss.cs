@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class EnemyBoss : Enemy
 {
@@ -140,9 +141,9 @@ public abstract class EnemyBoss : Enemy
 	protected virtual bool GetHitPoint(out Vector3 hitPoint)
 	{
 		hitPoint = Vector3.zero;
-		Camera mainCamera = Camera.mainCamera;
+		Camera mainCamera = Camera.main;
 		Transform transform = mainCamera.transform;
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		Vector3 vector = mainCamera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 0.1f));
 		Ray ray = new Ray(transform.position, vector - transform.position);
 		RaycastHit hitInfo = default(RaycastHit);
@@ -422,7 +423,7 @@ public abstract class EnemyBoss : Enemy
 		TouchPlayer();
 		if (enableGravity && NeedMoveDown())
 		{
-			CharacterController characterController = enemyObject.collider as CharacterController;
+			CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 			if (characterController != null)
 			{
 				characterController.Move(Vector3.down * downSpeed * deltaTime);
@@ -453,7 +454,7 @@ public abstract class EnemyBoss : Enemy
 	public override void DoMove(float deltaTime)
 	{
 		LookAtTarget();
-		CharacterController characterController = enemyObject.collider as CharacterController;
+		CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 		if (characterController != null)
 		{
 			Vector3 vector = enemyTransform.forward * runSpeed;

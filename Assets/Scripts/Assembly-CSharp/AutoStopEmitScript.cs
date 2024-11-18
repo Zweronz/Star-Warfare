@@ -13,9 +13,9 @@ public class AutoStopEmitScript : MonoBehaviour
 
 	private void Update()
 	{
-		if (Time.time - createdTime > life && base.particleEmitter != null)
+		if (Time.time - createdTime > life && base.GetComponent<ParticleEmitter>() != null)
 		{
-			base.particleEmitter.emit = false;
+			base.GetComponent<ParticleEmitter>().emit = false;
 		}
 	}
 }

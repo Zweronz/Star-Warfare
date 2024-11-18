@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MachineGun : Weapon
 {
@@ -75,7 +76,7 @@ public class MachineGun : Weapon
 	{
 		if (gunfireObj != null)
 		{
-			gunfireObj.renderer.enabled = false;
+			gunfireObj.GetComponent<Renderer>().enabled = false;
 		}
 		if (firelineObjectPool != null)
 		{
@@ -96,7 +97,7 @@ public class MachineGun : Weapon
 		}
 		if (Time.time - stopFireTime > 1f)
 		{
-			gun.animation.Stop();
+			gun.GetComponent<Animation>().Stop();
 		}
 	}
 
@@ -115,8 +116,8 @@ public class MachineGun : Weapon
 	public override void CreateTrajectory()
 	{
 		base.CreateTrajectory();
-		gun.animation["Take 001"].wrapMode = WrapMode.Loop;
-		gun.animation.Play("Take 001");
+		gun.GetComponent<Animation>()["Take 001"].wrapMode = WrapMode.Loop;
+		gun.GetComponent<Animation>().Play("Take 001");
 		if (Time.time - startFireTime < 1f)
 		{
 			AudioManager.GetInstance().PlaySoundSingle("Audio/machinegun/" + base.Name + "_FiringSound_01");
@@ -135,13 +136,13 @@ public class MachineGun : Weapon
 			component.beginPos = gunfire.position;
 			component.endPos = gunfire.position + normalized * 100f;
 		}
-		gunfireObj.renderer.enabled = true;
+		gunfireObj.GetComponent<Renderer>().enabled = true;
 	}
 
 	public override void Attack(float deltaTime)
 	{
-		gun.animation["Take 001"].wrapMode = WrapMode.Loop;
-		gun.animation.Play("Take 001");
+		gun.GetComponent<Animation>()["Take 001"].wrapMode = WrapMode.Loop;
+		gun.GetComponent<Animation>().Play("Take 001");
 		stopped = false;
 		if (Time.time - startFireTime < 1f)
 		{
@@ -153,11 +154,11 @@ public class MachineGun : Weapon
 		GameApp.GetInstance().GetUserState().UseEnegy(enegyConsume);
 		if (gunfire != null)
 		{
-			gunfireObj.renderer.enabled = true;
+			gunfireObj.GetComponent<Renderer>().enabled = true;
 		}
-		Camera mainCamera = Camera.mainCamera;
+		Camera mainCamera = Camera.main;
 		Transform transform = mainCamera.transform;
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		Ray ray = default(Ray);
 		Vector3 vector = mainCamera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 0.1f));
 		Vector3 normalized = (vector - transform.position).normalized;

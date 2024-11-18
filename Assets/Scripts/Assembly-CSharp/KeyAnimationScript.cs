@@ -28,7 +28,7 @@ public class KeyAnimationScript : MonoBehaviour
 			{
 				currentIndex = 0;
 			}
-			base.renderer.material.SetTexture(texturePropertyName, textures[currentIndex]);
+			base.GetComponent<Renderer>().material.SetTexture(texturePropertyName, textures[currentIndex]);
 		}
 	}
 }

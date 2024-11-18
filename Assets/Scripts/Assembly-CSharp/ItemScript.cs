@@ -63,7 +63,7 @@ public class ItemScript : MonoBehaviour
 
 	private void OnTriggerEnter(Collider c)
 	{
-		if (lastPickUpRequestTimer.Ready() && c.collider.gameObject.layer == PhysicsLayer.PLAYER)
+		if (lastPickUpRequestTimer.Ready() && c.GetComponent<Collider>().gameObject.layer == PhysicsLayer.PLAYER)
 		{
 			if (GameApp.GetInstance().GetGameMode().IsSingle())
 			{

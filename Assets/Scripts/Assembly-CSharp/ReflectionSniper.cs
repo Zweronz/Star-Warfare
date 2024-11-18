@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ReflectionSniper : Sniper
 {
@@ -65,10 +66,10 @@ public class ReflectionSniper : Sniper
 		sparksObjectPool = new ObjectPool();
 		GameObject prefab2 = Resources.Load("Effect/GunBurst") as GameObject;
 		sparksObjectPool.Init("Sparks", prefab2, 3, 0.22f);
-		gunfireObj = gun.transform.FindChild("Rect").gameObject;
+		gunfireObj = gun.transform.Find("Rect").gameObject;
 		if (gunfireObj != null)
 		{
-			gunfireObj.renderer.enabled = false;
+			gunfireObj.GetComponent<Renderer>().enabled = false;
 		}
 		playSoundTimer.SetTimer(attackFrenquency / 2f, true);
 		StopFire();
@@ -106,7 +107,7 @@ public class ReflectionSniper : Sniper
 		base.GunOn();
 		if (gunfireObj != null)
 		{
-			gunfireObj.renderer.enabled = true;
+			gunfireObj.GetComponent<Renderer>().enabled = true;
 		}
 	}
 
@@ -115,7 +116,7 @@ public class ReflectionSniper : Sniper
 		base.GunOff();
 		if (gunfireObj != null)
 		{
-			gunfireObj.renderer.enabled = false;
+			gunfireObj.GetComponent<Renderer>().enabled = false;
 		}
 	}
 
@@ -161,8 +162,8 @@ public class ReflectionSniper : Sniper
 
 	public override void Attack(float deltaTime)
 	{
-		gun.animation.Stop("idle");
-		gun.animation.Play("attack");
+		gun.GetComponent<Animation>().Stop("idle");
+		gun.GetComponent<Animation>().Play("attack");
 		HashSet<Enemy> hashSet = new HashSet<Enemy>();
 		startAimTime = 0f;
 		GameApp.GetInstance().GetUserState().UseEnegy(enegyConsume);
@@ -170,9 +171,9 @@ public class ReflectionSniper : Sniper
 		UnityEngine.Object original = Resources.Load("Effect/Sniper/JJQ");
 		GameObject gameObject = (GameObject)UnityEngine.Object.Instantiate(original, gunfire.position, Quaternion.identity);
 		gameObject.transform.parent = gunfire;
-		Camera mainCamera = Camera.mainCamera;
+		Camera mainCamera = Camera.main;
 		Transform transform = mainCamera.transform;
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		Ray ray = default(Ray);
 		Vector3 vector = mainCamera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 50f));
 		Vector3 normalized = (vector - transform.position).normalized;

@@ -10,7 +10,7 @@ public class PopupScript : MonoBehaviour, UIHandler
 
 	private void Awake()
 	{
-		m_UIManager = base.gameObject.AddComponent("UIManager") as UIManager;
+		m_UIManager = base.gameObject.AddComponent<UIManager>() as UIManager;
 		m_UIManager.SetParameter(24, 3, false);
 		m_UIManager.SetUIHandler(this);
 	}

@@ -12,11 +12,11 @@ public class FlyBagAnimationScript : MonoBehaviour
 
 	private void Start()
 	{
-		base.animation["front"].wrapMode = WrapMode.Loop;
-		base.animation["back"].wrapMode = WrapMode.Loop;
-		base.animation["left"].wrapMode = WrapMode.Loop;
-		base.animation["right"].wrapMode = WrapMode.Loop;
-		base.animation["idle"].wrapMode = WrapMode.Loop;
+		base.GetComponent<Animation>()["front"].wrapMode = WrapMode.Loop;
+		base.GetComponent<Animation>()["back"].wrapMode = WrapMode.Loop;
+		base.GetComponent<Animation>()["left"].wrapMode = WrapMode.Loop;
+		base.GetComponent<Animation>()["right"].wrapMode = WrapMode.Loop;
+		base.GetComponent<Animation>()["idle"].wrapMode = WrapMode.Loop;
 	}
 
 	private void Update()
@@ -31,22 +31,22 @@ public class FlyBagAnimationScript : MonoBehaviour
 			switch (inputInfo.dir)
 			{
 			case MoveDirection.Forward:
-				base.animation.CrossFade("front", 1f);
+				base.GetComponent<Animation>().CrossFade("front", 1f);
 				break;
 			case MoveDirection.Backward:
-				base.animation.CrossFade("back", 1f);
+				base.GetComponent<Animation>().CrossFade("back", 1f);
 				break;
 			case MoveDirection.Left:
-				base.animation.CrossFade("left", 1f);
+				base.GetComponent<Animation>().CrossFade("left", 1f);
 				break;
 			case MoveDirection.Right:
-				base.animation.CrossFade("right", 1f);
+				base.GetComponent<Animation>().CrossFade("right", 1f);
 				break;
 			}
 		}
 		else
 		{
-			base.animation.CrossFade("idle", 1f);
+			base.GetComponent<Animation>().CrossFade("idle", 1f);
 		}
 	}
 }

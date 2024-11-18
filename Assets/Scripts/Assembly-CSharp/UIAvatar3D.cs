@@ -63,15 +63,15 @@ public class UIAvatar3D : UI3DFrame
 			idleAnimationName = AnimationString.UIIdle;
 		}
 		SetGameObject(gameObject);
-		gameObject.animation[idleAnimationName].wrapMode = WrapMode.Loop;
-		gameObject.animation[AnimationString.Idle + currentWeapon.GetAnimationSuffixAlter()].wrapMode = WrapMode.Loop;
+		gameObject.GetComponent<Animation>()[idleAnimationName].wrapMode = WrapMode.Loop;
+		gameObject.GetComponent<Animation>()[AnimationString.Idle + currentWeapon.GetAnimationSuffixAlter()].wrapMode = WrapMode.Loop;
 		if (!enableFly)
 		{
-			gameObject.animation.Play(AnimationString.Idle + currentWeapon.GetAnimationSuffixAlter());
+			gameObject.GetComponent<Animation>().Play(AnimationString.Idle + currentWeapon.GetAnimationSuffixAlter());
 		}
 		SetModel(gameObject);
-		gameObject.animation.Play(idleAnimationName);
-		gameObject.animation.Play(AnimationString.Idle + "_rifle");
+		gameObject.GetComponent<Animation>().Play(idleAnimationName);
+		gameObject.GetComponent<Animation>().Play(AnimationString.Idle + "_rifle");
 		justCreateNewAvatar = true;
 	}
 
@@ -100,26 +100,26 @@ public class UIAvatar3D : UI3DFrame
 		{
 			if (enableFly)
 			{
-				model.animation.CrossFade(AnimationString.FlyIdle, 0.2f);
-				model.animation.CrossFade(AnimationString.Fly + "_" + idleAnimationName, 0.2f);
+				model.GetComponent<Animation>().CrossFade(AnimationString.FlyIdle, 0.2f);
+				model.GetComponent<Animation>().CrossFade(AnimationString.Fly + "_" + idleAnimationName, 0.2f);
 			}
 			else
 			{
-				model.animation.CrossFade(idleAnimationName, 0.6f);
+				model.GetComponent<Animation>().CrossFade(idleAnimationName, 0.6f);
 			}
 			lastMotionTime = Time.time;
 		}
-		if (Time.time - lastMotionTime > model.animation[idleAnimationName].clip.length)
+		if (Time.time - lastMotionTime > model.GetComponent<Animation>()[idleAnimationName].clip.length)
 		{
 			Weapon weapon = GameApp.GetInstance().GetUserState().GetBattleWeapons()[0];
 			if (enableFly)
 			{
-				model.animation.CrossFade(AnimationString.FlyIdle, 0.2f);
-				model.animation.CrossFade(AnimationString.FlyIdle + currentWeapon.GetAnimationSuffixAlter(), 0.2f);
+				model.GetComponent<Animation>().CrossFade(AnimationString.FlyIdle, 0.2f);
+				model.GetComponent<Animation>().CrossFade(AnimationString.FlyIdle + currentWeapon.GetAnimationSuffixAlter(), 0.2f);
 			}
 			else
 			{
-				model.animation.CrossFade(AnimationString.Idle + currentWeapon.GetAnimationSuffixAlter(), 0.2f);
+				model.GetComponent<Animation>().CrossFade(AnimationString.Idle + currentWeapon.GetAnimationSuffixAlter(), 0.2f);
 			}
 		}
 	}
@@ -128,40 +128,40 @@ public class UIAvatar3D : UI3DFrame
 	{
 		GameObject model = GetModel();
 		Weapon weapon = GameApp.GetInstance().GetUserState().GetBattleWeapons()[0];
-		model.animation.CrossFade(idleAnimationName, 0.2f);
+		model.GetComponent<Animation>().CrossFade(idleAnimationName, 0.2f);
 		if (enableFly)
 		{
-			model.animation.CrossFade(AnimationString.FlyIdle, 0.2f);
-			model.animation.CrossFade(AnimationString.FlyIdle + currentWeapon.GetAnimationSuffixAlter(), 0.2f);
+			model.GetComponent<Animation>().CrossFade(AnimationString.FlyIdle, 0.2f);
+			model.GetComponent<Animation>().CrossFade(AnimationString.FlyIdle + currentWeapon.GetAnimationSuffixAlter(), 0.2f);
 		}
 		else
 		{
-			model.animation.CrossFade(AnimationString.Idle + currentWeapon.GetAnimationSuffixAlter(), 0.2f);
+			model.GetComponent<Animation>().CrossFade(AnimationString.Idle + currentWeapon.GetAnimationSuffixAlter(), 0.2f);
 		}
 	}
 
 	public void AddMixingTransformAnimation(GameObject playerObj, string weaponSuffix)
 	{
 		Transform transform = playerObj.transform;
-		if (playerObj.animation[AnimationString.FlyIdle + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyIdle + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.FlyIdle + weaponSuffix].AddMixingTransform(transform.Find(BoneName.UpperBody));
-			playerObj.animation[AnimationString.FlyIdle + weaponSuffix].wrapMode = WrapMode.Loop;
+			playerObj.GetComponent<Animation>()[AnimationString.FlyIdle + weaponSuffix].AddMixingTransform(transform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.FlyIdle + weaponSuffix].wrapMode = WrapMode.Loop;
 		}
 	}
 
 	public void SetLowerBodyAnimation(GameObject playerObj, string weaponSuffix)
 	{
-		if (playerObj.animation[AnimationString.Idle + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.Idle + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.Idle + weaponSuffix].wrapMode = WrapMode.Loop;
+			playerObj.GetComponent<Animation>()[AnimationString.Idle + weaponSuffix].wrapMode = WrapMode.Loop;
 		}
 	}
 
 	public void SetGameObject(GameObject playerObj)
 	{
-		playerObj.animation[AnimationString.FlyIdle].layer = -1;
-		playerObj.animation[AnimationString.FlyIdle].wrapMode = WrapMode.Loop;
+		playerObj.GetComponent<Animation>()[AnimationString.FlyIdle].layer = -1;
+		playerObj.GetComponent<Animation>()[AnimationString.FlyIdle].wrapMode = WrapMode.Loop;
 		SetLowerBodyAnimation(playerObj, "_rifle");
 		SetLowerBodyAnimation(playerObj, "_shotgun");
 		SetLowerBodyAnimation(playerObj, "_bazinga");
@@ -179,15 +179,15 @@ public class UIAvatar3D : UI3DFrame
 		AddMixingTransformAnimation(playerObj, "_fist");
 		AddMixingTransformAnimation(playerObj, "_Sniper");
 		Transform transform = playerObj.transform;
-		if (playerObj.animation[AnimationString.Fly + "_" + AnimationString.UIIdle] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.Fly + "_" + AnimationString.UIIdle] != null)
 		{
-			playerObj.animation[AnimationString.Fly + "_" + AnimationString.UIIdle].AddMixingTransform(transform.Find(BoneName.UpperBody));
-			playerObj.animation[AnimationString.Fly + "_" + AnimationString.UIIdle].wrapMode = WrapMode.Loop;
+			playerObj.GetComponent<Animation>()[AnimationString.Fly + "_" + AnimationString.UIIdle].AddMixingTransform(transform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.Fly + "_" + AnimationString.UIIdle].wrapMode = WrapMode.Loop;
 		}
-		if (playerObj.animation[AnimationString.Fly + "_" + AnimationString.UIIdleMachineGun] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.Fly + "_" + AnimationString.UIIdleMachineGun] != null)
 		{
-			playerObj.animation[AnimationString.Fly + "_" + AnimationString.UIIdleMachineGun].AddMixingTransform(transform.Find(BoneName.UpperBody));
-			playerObj.animation[AnimationString.Fly + "_" + AnimationString.UIIdleMachineGun].wrapMode = WrapMode.Loop;
+			playerObj.GetComponent<Animation>()[AnimationString.Fly + "_" + AnimationString.UIIdleMachineGun].AddMixingTransform(transform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.Fly + "_" + AnimationString.UIIdleMachineGun].wrapMode = WrapMode.Loop;
 		}
 		if (enableFly)
 		{

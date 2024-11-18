@@ -23,9 +23,9 @@ public class Mutalisk : Enemy
 
 	public override void OnDead()
 	{
-		if (enemyObject.rigidbody != null)
+		if (enemyObject.GetComponent<Rigidbody>() != null)
 		{
-			enemyTransform.rigidbody.useGravity = true;
+			enemyTransform.GetComponent<Rigidbody>().useGravity = true;
 		}
 		base.OnDead();
 		PlayAnimation(AnimationString.ENEMY_DEAD, WrapMode.ClampForever);
@@ -44,8 +44,8 @@ public class Mutalisk : Enemy
 			animation[runAnimationName].speed = 1.5f;
 		}
 		shoutAudioName = "Audio/enemy/feixingchong";
-		enemyTransform.rigidbody.useGravity = false;
-		enemyTransform.rigidbody.isKinematic = true;
+		enemyTransform.GetComponent<Rigidbody>().useGravity = false;
+		enemyTransform.GetComponent<Rigidbody>().isKinematic = true;
 		ShotAttackDamage = attackDamage;
 		ShotAreaDamage = (int)monsterConfig.attack[0].splashDamage;
 		ShotExplodeRadius = monsterConfig.attack[0].splashRange;
@@ -58,15 +58,15 @@ public class Mutalisk : Enemy
 			SetState(Enemy.GRAVEBORN_STATE);
 			enemyTransform.Translate(Vector3.down * 2f);
 			enemyObject.layer = PhysicsLayer.Default;
-			if (enemyObject.rigidbody != null)
+			if (enemyObject.GetComponent<Rigidbody>() != null)
 			{
-				enemyTransform.rigidbody.useGravity = false;
+				enemyTransform.GetComponent<Rigidbody>().useGravity = false;
 			}
 		}
 		else
 		{
 			enemyObject.layer = PhysicsLayer.ENEMY;
-			enemyTransform.rigidbody.useGravity = true;
+			enemyTransform.GetComponent<Rigidbody>().useGravity = true;
 		}
 	}
 
@@ -149,8 +149,8 @@ public class Mutalisk : Enemy
 		GetGround();
 		if (state == Enemy.DEAD_STATE)
 		{
-			collider.rigidbody.useGravity = true;
-			collider.rigidbody.isKinematic = false;
+			collider.GetComponent<Rigidbody>().useGravity = true;
+			collider.GetComponent<Rigidbody>().isKinematic = false;
 			return;
 		}
 		float num = 0f;

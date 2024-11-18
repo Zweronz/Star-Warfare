@@ -31,15 +31,15 @@ public class AnimationScript : MonoBehaviour
 
 	private void Update()
 	{
-		if (base.animation.IsPlaying(Hurt) && base.animation[Hurt].time >= base.animation[Hurt].clip.length)
+		if (base.GetComponent<Animation>().IsPlaying(Hurt) && base.GetComponent<Animation>()[Hurt].time >= base.GetComponent<Animation>()[Hurt].clip.length)
 		{
-			base.animation.CrossFade(Idle);
+			base.GetComponent<Animation>().CrossFade(Idle);
 		}
-		if (base.animation.IsPlaying(Attack) && base.animation[Attack].time >= base.animation[Attack].clip.length)
+		if (base.GetComponent<Animation>().IsPlaying(Attack) && base.GetComponent<Animation>()[Attack].time >= base.GetComponent<Animation>()[Attack].clip.length)
 		{
-			base.animation.CrossFade(Idle);
+			base.GetComponent<Animation>().CrossFade(Idle);
 		}
-		if (!base.animation.IsPlaying(Hurt))
+		if (!base.GetComponent<Animation>().IsPlaying(Hurt))
 		{
 		}
 	}

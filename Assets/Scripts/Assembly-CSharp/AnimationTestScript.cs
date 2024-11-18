@@ -10,6 +10,6 @@ public class AnimationTestScript : MonoBehaviour
 
 	private void Update()
 	{
-		playerObject.animation.CrossFade(AnimationString.Attack + "_rifle");
+		playerObject.GetComponent<Animation>().CrossFade(AnimationString.Attack + "_rifle");
 	}
 }

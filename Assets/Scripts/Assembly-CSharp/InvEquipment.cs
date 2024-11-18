@@ -46,7 +46,7 @@ public class InvEquipment : MonoBehaviour
 				GameObject gameObject = invAttachmentPoint.Attach((invBaseItem == null) ? null : invBaseItem.attachment);
 				if (invBaseItem != null && gameObject != null)
 				{
-					Renderer renderer = gameObject.renderer;
+					Renderer renderer = gameObject.GetComponent<Renderer>();
 					if (renderer != null)
 					{
 						renderer.material.color = invBaseItem.color;

@@ -42,12 +42,12 @@ public class AlphaAnimationScript : MonoBehaviour
 		startColor = Color.black;
 		if (enableAlphaAnimation || enableBrightAnimation)
 		{
-			if (!base.renderer.material.HasProperty(colorPropertyName))
+			if (!base.GetComponent<Renderer>().material.HasProperty(colorPropertyName))
 			{
 				hasColorProperty = false;
 				return;
 			}
-			startColor = base.renderer.material.GetColor(colorPropertyName);
+			startColor = base.GetComponent<Renderer>().material.GetColor(colorPropertyName);
 			hasColorProperty = true;
 		}
 		if (enableAlphaAnimation)
@@ -58,7 +58,7 @@ public class AlphaAnimationScript : MonoBehaviour
 		startColor.r -= num;
 		startColor.g -= num;
 		startColor.b -= num;
-		Material[] materials = base.renderer.materials;
+		Material[] materials = base.GetComponent<Renderer>().materials;
 		Material[] array = materials;
 		foreach (Material material in array)
 		{
@@ -82,7 +82,7 @@ public class AlphaAnimationScript : MonoBehaviour
 			Color color = Color.white;
 			if (enableAlphaAnimation || enableBrightAnimation)
 			{
-				color = base.renderer.material.GetColor(colorPropertyName);
+				color = base.GetComponent<Renderer>().material.GetColor(colorPropertyName);
 			}
 			if (enableAlphaAnimation)
 			{
@@ -139,7 +139,7 @@ public class AlphaAnimationScript : MonoBehaviour
 					}
 				}
 			}
-			Material[] materials = base.renderer.materials;
+			Material[] materials = base.GetComponent<Renderer>().materials;
 			Material[] array = materials;
 			foreach (Material material in array)
 			{
@@ -153,7 +153,7 @@ public class AlphaAnimationScript : MonoBehaviour
 	{
 		animating = true;
 		increasing = true;
-		Material[] materials = base.renderer.materials;
+		Material[] materials = base.GetComponent<Renderer>().materials;
 		Material[] array = materials;
 		foreach (Material material in array)
 		{

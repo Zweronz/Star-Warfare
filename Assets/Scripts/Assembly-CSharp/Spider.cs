@@ -307,19 +307,19 @@ public class Spider : EnemyBoss
 	public override void Init(GameObject gObject)
 	{
 		base.Init(gObject);
-		bipObject = enemyObject.transform.FindChild(BoneName.SpiderBip01).gameObject;
-		bodyCollider = bipObject.collider;
-		leftArmCollider = enemyObject.transform.FindChild(BoneName.SpiderLeftArm).gameObject.collider;
-		rightArmCollider = enemyObject.transform.FindChild(BoneName.SpiderRightArm).gameObject.collider;
+		bipObject = enemyObject.transform.Find(BoneName.SpiderBip01).gameObject;
+		bodyCollider = bipObject.GetComponent<Collider>();
+		leftArmCollider = enemyObject.transform.Find(BoneName.SpiderLeftArm).gameObject.GetComponent<Collider>();
+		rightArmCollider = enemyObject.transform.Find(BoneName.SpiderRightArm).gameObject.GetComponent<Collider>();
 		trails = new GameObject[2];
 		GameObject original = Resources.Load("Effect/Dragon/dragon_trail") as GameObject;
 		Vector3 position = new Vector3(enemyTransform.position.x, 0.5f, enemyTransform.position.z);
 		trails[0] = Object.Instantiate(original, position, Quaternion.identity) as GameObject;
 		trails[1] = Object.Instantiate(original, position, Quaternion.identity) as GameObject;
-		leftHandTransform = enemyObject.transform.FindChild(BoneName.SpiderLeftHand);
-		rightHandTransform = enemyObject.transform.FindChild(BoneName.SpiderRightHand);
-		leftArmTrail = leftHandTransform.FindChild("Trail").gameObject;
-		rightArmTrail = rightHandTransform.FindChild("Trail").gameObject;
+		leftHandTransform = enemyObject.transform.Find(BoneName.SpiderLeftHand);
+		rightHandTransform = enemyObject.transform.Find(BoneName.SpiderRightHand);
+		leftArmTrail = leftHandTransform.Find("Trail").gameObject;
+		rightArmTrail = rightHandTransform.Find("Trail").gameObject;
 		spiderRunAudioTimer.SetTimer(0.1f, false);
 		spiderRightArmAudioTimer.SetTimer(1f, false);
 		spiderLeftArmAudioTimer.SetTimer(1f, false);
@@ -478,8 +478,8 @@ public class Spider : EnemyBoss
 	public void Shot(float angleH, float angleV, float scale)
 	{
 		GameObject original = Resources.Load("Effect/Spider/sfx_spit") as GameObject;
-		Vector3 position = enemyTransform.FindChild(BoneName.SpiderLTooth).position;
-		Vector3 position2 = enemyTransform.FindChild(BoneName.SpiderRTooth).position;
+		Vector3 position = enemyTransform.Find(BoneName.SpiderLTooth).position;
+		Vector3 position2 = enemyTransform.Find(BoneName.SpiderRTooth).position;
 		Vector3 vector = (position + position2) / 2f;
 		GameObject gameObject = Object.Instantiate(original, vector, Quaternion.identity) as GameObject;
 		Vector3 vector2 = targetToLookAt - vector;
@@ -682,7 +682,7 @@ public class Spider : EnemyBoss
 
 	public bool Jump(float deltaTime)
 	{
-		CharacterController characterController = enemyObject.collider as CharacterController;
+		CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 		if (characterController != null)
 		{
 			characterController.Move(jumpSpeed * deltaTime);
@@ -707,7 +707,7 @@ public class Spider : EnemyBoss
 	{
 		if (!HasLanded)
 		{
-			CharacterController characterController = enemyObject.collider as CharacterController;
+			CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 			if (characterController != null)
 			{
 				characterController.Move(jumpSpeed * deltaTime);

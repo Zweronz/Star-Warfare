@@ -46,7 +46,7 @@ internal class AvatarBuilder
 	public void AddAnimation(string name, GameObject playerObject)
 	{
 		GameObject gameObject = Resources.Load("Avatar/animation/" + name) as GameObject;
-		playerObject.animation.AddClip(gameObject.animation[name].clip, name);
+		playerObject.GetComponent<Animation>().AddClip(gameObject.GetComponent<Animation>()[name].clip, name);
 	}
 
 	public void AddAnimations(GameObject player, Player p)
@@ -306,20 +306,20 @@ internal class AvatarBuilder
 		for (int i = 0; i < list.Count; i++)
 		{
 		}
-		SkinnedMeshRenderer component2 = gameObject2.transform.FindChild("body").GetComponent<SkinnedMeshRenderer>();
-		SkinnedMeshRenderer component3 = gameObject3.transform.FindChild("head").GetComponent<SkinnedMeshRenderer>();
-		SkinnedMeshRenderer component4 = gameObject4.transform.FindChild("hand").GetComponent<SkinnedMeshRenderer>();
-		SkinnedMeshRenderer component5 = gameObject5.transform.FindChild("foot").GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer component2 = gameObject2.transform.Find("body").GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer component3 = gameObject3.transform.Find("head").GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer component4 = gameObject4.transform.Find("hand").GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer component5 = gameObject5.transform.Find("foot").GetComponent<SkinnedMeshRenderer>();
 		BindBones(component2, list, gameObject);
 		BindBones(component3, list, gameObject);
 		BindBones(component4, list, gameObject);
 		BindBones(component5, list, gameObject);
-		gameObject6.transform.position = gameObject.transform.FindChild(BoneName.Bag).position;
+		gameObject6.transform.position = gameObject.transform.Find(BoneName.Bag).position;
 		if (array[1] == 5)
 		{
-			gameObject6.transform.position = gameObject.transform.FindChild(BoneName.Bag).position + Vector3.forward * -0.05f + Vector3.up * 0.03f;
+			gameObject6.transform.position = gameObject.transform.Find(BoneName.Bag).position + Vector3.forward * -0.05f + Vector3.up * 0.03f;
 		}
-		gameObject6.transform.parent = gameObject.transform.FindChild(BoneName.Bag);
+		gameObject6.transform.parent = gameObject.transform.Find(BoneName.Bag);
 		gameObject6.name = "Bag";
 		Object.Destroy(gameObject2);
 		Object.Destroy(gameObject3);
@@ -348,7 +348,7 @@ internal class AvatarBuilder
 			}
 		}
 		AddAnimations(gameObject, p);
-		gameObject.animation.Play(AnimationString.Idle + "_rifle");
+		gameObject.GetComponent<Animation>().Play(AnimationString.Idle + "_rifle");
 		return gameObject;
 	}
 
@@ -384,20 +384,20 @@ internal class AvatarBuilder
 		for (int i = 0; i < list.Count; i++)
 		{
 		}
-		SkinnedMeshRenderer component2 = gameObject2.transform.FindChild("body").GetComponent<SkinnedMeshRenderer>();
-		SkinnedMeshRenderer component3 = gameObject3.transform.FindChild("head").GetComponent<SkinnedMeshRenderer>();
-		SkinnedMeshRenderer component4 = gameObject4.transform.FindChild("hand").GetComponent<SkinnedMeshRenderer>();
-		SkinnedMeshRenderer component5 = gameObject5.transform.FindChild("foot").GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer component2 = gameObject2.transform.Find("body").GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer component3 = gameObject3.transform.Find("head").GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer component4 = gameObject4.transform.Find("hand").GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer component5 = gameObject5.transform.Find("foot").GetComponent<SkinnedMeshRenderer>();
 		BindBones(component2, list, gameObject);
 		BindBones(component3, list, gameObject);
 		BindBones(component4, list, gameObject);
 		BindBones(component5, list, gameObject);
-		gameObject6.transform.position = gameObject.transform.FindChild(BoneName.Bag).position;
+		gameObject6.transform.position = gameObject.transform.Find(BoneName.Bag).position;
 		if (avatar[1] == 5)
 		{
-			gameObject6.transform.position = gameObject.transform.FindChild(BoneName.Bag).position + Vector3.forward * -0.05f + Vector3.up * 0.03f;
+			gameObject6.transform.position = gameObject.transform.Find(BoneName.Bag).position + Vector3.forward * -0.05f + Vector3.up * 0.03f;
 		}
-		gameObject6.transform.parent = gameObject.transform.FindChild(BoneName.Bag);
+		gameObject6.transform.parent = gameObject.transform.Find(BoneName.Bag);
 		gameObject6.name = "Bag";
 		Object.Destroy(gameObject2);
 		Object.Destroy(gameObject3);

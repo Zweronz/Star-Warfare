@@ -19,7 +19,7 @@ public class GrenadePhysicsScript : MonoBehaviour
 		{
 			num *= VSMath.GL_FLY_BOOTH;
 		}
-		base.rigidbody.AddForce(dir * num, ForceMode.Impulse);
+		base.GetComponent<Rigidbody>().AddForce(dir * num, ForceMode.Impulse);
 	}
 
 	public void Update()

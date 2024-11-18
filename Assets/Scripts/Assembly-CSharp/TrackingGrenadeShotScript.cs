@@ -82,8 +82,8 @@ public class TrackingGrenadeShotScript : MonoBehaviour
 	{
 		proTransform = base.transform;
 		createdTime = Time.time;
-		base.animation.wrapMode = WrapMode.Loop;
-		base.animation.Play("fire");
+		base.GetComponent<Animation>().wrapMode = WrapMode.Loop;
+		base.GetComponent<Animation>().Play("fire");
 	}
 
 	public void Update()

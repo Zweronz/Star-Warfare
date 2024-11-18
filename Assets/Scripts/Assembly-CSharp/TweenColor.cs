@@ -54,12 +54,12 @@ public class TweenColor : UITweener
 	private void Awake()
 	{
 		mWidget = GetComponentInChildren<UIWidget>();
-		Renderer renderer = base.renderer;
+		Renderer renderer = base.GetComponent<Renderer>();
 		if (renderer != null)
 		{
 			mMat = renderer.material;
 		}
-		mLight = base.light;
+		mLight = base.GetComponent<Light>();
 	}
 
 	protected override void OnUpdate(float factor, bool isFinished)

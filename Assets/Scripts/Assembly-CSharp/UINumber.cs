@@ -26,7 +26,7 @@ public class UINumber : MonoBehaviour
 
 	private void Init()
 	{
-		float value = Vector3.Distance(Camera.mainCamera.transform.position, base.gameObject.transform.position);
+		float value = Vector3.Distance(Camera.main.transform.position, base.gameObject.transform.position);
 		value = Mathf.Clamp(value, 0f, 80f);
 		int num = (int)(48f + 464f * (value / 80f));
 		m_Label.transform.localScale = new Vector3(num, num, 1f);
@@ -42,7 +42,7 @@ public class UINumber : MonoBehaviour
 
 	private void Update()
 	{
-		base.gameObject.transform.LookAt(Camera.mainCamera.transform);
+		base.gameObject.transform.LookAt(Camera.main.transform);
 		if (Time.time - startTime > 1.3f)
 		{
 			base.gameObject.SetActive(false);

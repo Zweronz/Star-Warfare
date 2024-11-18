@@ -23,7 +23,7 @@ public class TutorialUIScript : UIStateManager, UIHandler
 	private void InitUIManager()
 	{
 		Res2DManager.GetInstance().Init(22);
-		m_UIManager = base.gameObject.AddComponent("UIManager") as UIManager;
+		m_UIManager = base.gameObject.AddComponent<UIManager>() as UIManager;
 		m_UIManager.SetParameter(24, 1, false);
 		m_UIManager.SetUIHandler(this);
 		m_UIPopupManager = GetPopup();

@@ -28,7 +28,7 @@ internal class PlayerRebirthResponse : Response
 		int channelID = Lobby.GetInstance().GetChannelID();
 		if (playerID == channelID)
 		{
-			ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+			ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 			if (null != component)
 			{
 				component.ResetAngleV();

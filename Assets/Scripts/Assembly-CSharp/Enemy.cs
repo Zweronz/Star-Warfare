@@ -346,19 +346,19 @@ public abstract class Enemy
 			SetState(GRAVEBORN_STATE);
 			enemyTransform.Translate(Vector3.down * 2f);
 			enemyObject.layer = PhysicsLayer.Default;
-			if (enemyObject.rigidbody != null)
+			if (enemyObject.GetComponent<Rigidbody>() != null)
 			{
-				enemyTransform.rigidbody.useGravity = false;
-				enemyTransform.rigidbody.isKinematic = true;
+				enemyTransform.GetComponent<Rigidbody>().useGravity = false;
+				enemyTransform.GetComponent<Rigidbody>().isKinematic = true;
 			}
 		}
 		else
 		{
 			enemyObject.layer = PhysicsLayer.ENEMY;
-			if (enemyObject.rigidbody != null)
+			if (enemyObject.GetComponent<Rigidbody>() != null)
 			{
-				enemyTransform.rigidbody.useGravity = true;
-				enemyTransform.rigidbody.isKinematic = false;
+				enemyTransform.GetComponent<Rigidbody>().useGravity = true;
+				enemyTransform.GetComponent<Rigidbody>().isKinematic = false;
 			}
 			GameObject original = Resources.Load("Effect/GraveRock2") as GameObject;
 			Object.Instantiate(original, enemyTransform.position + Vector3.down * 0f, Quaternion.identity);
@@ -532,9 +532,9 @@ public abstract class Enemy
 		enemyObject = gObject;
 		EnemyName = enemyObject.name;
 		enemyTransform = enemyObject.transform;
-		animation = enemyObject.animation;
-		rigidbody = enemyObject.rigidbody;
-		collider = enemyObject.transform.collider;
+		animation = enemyObject.GetComponent<Animation>();
+		rigidbody = enemyObject.GetComponent<Rigidbody>();
+		collider = enemyObject.transform.GetComponent<Collider>();
 		detectionRange = 150f;
 		attackRange = 2.5f;
 		minRange = 2.5f;
@@ -544,7 +544,7 @@ public abstract class Enemy
 		target = GameApp.GetInstance().GetGameWorld().GetPlayer()
 			.GetTransform();
 		aStarPathFinding = new AStarPathFinding();
-		if (enemyObject.animation != null)
+		if (enemyObject.GetComponent<Animation>() != null)
 		{
 			animation.wrapMode = WrapMode.Loop;
 			animation.Play(AnimationString.ENEMY_IDLE);
@@ -554,11 +554,11 @@ public abstract class Enemy
 		lastPathFindingTime = Time.time;
 		lastCheckWaypointTime = Time.time;
 		idleStartTime = -2f;
-		if (enemyObject.animation != null)
+		if (enemyObject.GetComponent<Animation>() != null)
 		{
-			enemyObject.animation[AnimationString.ENEMY_ATTACK].wrapMode = WrapMode.ClampForever;
-			enemyObject.animation[AnimationString.ENEMY_RUN].speed = 1f;
-			enemyObject.animation[AnimationString.ENEMY_GOTHIT].speed = 1f;
+			enemyObject.GetComponent<Animation>()[AnimationString.ENEMY_ATTACK].wrapMode = WrapMode.ClampForever;
+			enemyObject.GetComponent<Animation>()[AnimationString.ENEMY_RUN].speed = 1f;
+			enemyObject.GetComponent<Animation>()[AnimationString.ENEMY_GOTHIT].speed = 1f;
 		}
 		catchPlayerTargetChangeTimer.SetTimer(0.5f, false);
 		if (Lobby.GetInstance().IsMasterPlayer || GameApp.GetInstance().GetGameMode().IsSingle())
@@ -598,7 +598,7 @@ public abstract class Enemy
 
 	public virtual bool AttackAnimationEnds()
 	{
-		if (Time.time - lastAttackTime > enemyObject.animation[AnimationString.ENEMY_ATTACK].length)
+		if (Time.time - lastAttackTime > enemyObject.GetComponent<Animation>()[AnimationString.ENEMY_ATTACK].length)
 		{
 			return true;
 		}
@@ -607,7 +607,7 @@ public abstract class Enemy
 
 	public virtual bool AttackAnimationEnds(string name)
 	{
-		if (Time.time - lastAttackTime > enemyObject.animation[name].length)
+		if (Time.time - lastAttackTime > enemyObject.GetComponent<Animation>()[name].length)
 		{
 			return true;
 		}
@@ -1091,15 +1091,15 @@ public abstract class Enemy
 			num = Random.Range(0, 100);
 			if (num < 30)
 			{
-				gameObject2.animation.Play("ani");
+				gameObject2.GetComponent<Animation>().Play("ani");
 			}
 			else if (num < 65)
 			{
-				gameObject2.animation.Play("ani02");
+				gameObject2.GetComponent<Animation>().Play("ani02");
 			}
 			else
 			{
-				gameObject2.animation.Play("ani03");
+				gameObject2.GetComponent<Animation>().Play("ani03");
 			}
 		}
 		num = Random.Range(0, 100);
@@ -1525,7 +1525,7 @@ public abstract class Enemy
 	{
 		if (mGravityForceBallObj == null)
 		{
-			Transform transform = enemyObject.transform.FindChild("GravityForceBall");
+			Transform transform = enemyObject.transform.Find("GravityForceBall");
 			if (transform != null)
 			{
 				mGravityForceBallObj = transform.gameObject;
@@ -1544,7 +1544,7 @@ public abstract class Enemy
 		mGravityForceBallObj.SetActive(true);
 		if (mGravityForceBeamObj == null)
 		{
-			Transform transform2 = enemyObject.transform.FindChild("GravityForceBeam");
+			Transform transform2 = enemyObject.transform.Find("GravityForceBeam");
 			if (transform2 != null)
 			{
 				mGravityForceBeamObj = transform2.gameObject;
@@ -1568,7 +1568,7 @@ public abstract class Enemy
 	{
 		if (mGravityForceBallObj == null)
 		{
-			Transform transform = enemyObject.transform.FindChild("GravityForceBall");
+			Transform transform = enemyObject.transform.Find("GravityForceBall");
 			if (transform != null)
 			{
 				mGravityForceBallObj = transform.gameObject;
@@ -1580,7 +1580,7 @@ public abstract class Enemy
 		}
 		if (mGravityForceBeamObj == null)
 		{
-			Transform transform2 = enemyObject.transform.FindChild("GravityForceBeam");
+			Transform transform2 = enemyObject.transform.Find("GravityForceBeam");
 			if (transform2 != null)
 			{
 				mGravityForceBeamObj = transform2.gameObject;

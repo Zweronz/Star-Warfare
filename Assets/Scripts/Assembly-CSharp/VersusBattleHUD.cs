@@ -114,9 +114,9 @@ public abstract class VersusBattleHUD : BattleHUD
 		}
 		mLastUpdateAimTime = Time.time;
 		bool flag = false;
-		Camera mainCamera = Camera.mainCamera;
+		Camera mainCamera = Camera.main;
 		Transform transform = mainCamera.transform;
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		Vector3 vector = mainCamera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 0.1f));
 		Vector3 normalized = (vector - transform.position).normalized;
 		Ray ray = new Ray(transform.position + 1.8f * normalized, normalized);

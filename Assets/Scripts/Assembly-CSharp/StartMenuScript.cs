@@ -69,7 +69,7 @@ public class StartMenuScript : UIStateManager, UIHandler
 		TimeManager.GetInstance().setMaxLoopTimes(-1);
 		TimeManager.GetInstance().setPeriod(3f);
 		GameObject gameObject = GameObject.Find("MenuMusic");
-		Camera.mainCamera.transform.position = new Vector3(-0.5f, 1f, 0f);
+		Camera.main.transform.position = new Vector3(-0.5f, 1f, 0f);
 		if (gameObject == null)
 		{
 			GameObject original = Resources.Load("Audio/MenuMusic") as GameObject;
@@ -82,7 +82,7 @@ public class StartMenuScript : UIStateManager, UIHandler
 	private void InitUIManager()
 	{
 		Res2DManager.GetInstance().Init(22);
-		m_UIManager = base.gameObject.AddComponent("UIManager") as UIManager;
+		m_UIManager = base.gameObject.AddComponent<UIManager>() as UIManager;
 		m_UIManager.SetParameter(24, 1, false);
 		m_UIManager.SetUIHandler(this);
 		m_UIPopupManager = GetPopup();

@@ -326,21 +326,21 @@ public class MainMantis : CoopMantis
 	{
 		GameObject original = Resources.Load("Effect/Mantis/mantis_wall_defent") as GameObject;
 		wallDefentObject = Object.Instantiate(original, new Vector3(5f, 13f, -25f), Quaternion.identity) as GameObject;
-		wallDefentObject.renderer.enabled = false;
+		wallDefentObject.GetComponent<Renderer>().enabled = false;
 		SphereCollider component = wallDefentObject.GetComponent<SphereCollider>();
 		component.enabled = true;
 	}
 
 	public override void EnableWallDefent()
 	{
-		wallDefentObject.renderer.enabled = true;
+		wallDefentObject.GetComponent<Renderer>().enabled = true;
 		SphereCollider component = wallDefentObject.GetComponent<SphereCollider>();
 		component.enabled = true;
 	}
 
 	public override void DisableWallDefent()
 	{
-		wallDefentObject.renderer.enabled = false;
+		wallDefentObject.GetComponent<Renderer>().enabled = false;
 		SphereCollider component = wallDefentObject.GetComponent<SphereCollider>();
 		component.enabled = false;
 	}

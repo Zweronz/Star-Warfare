@@ -18,7 +18,7 @@ public class ScreenBloodScript : MonoBehaviour
 
 	private void Start()
 	{
-		alpha = base.renderer.material.GetFloat(alphaPropertyName);
+		alpha = base.GetComponent<Renderer>().material.GetFloat(alphaPropertyName);
 		startTime = Time.time;
 		if (UIConstant.Is16By9())
 		{
@@ -31,7 +31,7 @@ public class ScreenBloodScript : MonoBehaviour
 
 	public void NewBlood(float damage)
 	{
-		base.renderer.enabled = true;
+		base.GetComponent<Renderer>().enabled = true;
 		alpha = damage;
 		alpha = Mathf.Clamp(alpha, 0f, 1f);
 	}
@@ -44,9 +44,9 @@ public class ScreenBloodScript : MonoBehaviour
 			alpha -= 0.5f * deltaTime;
 			if (alpha <= 0f)
 			{
-				base.renderer.enabled = false;
+				base.GetComponent<Renderer>().enabled = false;
 			}
-			base.renderer.material.SetFloat(alphaPropertyName, alpha);
+			base.GetComponent<Renderer>().material.SetFloat(alphaPropertyName, alpha);
 			deltaTime = 0f;
 		}
 	}

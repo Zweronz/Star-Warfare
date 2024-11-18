@@ -91,7 +91,7 @@ public class UITextList : MonoBehaviour
 		{
 			textLabel.lineWidth = 0;
 		}
-		Collider collider = base.collider;
+		Collider collider = base.GetComponent<Collider>();
 		if (collider != null)
 		{
 			if (maxHeight <= 0f)

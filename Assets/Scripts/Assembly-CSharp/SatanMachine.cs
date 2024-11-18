@@ -173,15 +173,15 @@ public class SatanMachine : EnemyBoss
 	{
 		base.Init(gObject);
 		bipObject = enemyObject;
-		bodyCollider = enemyObject.transform.FindChild(BoneName.SatanMachineBody).gameObject.collider;
-		whirlingAttackCollider = enemyObject.transform.FindChild(BoneName.SatanMachineWhirlingAttack).gameObject.collider;
-		rightHandFrontTrans = enemyObject.transform.FindChild(BoneName.SatanMachineRightHandFront).gameObject.transform;
-		rightHandBackTrans = enemyObject.transform.FindChild(BoneName.SatanMachineRightHandBack).gameObject.transform;
-		leftHandFrontTrans = enemyObject.transform.FindChild(BoneName.SatanMachineLeftHandFront).gameObject.transform;
-		leftHandBackTrans = enemyObject.transform.FindChild(BoneName.SatanMachineLeftHandBack).gameObject.transform;
-		mouseTrans = enemyObject.transform.FindChild(BoneName.SatanMachineMouse).gameObject.transform;
-		bagTrans = enemyObject.transform.FindChild(BoneName.SatanMachineBag).gameObject.transform;
-		bodyCenterTrans = enemyObject.transform.FindChild(BoneName.SatanMachineBodyCenter).gameObject.transform;
+		bodyCollider = enemyObject.transform.Find(BoneName.SatanMachineBody).gameObject.GetComponent<Collider>();
+		whirlingAttackCollider = enemyObject.transform.Find(BoneName.SatanMachineWhirlingAttack).gameObject.GetComponent<Collider>();
+		rightHandFrontTrans = enemyObject.transform.Find(BoneName.SatanMachineRightHandFront).gameObject.transform;
+		rightHandBackTrans = enemyObject.transform.Find(BoneName.SatanMachineRightHandBack).gameObject.transform;
+		leftHandFrontTrans = enemyObject.transform.Find(BoneName.SatanMachineLeftHandFront).gameObject.transform;
+		leftHandBackTrans = enemyObject.transform.Find(BoneName.SatanMachineLeftHandBack).gameObject.transform;
+		mouseTrans = enemyObject.transform.Find(BoneName.SatanMachineMouse).gameObject.transform;
+		bagTrans = enemyObject.transform.Find(BoneName.SatanMachineBag).gameObject.transform;
+		bodyCenterTrans = enemyObject.transform.Find(BoneName.SatanMachineBodyCenter).gameObject.transform;
 		IsDoLaunchMissile = new bool[6];
 		for (int i = 0; i < IsDoLaunchMissile.Length; i++)
 		{
@@ -443,7 +443,7 @@ public class SatanMachine : EnemyBoss
 					gameObject.SetActive(true);
 					gameObject.transform.position = launchPos;
 					gameObject.transform.rotation = Quaternion.identity;
-					gameObject.rigidbody.AddForce(forceList[i], ForceMode.Impulse);
+					gameObject.GetComponent<Rigidbody>().AddForce(forceList[i], ForceMode.Impulse);
 					SatanMachineBall componentInChildren = gameObject.GetComponentInChildren<SatanMachineBall>();
 					componentInChildren.targetPlayer = player;
 					componentInChildren.enemy = this;
@@ -658,7 +658,7 @@ public class SatanMachine : EnemyBoss
 		{
 			GameObject original = Resources.Load("Effect/SatanMachine/SatanMachineGiftBomb" + Random.Range(1, 5)) as GameObject;
 			GameObject gameObject = Object.Instantiate(original, launchPos, Quaternion.identity) as GameObject;
-			gameObject.rigidbody.AddForce(forceList[i], ForceMode.Impulse);
+			gameObject.GetComponent<Rigidbody>().AddForce(forceList[i], ForceMode.Impulse);
 			SatanMachineGift componentInChildren = gameObject.GetComponentInChildren<SatanMachineGift>();
 			componentInChildren.targetPlayer = player;
 			componentInChildren.enemy = this;

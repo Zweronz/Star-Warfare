@@ -24,14 +24,14 @@ public class FadeOutScript : MonoBehaviour
 	{
 		if (!isComplete && Time.time - startTime > fadeOutStartTime)
 		{
-			Color color = base.renderer.material.GetColor(colorPropertyName);
+			Color color = base.GetComponent<Renderer>().material.GetColor(colorPropertyName);
 			color.a -= Time.deltaTime * fadeOutSpeed;
 			if (color.a < 0f)
 			{
 				color.a = 0f;
 				isComplete = true;
 			}
-			base.renderer.material.SetColor(colorPropertyName, color);
+			base.GetComponent<Renderer>().material.SetColor(colorPropertyName, color);
 		}
 	}
 }

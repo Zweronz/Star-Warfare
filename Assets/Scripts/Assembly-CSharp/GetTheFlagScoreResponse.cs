@@ -31,7 +31,7 @@ internal class GetTheFlagScoreResponse : Response
 		if (gameWorld.FlagDirObj != null)
 		{
 			Color white = Color.white;
-			gameWorld.FlagDirObj.transform.GetChild(0).renderer.material.SetColor("_TintColor", white);
+			gameWorld.FlagDirObj.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_TintColor", white);
 		}
 		if (playerByUserID.IsLocal())
 		{

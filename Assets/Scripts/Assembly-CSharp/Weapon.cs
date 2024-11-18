@@ -517,15 +517,15 @@ public abstract class Weapon
 	public virtual void Init(Player player)
 	{
 		gameWorld = GameApp.GetInstance().GetGameWorld();
-		gameCamera = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
-		cameraComponent = gameCamera.camera;
+		gameCamera = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
+		cameraComponent = gameCamera.GetComponent<Camera>();
 		cameraTransform = gameCamera.CameraTransform;
 		this.player = player;
 		hitForce = 0f;
 		weaponBoneTrans = player.GetTransform().Find(BoneName.Weapon);
 		CreateGun();
 		gun.transform.parent = weaponBoneTrans;
-		shootAudio = gun.audio;
+		shootAudio = gun.GetComponent<AudioSource>();
 		if (shootAudio == null)
 		{
 		}
@@ -744,17 +744,17 @@ public abstract class Weapon
 
 	public void SetWeaponShootSpeed(float speed)
 	{
-		if (player.GetGameObject().animation[AnimationString.FlyAttack + GetAnimationSuffix()] != null)
+		if (player.GetGameObject().GetComponent<Animation>()[AnimationString.FlyAttack + GetAnimationSuffix()] != null)
 		{
-			player.GetGameObject().animation[AnimationString.FlyAttack + GetAnimationSuffix()].speed *= speed / attackFrenquency;
+			player.GetGameObject().GetComponent<Animation>()[AnimationString.FlyAttack + GetAnimationSuffix()].speed *= speed / attackFrenquency;
 		}
-		if (player.GetGameObject().animation[AnimationString.Attack + GetAnimationSuffix()] != null)
+		if (player.GetGameObject().GetComponent<Animation>()[AnimationString.Attack + GetAnimationSuffix()] != null)
 		{
-			player.GetGameObject().animation[AnimationString.Attack + GetAnimationSuffix()].speed *= speed / attackFrenquency;
+			player.GetGameObject().GetComponent<Animation>()[AnimationString.Attack + GetAnimationSuffix()].speed *= speed / attackFrenquency;
 		}
-		if (player.GetGameObject().animation[AnimationString.RunAttack + GetAnimationSuffix()] != null)
+		if (player.GetGameObject().GetComponent<Animation>()[AnimationString.RunAttack + GetAnimationSuffix()] != null)
 		{
-			player.GetGameObject().animation[AnimationString.RunAttack + GetAnimationSuffix()].speed *= speed / attackFrenquency;
+			player.GetGameObject().GetComponent<Animation>()[AnimationString.RunAttack + GetAnimationSuffix()].speed *= speed / attackFrenquency;
 		}
 	}
 

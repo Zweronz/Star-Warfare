@@ -197,34 +197,34 @@ public class UISliderAvatar : UIPanelX, UIHandler
 			float num5 = 1f;
 			if (avatar3D.m_state == 0)
 			{
-				Transform transform = obj.GetModel().transform.FindChild("unlock(Clone)");
+				Transform transform = obj.GetModel().transform.Find("unlock(Clone)");
 				transform.gameObject.SetActiveRecursively(false);
-				Transform transform2 = obj.GetModel().transform.FindChild("unlock1(Clone)");
+				Transform transform2 = obj.GetModel().transform.Find("unlock1(Clone)");
 				transform2.gameObject.SetActiveRecursively(false);
 				num5 = 0.08f;
 			}
 			else if (avatar3D.m_state == 15)
 			{
-				Transform transform3 = obj.GetModel().transform.FindChild("lock(Clone)");
+				Transform transform3 = obj.GetModel().transform.Find("lock(Clone)");
 				transform3.gameObject.SetActiveRecursively(false);
 				if (avatar3D.m_bMithril)
 				{
-					Transform transform4 = obj.GetModel().transform.FindChild("unlock(Clone)");
+					Transform transform4 = obj.GetModel().transform.Find("unlock(Clone)");
 					transform4.gameObject.SetActiveRecursively(false);
 				}
 				else
 				{
-					Transform transform5 = obj.GetModel().transform.FindChild("unlock1(Clone)");
+					Transform transform5 = obj.GetModel().transform.Find("unlock1(Clone)");
 					transform5.gameObject.SetActiveRecursively(false);
 				}
 			}
 			else
 			{
-				Transform transform6 = obj.GetModel().transform.FindChild("lock(Clone)");
+				Transform transform6 = obj.GetModel().transform.Find("lock(Clone)");
 				transform6.gameObject.SetActiveRecursively(false);
-				Transform transform7 = obj.GetModel().transform.FindChild("unlock(Clone)");
+				Transform transform7 = obj.GetModel().transform.Find("unlock(Clone)");
 				transform7.gameObject.SetActiveRecursively(false);
-				Transform transform8 = obj.GetModel().transform.FindChild("unlock1(Clone)");
+				Transform transform8 = obj.GetModel().transform.Find("unlock1(Clone)");
 				transform8.gameObject.SetActiveRecursively(false);
 			}
 			float num6 = num + m_IconWidth * 0.5f;
@@ -251,9 +251,9 @@ public class UISliderAvatar : UIPanelX, UIHandler
 					float num11 = 100f * (num7 + 1f) / (num7 * num7 + 100f);
 					foreach (GameObject item in obj.GetSubModel())
 					{
-						if (item.renderer != null)
+						if (item.GetComponent<Renderer>() != null)
 						{
-							Material[] materials = item.renderer.materials;
+							Material[] materials = item.GetComponent<Renderer>().materials;
 							foreach (Material material in materials)
 							{
 								Color color = new Color(num11 * num5, num11 * num5, num11 * num5, 1f);

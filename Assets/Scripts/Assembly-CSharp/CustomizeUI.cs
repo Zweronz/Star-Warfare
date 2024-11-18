@@ -508,7 +508,7 @@ public class CustomizeUI : UIHandler, IUIHandle
 		GameObject gameObject = GameObject.Find("Main Camera");
 		gameObject.transform.position = new Vector3(-0.5f, 1f, 0f);
 		Rect rct = new Rect(0.117f, 0f, 0.62f, 1f);
-		gameObject.camera.rect = UIConstant.GetRectForScreenAdaptived2(rct);
+		gameObject.GetComponent<Camera>().rect = UIConstant.GetRectForScreenAdaptived2(rct);
 	}
 
 	public void InitNavList()
@@ -665,7 +665,7 @@ public class CustomizeUI : UIHandler, IUIHandle
 		int selection = 0;
 		float num = 120f;
 		float num2 = 135f;
-		float x = avatarFrame.GetModel().transform.FindChild(UIConstant.SUB_AVATAR[1]).position.x;
+		float x = avatarFrame.GetModel().transform.Find(UIConstant.SUB_AVATAR[1]).position.x;
 		Vector3 zero3 = Vector3.zero;
 		if (type < 5)
 		{
@@ -680,7 +680,7 @@ public class CustomizeUI : UIHandler, IUIHandle
 				}
 			}
 			int dispCount = GetDispCount(list.Count);
-			zero2 = ((type != 4) ? avatarFrame.GetModel().transform.FindChild(UIConstant.SUB_AVATAR[type]).position : new Vector3(-0.7232f, 1.6f, 3.32f));
+			zero2 = ((type != 4) ? avatarFrame.GetModel().transform.Find(UIConstant.SUB_AVATAR[type]).position : new Vector3(-0.7232f, 1.6f, 3.32f));
 			zero3 = list2[m_equipSel[type]].Center;
 			int num3 = dispCount / 2;
 			int num4 = dispCount;
@@ -698,7 +698,7 @@ public class CustomizeUI : UIHandler, IUIHandle
 					selection = l;
 					num4 = l - num3;
 				}
-				Transform transform = avatar3D.m_obj.GetModel().transform.FindChild(UIConstant.SUB_AVATAR[type]);
+				Transform transform = avatar3D.m_obj.GetModel().transform.Find(UIConstant.SUB_AVATAR[type]);
 				if (transform != null)
 				{
 					avatar3D.m_obj.AddSubModel(transform.gameObject);
@@ -736,13 +736,13 @@ public class CustomizeUI : UIHandler, IUIHandle
 				avatar3D.m_obj.SetScale(new Vector3(avatar3D.m_scale, avatar3D.m_scale, avatar3D.m_scale));
 				float num5 = (0f - (avatar3D.m_scale - 1.2f)) * list[index].Center.z;
 				avatar3D.m_obj.SetPosition(new Vector3(x, zero2.y + num5, zero2.z));
-				Transform transform2 = avatar3D.m_obj.GetModel().transform.FindChild("lock(Clone)");
+				Transform transform2 = avatar3D.m_obj.GetModel().transform.Find("lock(Clone)");
 				transform2.gameObject.transform.position = new Vector3(x, zero2.y + list[index].Center.z, 2.5f);
-				transform2.gameObject.transform.LookAt(Camera.mainCamera.transform);
+				transform2.gameObject.transform.LookAt(Camera.main.transform);
 				transform2.gameObject.SetActiveRecursively(false);
-				Transform transform3 = avatar3D.m_obj.GetModel().transform.FindChild("unlock(Clone)");
+				Transform transform3 = avatar3D.m_obj.GetModel().transform.Find("unlock(Clone)");
 				transform3.gameObject.transform.position = new Vector3(x, zero2.y + list[index].Center.z, 2.5f);
-				transform3.gameObject.transform.LookAt(Camera.mainCamera.transform);
+				transform3.gameObject.transform.LookAt(Camera.main.transform);
 				transform3.gameObject.SetActiveRecursively(false);
 				avatar3D.m_state = list[index].Level;
 				avatar3D.m_obj.Show();
@@ -821,13 +821,13 @@ public class CustomizeUI : UIHandler, IUIHandle
 				avatar3D2.m_obj.SetScale(new Vector3(avatar3D2.m_scale, avatar3D2.m_scale, avatar3D2.m_scale));
 				float num8 = (0f - (1.2f - avatar3D2.m_scale)) * list3[index2].Center.y;
 				avatar3D2.m_obj.SetPosition(new Vector3(x, zero2.y + num8, zero2.z));
-				Transform transform4 = avatar3D2.m_obj.GetModel().transform.FindChild("lock(Clone)");
+				Transform transform4 = avatar3D2.m_obj.GetModel().transform.Find("lock(Clone)");
 				transform4.gameObject.transform.position = new Vector3(x + list3[index2].Center.y, zero2.y + list3[index2].Center.z, 2.5f);
-				transform4.gameObject.transform.LookAt(Camera.mainCamera.transform);
+				transform4.gameObject.transform.LookAt(Camera.main.transform);
 				transform4.gameObject.SetActiveRecursively(false);
-				Transform transform5 = avatar3D2.m_obj.GetModel().transform.FindChild("unlock(Clone)");
+				Transform transform5 = avatar3D2.m_obj.GetModel().transform.Find("unlock(Clone)");
 				transform5.gameObject.transform.position = new Vector3(x + list3[index2].Center.y, zero2.y + list3[index2].Center.z, 2.5f);
-				transform5.gameObject.transform.LookAt(Camera.mainCamera.transform);
+				transform5.gameObject.transform.LookAt(Camera.main.transform);
 				transform5.gameObject.SetActiveRecursively(false);
 				avatar3D2.m_state = list3[index2].Level;
 				avatar3D2.m_obj.Show();
@@ -1638,7 +1638,7 @@ public class CustomizeUI : UIHandler, IUIHandle
 					TwitterAndroid.showLoginDialog();
 					return;
 				}
-				Application.CaptureScreenshot("tempscreens.png");
+				ScreenCapture.CaptureScreenshot("tempscreens.png");
 				string url = Application.persistentDataPath + "/tempscreens.png";
 				WWW wWW = new WWW(url);
 				TwitterAndroid.postUpdateWithImage(update, wWW.bytes);
@@ -1649,7 +1649,7 @@ public class CustomizeUI : UIHandler, IUIHandle
 		{
 			if (GameApp.GetInstance().IsConnectedToInternet())
 			{
-				Application.CaptureScreenshot("tempscreens.png");
+				ScreenCapture.CaptureScreenshot("tempscreens.png");
 				if (!FacebookAndroid.isLoggedIn())
 				{
 					Lobby.GetInstance().IsPostingScoreToSocialNetwork = false;

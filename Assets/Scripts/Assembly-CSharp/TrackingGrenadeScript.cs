@@ -98,8 +98,8 @@ public class TrackingGrenadeScript : MonoBehaviour
 	{
 		proTransform = base.transform.parent;
 		mUpdateSearchTime = Time.time;
-		base.animation.wrapMode = WrapMode.Loop;
-		base.animation.Play("move");
+		base.GetComponent<Animation>().wrapMode = WrapMode.Loop;
+		base.GetComponent<Animation>().Play("move");
 	}
 
 	public void Update()

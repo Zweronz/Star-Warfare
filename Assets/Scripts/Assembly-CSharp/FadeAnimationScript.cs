@@ -16,16 +16,16 @@ public class FadeAnimationScript : MonoBehaviour
 
 	private void Start()
 	{
-		base.renderer.material.SetColor(colorPropertyName, startColor);
+		base.GetComponent<Renderer>().material.SetColor(colorPropertyName, startColor);
 	}
 
 	public void StartFade(Color startColor, Color endColor)
 	{
 		this.startColor = startColor;
 		this.endColor = endColor;
-		base.renderer.material.SetColor(colorPropertyName, startColor);
+		base.GetComponent<Renderer>().material.SetColor(colorPropertyName, startColor);
 		enableAlphaAnimation = true;
-		base.renderer.enabled = true;
+		base.GetComponent<Renderer>().enabled = true;
 	}
 
 	public void StartFade(Color startColor, Color endColor, float time)
@@ -39,12 +39,12 @@ public class FadeAnimationScript : MonoBehaviour
 
 	public bool FadeOutComplete()
 	{
-		return base.renderer.material.GetColor(colorPropertyName).a == 0f;
+		return base.GetComponent<Renderer>().material.GetColor(colorPropertyName).a == 0f;
 	}
 
 	public bool FadeInComplete()
 	{
-		return base.renderer.material.GetColor(colorPropertyName).a == 1f;
+		return base.GetComponent<Renderer>().material.GetColor(colorPropertyName).a == 1f;
 	}
 
 	public static FadeAnimationScript GetInstance()
@@ -74,15 +74,15 @@ public class FadeAnimationScript : MonoBehaviour
 			float a = startColor.a;
 			float a2 = endColor.a;
 			float num = Mathf.Sign(a2 - a);
-			Color color = base.renderer.material.GetColor(colorPropertyName);
+			Color color = base.GetComponent<Renderer>().material.GetColor(colorPropertyName);
 			color.a += num * animationSpeed * deltaTime;
 			if (Mathf.Sign(a2 - color.a) != num)
 			{
 				color.a = a2;
 				enableAlphaAnimation = false;
-				base.renderer.enabled = false;
+				base.GetComponent<Renderer>().enabled = false;
 			}
-			base.renderer.material.SetColor(colorPropertyName, color);
+			base.GetComponent<Renderer>().material.SetColor(colorPropertyName, color);
 		}
 		deltaTime = 0f;
 	}

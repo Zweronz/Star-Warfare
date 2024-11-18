@@ -41,7 +41,7 @@ internal class CatchTheFlagResponse : Response
 				color = UIConstant.COLOR_PLAYER_ICONS[playerByUserID.GetSeatID()];
 			}
 			color = new Color(color.r * 0.5f, color.g * 0.5f, color.b * 0.5f, color.a);
-			gameWorld.FlagDirObj.transform.GetChild(0).renderer.material.SetColor("_TintColor", color);
+			gameWorld.FlagDirObj.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_TintColor", color);
 		}
 		if (GameApp.GetInstance().GetGameMode().ModePlay == Mode.VS_CTF_TDM)
 		{

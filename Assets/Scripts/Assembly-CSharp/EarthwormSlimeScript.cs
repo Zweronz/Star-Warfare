@@ -32,7 +32,7 @@ public class EarthwormSlimeScript : MonoBehaviour
 		if (!(player.GetSkills().GetSkill(SkillsType.FLY) > 0f) && 0 == 0 && player.InPlayingState())
 		{
 			Collider collider = player.GetCollider();
-			if (base.collider.bounds.Intersects(player.GetCollider().bounds))
+			if (base.GetComponent<Collider>().bounds.Intersects(player.GetCollider().bounds))
 			{
 				player.SlowEffect = slowEffect;
 				playerIsInLastFrame = true;

@@ -33,6 +33,6 @@ public class MoveAnimationScript : MonoBehaviour
 		{
 			white.a = 1f;
 		}
-		base.renderer.material.SetColor(colorPropertyName, white);
+		base.GetComponent<Renderer>().material.SetColor(colorPropertyName, white);
 	}
 }

@@ -151,7 +151,7 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 		cameraDistance = cameraDistanceWhenIdle;
 		base.transform.rotation = Quaternion.Euler(0f - angelV, angelH, 0f);
 		Screen.lockCursor = true;
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		reticlePosition = new Vector3(Screen.width / 2, Screen.height / 2, 0f);
 		if (Application.platform != RuntimePlatform.WindowsPlayer)
 		{
@@ -169,11 +169,11 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 			array[i] = 160f;
 		}
 		array[PhysicsLayer.SKY] = 1000f;
-		base.camera.layerCullDistances = array;
+		base.GetComponent<Camera>().layerCullDistances = array;
 		started = true;
-		base.camera.fov = CAMERA_NORMAL_FOV;
+		base.GetComponent<Camera>().fov = CAMERA_NORMAL_FOV;
 		pivot = GameObject.CreatePrimitive(PrimitiveType.Cube);
-		pivot.renderer.enabled = false;
+		pivot.GetComponent<Renderer>().enabled = false;
 		for (int j = 0; j < lastTransparentObjList.Length; j++)
 		{
 			lastTransparentObjList[j] = new CameraClipObject();
@@ -194,7 +194,7 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 
 	public virtual void ZoomIn(float deltaTime)
 	{
-		base.camera.fov = Mathf.Lerp(base.camera.fov, CAMERA_AIM_FOV, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
+		base.GetComponent<Camera>().fov = Mathf.Lerp(base.GetComponent<Camera>().fov, CAMERA_AIM_FOV, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		cameraDistance = Mathf.Lerp(cameraDistance, cameraDistanceWhenAimed, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		pivotPosition = Vector3.Lerp(pivotPosition, pivotPositionNormal + pivotOffset, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 	}
@@ -206,34 +206,34 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 
 	public virtual void ZoomToRPG(float deltaTime)
 	{
-		base.camera.fov = Mathf.Lerp(base.camera.fov, CAMERA_RPG_FOV, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
+		base.GetComponent<Camera>().fov = Mathf.Lerp(base.GetComponent<Camera>().fov, CAMERA_RPG_FOV, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		cameraDistance = Mathf.Lerp(cameraDistance, cameraDistanceWhenRPG, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		pivotPosition = Vector3.Lerp(pivotPosition, pivotPositionRPG + pivotOffset, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 	}
 
 	public virtual void ZoomToSniper(float deltaTime)
 	{
-		base.camera.fov = Mathf.Lerp(base.camera.fov, CAMERA_AIM_FOV * 0.6f, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
+		base.GetComponent<Camera>().fov = Mathf.Lerp(base.GetComponent<Camera>().fov, CAMERA_AIM_FOV * 0.6f, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		cameraDistance = Mathf.Lerp(cameraDistance, cameraDistanceWhenAimed * 0.05f, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		pivotPosition = Vector3.Lerp(pivotPosition, new Vector3(0.6f, 1.68f, 0f) + pivotOffset, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 	}
 
 	public virtual void ZoomOut(float deltaTime)
 	{
-		base.camera.fov = Mathf.Lerp(base.camera.fov, CAMERA_NORMAL_FOV, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
+		base.GetComponent<Camera>().fov = Mathf.Lerp(base.GetComponent<Camera>().fov, CAMERA_NORMAL_FOV, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		cameraDistance = Mathf.Lerp(cameraDistance, cameraDistanceWhenIdle, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		pivotPosition = Vector3.Lerp(pivotPosition, pivotPositionNormal + pivotOffset, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 	}
 
 	public virtual void ZoomToKnockedView(float deltaTime)
 	{
-		base.camera.fov = Mathf.Lerp(base.camera.fov, CAMERA_KNOCKED_FOV, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
+		base.GetComponent<Camera>().fov = Mathf.Lerp(base.GetComponent<Camera>().fov, CAMERA_KNOCKED_FOV, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 		cameraDistance = Mathf.Lerp(cameraDistance, cameraDistanceWhenKnocked, deltaTime * (float)Global.CAMERA_ZOOM_SPEED);
 	}
 
 	private void Awake()
 	{
-		cameraTransform = Camera.mainCamera.transform;
+		cameraTransform = Camera.main.transform;
 	}
 
 	private void Start()
@@ -241,7 +241,7 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 		solidShader = Shader.Find("iPhone/LightMap");
 		transparentShader = Shader.Find("iPhone/AlphaBlend_Color");
 		transparentLightmapShader = Shader.Find("iPhone/LightMap_AlphaBlend");
-		base.camera.nearClipPlane = 10000f;
+		base.GetComponent<Camera>().nearClipPlane = 10000f;
 	}
 
 	private void Update()
@@ -260,7 +260,7 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 		{
 			return;
 		}
-		base.camera.nearClipPlane = 0.3f;
+		base.GetComponent<Camera>().nearClipPlane = 0.3f;
 		deltaTime = Time.deltaTime;
 		Player player = GameApp.GetInstance().GetGameWorld().GetPlayer();
 		float num = player.InputController.CameraRotation.x;
@@ -315,13 +315,13 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 		RaycastHit hitInfo;
 		if (Physics.Raycast(ray, out hitInfo, magnitude, (1 << PhysicsLayer.WALL) | (1 << PhysicsLayer.TRANSPARENT_WALL)))
 		{
-			base.camera.useOcclusionCulling = false;
+			base.GetComponent<Camera>().useOcclusionCulling = false;
 			GameObject gameObject = hitInfo.collider.gameObject;
-			if (gameObject.renderer == null)
+			if (gameObject.GetComponent<Renderer>() == null)
 			{
 				gameObject = gameObject.transform.parent.gameObject;
 			}
-			if (gameObject.renderer != null)
+			if (gameObject.GetComponent<Renderer>() != null)
 			{
 				gameObject.layer = PhysicsLayer.TRANSPARENT_WALL;
 				int num5 = -1;
@@ -336,9 +336,9 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 				}
 				if (num5 != -1)
 				{
-					lastTransparentObjList[num5].shaders = new Shader[gameObject.renderer.materials.Length];
+					lastTransparentObjList[num5].shaders = new Shader[gameObject.GetComponent<Renderer>().materials.Length];
 					int num6 = 0;
-					Material[] materials = gameObject.renderer.materials;
+					Material[] materials = gameObject.GetComponent<Renderer>().materials;
 					foreach (Material material in materials)
 					{
 						lastTransparentObjList[num5].shaders[num6] = material.shader;
@@ -359,13 +359,13 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 		}
 		else
 		{
-			base.camera.useOcclusionCulling = true;
+			base.GetComponent<Camera>().useOcclusionCulling = true;
 			for (int k = 0; k < 5; k++)
 			{
 				if (lastTransparentObjList[k].obj != null)
 				{
 					int num7 = 0;
-					Material[] materials2 = lastTransparentObjList[k].obj.renderer.materials;
+					Material[] materials2 = lastTransparentObjList[k].obj.GetComponent<Renderer>().materials;
 					foreach (Material material2 in materials2)
 					{
 						material2.shader = lastTransparentObjList[k].shaders[num7];

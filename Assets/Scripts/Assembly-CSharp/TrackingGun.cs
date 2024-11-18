@@ -43,15 +43,15 @@ public class TrackingGun : Weapon
 	public override void Init(Player player)
 	{
 		gameWorld = GameApp.GetInstance().GetGameWorld();
-		gameCamera = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
-		cameraComponent = gameCamera.camera;
+		gameCamera = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
+		cameraComponent = gameCamera.GetComponent<Camera>();
 		cameraTransform = gameCamera.CameraTransform;
 		base.player = player;
 		hitForce = 0f;
 		weaponBoneTrans = player.GetTransform().Find(BoneName.Weapon);
 		CreateGun();
 		gun.transform.parent = weaponBoneTrans;
-		shootAudio = gun.audio;
+		shootAudio = gun.GetComponent<AudioSource>();
 		if (shootAudio == null)
 		{
 		}
@@ -95,15 +95,15 @@ public class TrackingGun : Weapon
 			{
 				continue;
 			}
-			Vector3 vector = Camera.mainCamera.WorldToScreenPoint(item.GetTransform().position);
+			Vector3 vector = Camera.main.WorldToScreenPoint(item.GetTransform().position);
 			Vector2 a = new Vector2(vector.x, vector.y);
 			if (!(a.x > 0f) || !(a.x < (float)Screen.width) || !(a.y > 0f) || !(a.y < (float)Screen.height) || !(vector.z > 0f))
 			{
 				continue;
 			}
-			Camera mainCamera = Camera.mainCamera;
+			Camera mainCamera = Camera.main;
 			Transform transform = mainCamera.transform;
-			ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+			ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 			Ray ray = default(Ray);
 			Vector3 normalized = (item.GetTransform().position + Vector3.up * 1f - transform.position).normalized;
 			ray = new Ray(transform.position + normalized * 1.8f, normalized);
@@ -134,15 +134,15 @@ public class TrackingGun : Weapon
 			for (int i = 0; i < array.Length; i++)
 			{
 				Enemy enemy = enemies[array[i]] as Enemy;
-				Vector3 vector = Camera.mainCamera.WorldToScreenPoint(enemy.GetTransform().position);
+				Vector3 vector = Camera.main.WorldToScreenPoint(enemy.GetTransform().position);
 				Vector2 a = new Vector2(vector.x, vector.y);
 				if (!(a.x > 0f) || !(a.x < (float)Screen.width) || !(a.y > 0f) || !(a.y < (float)Screen.height) || !(vector.z > 0f))
 				{
 					continue;
 				}
-				Camera mainCamera = Camera.mainCamera;
+				Camera mainCamera = Camera.main;
 				Transform transform = mainCamera.transform;
-				ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+				ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 				Ray ray = default(Ray);
 				Vector3 normalized = (enemy.GetColliderCenterPosition() - transform.position).normalized;
 				ray = new Ray(transform.position + normalized * 1.8f, normalized);
@@ -172,15 +172,15 @@ public class TrackingGun : Weapon
 			for (int i = 0; i < cMIGifts.Count; i++)
 			{
 				CMIGift cMIGift = cMIGifts[i];
-				Vector3 vector = Camera.mainCamera.WorldToScreenPoint(cMIGift.GetPosition());
+				Vector3 vector = Camera.main.WorldToScreenPoint(cMIGift.GetPosition());
 				Vector2 a = new Vector2(vector.x, vector.y);
 				if (!(a.x > 0f) || !(a.x < (float)Screen.width) || !(a.y > 0f) || !(a.y < (float)Screen.height) || !(vector.z > 0f))
 				{
 					continue;
 				}
-				Camera mainCamera = Camera.mainCamera;
+				Camera mainCamera = Camera.main;
 				Transform transform = mainCamera.transform;
-				ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+				ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 				Ray ray = default(Ray);
 				Vector3 normalized = (cMIGift.GetPosition() - transform.position).normalized;
 				ray = new Ray(transform.position + normalized * 1.8f, normalized);

@@ -33,11 +33,11 @@ public class ObjectPool
 			createdTime.Add(0f);
 			gameObject.active = false;
 			gameObject.transform.parent = folderObject.transform;
-			if (gameObject.animation != null)
+			if (gameObject.GetComponent<Animation>() != null)
 			{
 				hasAnimation = true;
 			}
-			if (gameObject.particleEmitter != null)
+			if (gameObject.GetComponent<ParticleEmitter>() != null)
 			{
 				hasParticleEmitter = true;
 			}
@@ -71,11 +71,11 @@ public class ObjectPool
 		createdTime.Add(0f);
 		gameObject.name = objects[0].name;
 		gameObject.transform.parent = folderObject.transform;
-		if (gameObject.animation != null)
+		if (gameObject.GetComponent<Animation>() != null)
 		{
 			hasAnimation = true;
 		}
-		if (gameObject.particleEmitter != null)
+		if (gameObject.GetComponent<ParticleEmitter>() != null)
 		{
 			hasParticleEmitter = true;
 		}

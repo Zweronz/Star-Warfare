@@ -147,9 +147,9 @@ public class FlyGrenadeLauncher : Weapon
 
 	protected void PlayGunAnimation(string name, WrapMode mode)
 	{
-		gun.animation[name].time = 0f;
-		gun.animation[name].wrapMode = mode;
-		gun.animation[name].speed = 1f;
-		gun.animation.Play(name);
+		gun.GetComponent<Animation>()[name].time = 0f;
+		gun.GetComponent<Animation>()[name].wrapMode = mode;
+		gun.GetComponent<Animation>()[name].speed = 1f;
+		gun.GetComponent<Animation>().Play(name);
 	}
 }

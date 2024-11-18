@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class NGUITools
 {
@@ -42,7 +43,7 @@ public static class NGUITools
 	{
 		get
 		{
-			return Application.platform != RuntimePlatform.WindowsWebPlayer && Application.platform != RuntimePlatform.OSXWebPlayer;
+			return true;
 		}
 	}
 
@@ -96,7 +97,7 @@ public static class NGUITools
 			}
 			if (mListener != null && mListener.enabled && GetActive(mListener.gameObject))
 			{
-				AudioSource audioSource = mListener.audio;
+				AudioSource audioSource = mListener.GetComponent<AudioSource>();
 				if (audioSource == null)
 				{
 					audioSource = mListener.gameObject.AddComponent<AudioSource>();

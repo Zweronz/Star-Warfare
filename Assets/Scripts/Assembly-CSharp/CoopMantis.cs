@@ -265,7 +265,7 @@ public class CoopMantis : Mantis
 	public override void Init(GameObject gObject)
 	{
 		base.Init(gObject);
-		mHitCheckCollider = enemyObject.transform.FindChild(BoneName.MantisHitSphere).gameObject.collider;
+		mHitCheckCollider = enemyObject.transform.Find(BoneName.MantisHitSphere).gameObject.GetComponent<Collider>();
 		mTargetPoints = new Vector3[6];
 		GameObject[] array = GameObject.FindGameObjectsWithTag(TagName.BOSS_ASSIST_TARGET);
 		GameObject[] array2 = array;
@@ -375,7 +375,7 @@ public class CoopMantis : Mantis
 
 	public void CoopFly()
 	{
-		CharacterController characterController = enemyObject.collider as CharacterController;
+		CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 		if (characterController != null)
 		{
 			Vector3 vector = enemyTransform.forward * flySpeed;
@@ -712,7 +712,7 @@ public class CoopMantis : Mantis
 	public void CoopFlyShot()
 	{
 		GameObject original = Resources.Load("Effect/Mantis/sfx_blade") as GameObject;
-		Vector3 position = enemyTransform.FindChild(BoneName.MantisLeftArm).position;
+		Vector3 position = enemyTransform.Find(BoneName.MantisLeftArm).position;
 		position.y -= 1f;
 		GameObject[] array = new GameObject[7];
 		for (int i = 0; i < array.Length; i++)
@@ -732,7 +732,7 @@ public class CoopMantis : Mantis
 
 	public void CoopFlyLaserStart()
 	{
-		Transform transform = enemyTransform.FindChild(BoneName.MantisMouth);
+		Transform transform = enemyTransform.Find(BoneName.MantisMouth);
 		Vector3 worldPosition = new Vector3(targetToLookAt.x, 0.5f, targetToLookAt.z);
 		mantisLaserObj.transform.position = transform.position;
 		mantisLaserObj.transform.Translate(0.1f * Vector3.down);

@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameApp
 {

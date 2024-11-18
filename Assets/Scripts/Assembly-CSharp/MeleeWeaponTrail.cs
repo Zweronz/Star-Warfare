@@ -95,7 +95,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 		_trailObject.transform.localScale = Vector3.one;
 		_trailObject.AddComponent(typeof(MeshFilter));
 		_trailObject.AddComponent(typeof(MeshRenderer));
-		_trailObject.renderer.material = _material;
+		_trailObject.GetComponent<Renderer>().material = _material;
 		_trailMesh = new Mesh();
 		_trailMesh.name = base.name + "TrailMesh";
 		_trailObject.GetComponent<MeshFilter>().mesh = _trailMesh;

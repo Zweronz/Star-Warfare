@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class TimeScript : MonoBehaviour
 {
@@ -172,7 +174,7 @@ public class TimeScript : MonoBehaviour
 			throw new NotSupportedException();
 		}
 
-		private void _003C_003E__Finally0()
+		public void _003C_003E__Finally0()
 		{
 			if (_003Cwww_003E__1 != null)
 			{
@@ -314,7 +316,7 @@ public class TimeScript : MonoBehaviour
 			throw new NotSupportedException();
 		}
 
-		private void _003C_003E__Finally0()
+		public void _003C_003E__Finally0()
 		{
 			if (_003Cwww_003E__1 != null)
 			{

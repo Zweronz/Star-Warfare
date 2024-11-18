@@ -1,315 +1,103 @@
-Ç8Shader "WFX/Additive Alpha8" {
-Properties {
- _TintColor ("Tint Color", Color) = (0.5,0.5,0.5,0.5)
- _MainTex ("Particle Texture (alpha)", 2D) = "white" {}
- _InvFade ("Soft Particles Factor", Range(0.01,3)) = 1
-}
-SubShader { 
- Tags { "QUEUE"="Transparent" "IGNOREPROJECTOR"="true" "RenderType"="Transparent" }
- Pass {
-  Tags { "QUEUE"="Transparent" "IGNOREPROJECTOR"="true" "RenderType"="Transparent" }
-  BindChannels {
-   Bind "vertex", Vertex
-   Bind "color", Color
-   Bind "texcoord", TexCoord
+Shader "WFX/Additive Alpha8" {
+  Properties {
+    _TintColor ("Tint Color", Color) = (0.5,0.5,0.5,0.5)
+    _MainTex ("Particle Texture (alpha)", 2D) = "white" {}
+    _InvFade ("Soft Particles Factor", Range(0.01,3.0)) = 1.0
   }
-  ZWrite Off
-  Cull Off
-  Fog {
-   Color (0,0,0,0)
+  
+  Category {
+    Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
+    Blend One One
+    Cull Off Lighting Off ZWrite Off Fog { Color (0,0,0,0) }
+    BindChannels {
+      Bind "Color", color
+      Bind "Vertex", vertex
+      Bind "TexCoord", texcoord
+    }
+    
+    // ---- Fragment program cards
+    SubShader {
+      Pass {
+      
+        CGPROGRAM
+        #pragma vertex vert
+        #pragma fragment frag
+        #pragma fragmentoption ARB_precision_hint_fastest
+        #pragma multi_compile_particles
+  
+        #include "UnityCG.cginc"
+  
+        sampler2D _MainTex;
+        fixed4 _TintColor;
+        
+        struct appdata_t {
+          float4 vertex : POSITION;
+          fixed4 color : COLOR;
+          float2 texcoord : TEXCOORD0;
+        };
+  
+        struct v2f {
+          float4 vertex : POSITION;
+          fixed4 color : COLOR;
+          float2 texcoord : TEXCOORD0;
+          #ifdef SOFTPARTICLES_ON
+          float4 projPos : TEXCOORD1;
+          #endif
+        };
+        
+        float4 _MainTex_ST;
+        
+        v2f vert (appdata_t v)
+        {
+          v2f o;
+          o.vertex = UnityObjectToClipPos(v.vertex);
+          #ifdef SOFTPARTICLES_ON
+          o.projPos = ComputeScreenPos (o.vertex);
+          COMPUTE_EYEDEPTH(o.projPos.z);
+          #endif
+          o.color = v.color;
+          o.texcoord = TRANSFORM_TEX(v.texcoord,_MainTex);
+          return o;
+        }
+  
+        sampler2D _CameraDepthTexture;
+        float _InvFade;
+        
+        fixed4 frag (v2f i) : COLOR
+        {
+          #ifdef SOFTPARTICLES_ON
+          float sceneZ = LinearEyeDepth (UNITY_SAMPLE_DEPTH(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos))));
+          float partZ = i.projPos.z;
+          float fade = saturate (_InvFade * (sceneZ-partZ));
+          i.color.a *= fade;
+          #endif
+          
+          return 2.0 * i.color * _TintColor * (tex2D(_MainTex, i.texcoord).a * i.color.a * 2.0);
+        }
+        ENDCG 
+      }
+    } 	
+    
+    // ---- Dual texture cards
+    SubShader {
+      Pass {
+        SetTexture [_MainTex] {
+          constantColor [_TintColor]
+          combine constant * primary
+        }
+        SetTexture [_MainTex] {
+          combine texture alpha * previous DOUBLE
+        }
+      }
+    }
+    
+    // ---- Single texture cards (does not do color tint)
+    SubShader {
+      Pass {
+        SetTexture [_MainTex] {
+          combine texture alpha * primary
+        }
+      }
+    }
   }
-  Blend One One
-Program "vp" {
-SubProgram "gles " {
-Keywords { "SOFTPARTICLES_OFF" }
-"!!GLES
-
-
-#ifdef VERTEX
-
-attribute vec4 _glesVertex;
-attribute vec4 _glesColor;
-attribute vec4 _glesMultiTexCoord0;
-uniform highp mat4 glstate_matrix_mvp;
-uniform highp vec4 _MainTex_ST;
-varying lowp vec4 xlv_COLOR;
-varying highp vec2 xlv_TEXCOORD0;
-void main ()
-{
-  gl_Position = (glstate_matrix_mvp * _glesVertex);
-  xlv_COLOR = _glesColor;
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-uniform sampler2D _MainTex;
-uniform lowp vec4 _TintColor;
-varying lowp vec4 xlv_COLOR;
-varying highp vec2 xlv_TEXCOORD0;
-void main ()
-{
-  lowp vec4 tmpvar_1;
-  tmpvar_1 = (((2.0 * xlv_COLOR) * _TintColor) * ((texture2D (_MainTex, xlv_TEXCOORD0).w * xlv_COLOR.w) * 2.0));
-  gl_FragData[0] = tmpvar_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles3 " {
-Keywords { "SOFTPARTICLES_OFF" }
-"!!GLES3#version 300 es
-
-
-#ifdef VERTEX
-
-
-in vec4 _glesVertex;
-in vec4 _glesColor;
-in vec4 _glesMultiTexCoord0;
-uniform highp mat4 glstate_matrix_mvp;
-uniform highp vec4 _MainTex_ST;
-out lowp vec4 xlv_COLOR;
-out highp vec2 xlv_TEXCOORD0;
-void main ()
-{
-  gl_Position = (glstate_matrix_mvp * _glesVertex);
-  xlv_COLOR = _glesColor;
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-
-layout(location=0) out mediump vec4 _glesFragData[4];
-uniform sampler2D _MainTex;
-uniform lowp vec4 _TintColor;
-in lowp vec4 xlv_COLOR;
-in highp vec2 xlv_TEXCOORD0;
-void main ()
-{
-  lowp vec4 tmpvar_1;
-  tmpvar_1 = (((2.0 * xlv_COLOR) * _TintColor) * ((texture (_MainTex, xlv_TEXCOORD0).w * xlv_COLOR.w) * 2.0));
-  _glesFragData[0] = tmpvar_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "SOFTPARTICLES_ON" }
-"!!GLES
-
-
-#ifdef VERTEX
-
-attribute vec4 _glesVertex;
-attribute vec4 _glesColor;
-attribute vec4 _glesMultiTexCoord0;
-uniform highp vec4 _ProjectionParams;
-uniform highp mat4 glstate_matrix_mvp;
-uniform highp mat4 glstate_matrix_modelview0;
-uniform highp vec4 _MainTex_ST;
-varying lowp vec4 xlv_COLOR;
-varying highp vec2 xlv_TEXCOORD0;
-varying highp vec4 xlv_TEXCOORD1;
-void main ()
-{
-  highp vec4 tmpvar_1;
-  highp vec4 tmpvar_2;
-  tmpvar_2 = (glstate_matrix_mvp * _glesVertex);
-  highp vec4 o_3;
-  highp vec4 tmpvar_4;
-  tmpvar_4 = (tmpvar_2 * 0.5);
-  highp vec2 tmpvar_5;
-  tmpvar_5.x = tmpvar_4.x;
-  tmpvar_5.y = (tmpvar_4.y * _ProjectionParams.x);
-  o_3.xy = (tmpvar_5 + tmpvar_4.w);
-  o_3.zw = tmpvar_2.zw;
-  tmpvar_1.xyw = o_3.xyw;
-  tmpvar_1.z = -((glstate_matrix_modelview0 * _glesVertex).z);
-  gl_Position = tmpvar_2;
-  xlv_COLOR = _glesColor;
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_TEXCOORD1 = tmpvar_1;
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-uniform highp vec4 _ZBufferParams;
-uniform sampler2D _MainTex;
-uniform lowp vec4 _TintColor;
-uniform sampler2D _CameraDepthTexture;
-uniform highp float _InvFade;
-varying lowp vec4 xlv_COLOR;
-varying highp vec2 xlv_TEXCOORD0;
-varying highp vec4 xlv_TEXCOORD1;
-void main ()
-{
-  lowp vec4 tmpvar_1;
-  tmpvar_1.xyz = xlv_COLOR.xyz;
-  lowp vec4 tmpvar_2;
-  tmpvar_2 = texture2DProj (_CameraDepthTexture, xlv_TEXCOORD1);
-  highp float z_3;
-  z_3 = tmpvar_2.x;
-  highp float tmpvar_4;
-  tmpvar_4 = (xlv_COLOR.w * clamp ((_InvFade * 
-    ((1.0/(((_ZBufferParams.z * z_3) + _ZBufferParams.w))) - xlv_TEXCOORD1.z)
-  ), 0.0, 1.0));
-  tmpvar_1.w = tmpvar_4;
-  lowp vec4 tmpvar_5;
-  tmpvar_5 = (((2.0 * tmpvar_1) * _TintColor) * ((texture2D (_MainTex, xlv_TEXCOORD0).w * tmpvar_1.w) * 2.0));
-  gl_FragData[0] = tmpvar_5;
-}
-
-
-
-#endif"
-}
-SubProgram "gles3 " {
-Keywords { "SOFTPARTICLES_ON" }
-"!!GLES3#version 300 es
-
-
-#ifdef VERTEX
-
-
-in vec4 _glesVertex;
-in vec4 _glesColor;
-in vec4 _glesMultiTexCoord0;
-uniform highp vec4 _ProjectionParams;
-uniform highp mat4 glstate_matrix_mvp;
-uniform highp mat4 glstate_matrix_modelview0;
-uniform highp vec4 _MainTex_ST;
-out lowp vec4 xlv_COLOR;
-out highp vec2 xlv_TEXCOORD0;
-out highp vec4 xlv_TEXCOORD1;
-void main ()
-{
-  highp vec4 tmpvar_1;
-  highp vec4 tmpvar_2;
-  tmpvar_2 = (glstate_matrix_mvp * _glesVertex);
-  highp vec4 o_3;
-  highp vec4 tmpvar_4;
-  tmpvar_4 = (tmpvar_2 * 0.5);
-  highp vec2 tmpvar_5;
-  tmpvar_5.x = tmpvar_4.x;
-  tmpvar_5.y = (tmpvar_4.y * _ProjectionParams.x);
-  o_3.xy = (tmpvar_5 + tmpvar_4.w);
-  o_3.zw = tmpvar_2.zw;
-  tmpvar_1.xyw = o_3.xyw;
-  tmpvar_1.z = -((glstate_matrix_modelview0 * _glesVertex).z);
-  gl_Position = tmpvar_2;
-  xlv_COLOR = _glesColor;
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_TEXCOORD1 = tmpvar_1;
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-
-layout(location=0) out mediump vec4 _glesFragData[4];
-uniform highp vec4 _ZBufferParams;
-uniform sampler2D _MainTex;
-uniform lowp vec4 _TintColor;
-uniform sampler2D _CameraDepthTexture;
-uniform highp float _InvFade;
-in lowp vec4 xlv_COLOR;
-in highp vec2 xlv_TEXCOORD0;
-in highp vec4 xlv_TEXCOORD1;
-void main ()
-{
-  lowp vec4 tmpvar_1;
-  tmpvar_1.xyz = xlv_COLOR.xyz;
-  lowp vec4 tmpvar_2;
-  tmpvar_2 = textureProj (_CameraDepthTexture, xlv_TEXCOORD1);
-  highp float z_3;
-  z_3 = tmpvar_2.x;
-  highp float tmpvar_4;
-  tmpvar_4 = (xlv_COLOR.w * clamp ((_InvFade * 
-    ((1.0/(((_ZBufferParams.z * z_3) + _ZBufferParams.w))) - xlv_TEXCOORD1.z)
-  ), 0.0, 1.0));
-  tmpvar_1.w = tmpvar_4;
-  lowp vec4 tmpvar_5;
-  tmpvar_5 = (((2.0 * tmpvar_1) * _TintColor) * ((texture (_MainTex, xlv_TEXCOORD0).w * tmpvar_1.w) * 2.0));
-  _glesFragData[0] = tmpvar_5;
-}
-
-
-
-#endif"
-}
-}
-Program "fp" {
-SubProgram "gles " {
-Keywords { "SOFTPARTICLES_OFF" }
-"!!GLES"
-}
-SubProgram "gles3 " {
-Keywords { "SOFTPARTICLES_OFF" }
-"!!GLES3"
-}
-SubProgram "gles " {
-Keywords { "SOFTPARTICLES_ON" }
-"!!GLES"
-}
-SubProgram "gles3 " {
-Keywords { "SOFTPARTICLES_ON" }
-"!!GLES3"
-}
-}
- }
-}
-SubShader { 
- Tags { "QUEUE"="Transparent" "IGNOREPROJECTOR"="true" "RenderType"="Transparent" }
- Pass {
-  Tags { "QUEUE"="Transparent" "IGNOREPROJECTOR"="true" "RenderType"="Transparent" }
-  BindChannels {
-   Bind "vertex", Vertex
-   Bind "color", Color
-   Bind "texcoord", TexCoord
   }
-  ZWrite Off
-  Cull Off
-  Fog {
-   Color (0,0,0,0)
-  }
-  Blend One One
-  SetTexture [_MainTex] { ConstantColor [_TintColor] combine constant * primary }
-  SetTexture [_MainTex] { combine texture alpha * previous double }
- }
-}
-SubShader { 
- Tags { "QUEUE"="Transparent" "IGNOREPROJECTOR"="true" "RenderType"="Transparent" }
- Pass {
-  Tags { "QUEUE"="Transparent" "IGNOREPROJECTOR"="true" "RenderType"="Transparent" }
-  BindChannels {
-   Bind "vertex", Vertex
-   Bind "color", Color
-   Bind "texcoord", TexCoord
-  }
-  ZWrite Off
-  Cull Off
-  Fog {
-   Color (0,0,0,0)
-  }
-  Blend One One
-  SetTexture [_MainTex] { combine texture alpha * primary }
- }
-}
-}

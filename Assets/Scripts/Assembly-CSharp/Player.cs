@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Player
 {
@@ -545,7 +546,7 @@ public class Player
 			powerObj[1].SetActiveRecursively(false);
 			Color color = new Color(0f, 0f, 0f, 1f);
 			color.b = 1f;
-			powerObj[1].renderer.material.SetColor("_TintColor", color);
+			powerObj[1].GetComponent<Renderer>().material.SetColor("_TintColor", color);
 		}
 		if (playerSkill.GetSkill(SkillsType.DEFENCE_UP) > 0f)
 		{
@@ -554,7 +555,7 @@ public class Player
 			powerObj[2].SetActiveRecursively(false);
 			Color color2 = new Color(0f, 0f, 0f, 1f);
 			color2.g = 1f;
-			powerObj[2].renderer.material.SetColor("_TintColor", color2);
+			powerObj[2].GetComponent<Renderer>().material.SetColor("_TintColor", color2);
 		}
 		if (playerSkill.GetSkill(SkillsType.ANDROMEDA_UP) > 0f)
 		{
@@ -564,7 +565,7 @@ public class Player
 			Color color3 = new Color(0f, 0f, 0f, 1f);
 			color3.r = 1f;
 			color3.b = 1f;
-			powerObj[3].renderer.material.SetColor("_TintColor", color3);
+			powerObj[3].GetComponent<Renderer>().material.SetColor("_TintColor", color3);
 		}
 		if (playerSkill.GetSkill(SkillsType.HEALTH_STEAL) > 0f)
 		{
@@ -574,7 +575,7 @@ public class Player
 			Color color4 = new Color(0f, 0f, 0f, 1f);
 			color4.r = 1f;
 			color4.b = 1f;
-			powerObj[4].renderer.material.SetColor("_TintColor", color4);
+			powerObj[4].GetComponent<Renderer>().material.SetColor("_TintColor", color4);
 		}
 		if (playerSkill.GetSkill(SkillsType.ATTACK_SHIELD) > 0f)
 		{
@@ -641,7 +642,7 @@ public class Player
 		chuangsongObj.transform.position = playerTransform.position + Vector3.up;
 		chuangsongObj.transform.parent = playerTransform;
 		chuangsongObj.SetActiveRecursively(false);
-		Transform transform2 = playerTransform.FindChild(BoneName.Bag).FindChild("Bag");
+		Transform transform2 = playerTransform.Find(BoneName.Bag).Find("Bag");
 		FlyBagAnimationScript component = transform2.GetComponent<FlyBagAnimationScript>();
 		if (component != null)
 		{
@@ -754,7 +755,7 @@ public class Player
 				{
 					color.g = 1f;
 				}
-				itemAssistEffectObj.renderer.material.SetColor("_TintColor", color);
+				itemAssistEffectObj.GetComponent<Renderer>().material.SetColor("_TintColor", color);
 				lastAssistItemCount = assistItems.Count;
 			}
 		}
@@ -834,7 +835,7 @@ public class Player
 			gameObject2.name = "teamsign";
 			gameObject2.transform.parent = playerTransform;
 		}
-		Renderer renderer = gameObject2.renderer;
+		Renderer renderer = gameObject2.GetComponent<Renderer>();
 		Color white = Color.white;
 		if (GameApp.GetInstance().GetGameMode().IsTeamMode())
 		{
@@ -853,17 +854,17 @@ public class Player
 
 	public void PlayTeleportAnimation()
 	{
-		chuangsongObj.animation.Stop();
+		chuangsongObj.GetComponent<Animation>().Stop();
 		chuangsongObj.SetActiveRecursively(true);
-		chuangsongObj.animation["Take 001"].wrapMode = WrapMode.ClampForever;
-		chuangsongObj.animation.Play("Take 001");
+		chuangsongObj.GetComponent<Animation>()["Take 001"].wrapMode = WrapMode.ClampForever;
+		chuangsongObj.GetComponent<Animation>().Play("Take 001");
 	}
 
 	public bool TeleportAnimationEnds()
 	{
 		if (GameApp.GetInstance().GetGameWorld().State == GameState.SwitchBossLevel)
 		{
-			if (chuangsongObj.animation["Take 001"].time >= chuangsongObj.animation["Take 001"].clip.length * 0.5f && teleportStartFadeTime < 0f)
+			if (chuangsongObj.GetComponent<Animation>()["Take 001"].time >= chuangsongObj.GetComponent<Animation>()["Take 001"].clip.length * 0.5f && teleportStartFadeTime < 0f)
 			{
 				ActivatePlayer(false);
 				EnableTeleportEffect(true);
@@ -898,14 +899,14 @@ public class Player
 	{
 		if (!bEnable)
 		{
-			playerTransform.FindChild("body").renderer.enabled = false;
-			playerTransform.FindChild("head").renderer.enabled = false;
-			playerTransform.FindChild("hand").renderer.enabled = false;
-			playerTransform.FindChild("foot").renderer.enabled = false;
-			Transform transform = playerTransform.FindChild(BoneName.Bag + "/Bag");
-			if (transform.renderer != null)
+			playerTransform.Find("body").GetComponent<Renderer>().enabled = false;
+			playerTransform.Find("head").GetComponent<Renderer>().enabled = false;
+			playerTransform.Find("hand").GetComponent<Renderer>().enabled = false;
+			playerTransform.Find("foot").GetComponent<Renderer>().enabled = false;
+			Transform transform = playerTransform.Find(BoneName.Bag + "/Bag");
+			if (transform.GetComponent<Renderer>() != null)
 			{
-				transform.renderer.enabled = false;
+				transform.GetComponent<Renderer>().enabled = false;
 			}
 			else
 			{
@@ -918,14 +919,14 @@ public class Player
 			weapon.EnableGunObject(false);
 			return;
 		}
-		playerTransform.FindChild("body").renderer.enabled = true;
-		playerTransform.FindChild("head").renderer.enabled = true;
-		playerTransform.FindChild("hand").renderer.enabled = true;
-		playerTransform.FindChild("foot").renderer.enabled = true;
-		Transform transform2 = playerTransform.FindChild(BoneName.Bag + "/Bag");
-		if (transform2.renderer != null)
+		playerTransform.Find("body").GetComponent<Renderer>().enabled = true;
+		playerTransform.Find("head").GetComponent<Renderer>().enabled = true;
+		playerTransform.Find("hand").GetComponent<Renderer>().enabled = true;
+		playerTransform.Find("foot").GetComponent<Renderer>().enabled = true;
+		Transform transform2 = playerTransform.Find(BoneName.Bag + "/Bag");
+		if (transform2.GetComponent<Renderer>() != null)
 		{
-			transform2.renderer.enabled = true;
+			transform2.GetComponent<Renderer>().enabled = true;
 		}
 		else
 		{
@@ -1051,7 +1052,7 @@ public class Player
 				return;
 			}
 			bagUVOffsetScript.enabled = false;
-			bagUVOffsetScript.renderer.material.SetTextureOffset("_tex2", new Vector2(0.66f, 0.66f));
+			bagUVOffsetScript.GetComponent<Renderer>().material.SetTextureOffset("_tex2", new Vector2(0.66f, 0.66f));
 		}
 	}
 
@@ -1187,56 +1188,56 @@ public class Player
 
 	public virtual bool IsPlayingAnimation(string name)
 	{
-		return playerObj.animation.IsPlaying(name);
+		return playerObj.GetComponent<Animation>().IsPlaying(name);
 	}
 
 	public virtual void PlayAnimation(string name, WrapMode mode)
 	{
-		if (!playerObj.animation.IsPlaying(name) || mode != WrapMode.ClampForever || AnimationPlayed(name, 1f))
+		if (!playerObj.GetComponent<Animation>().IsPlaying(name) || mode != WrapMode.ClampForever || AnimationPlayed(name, 1f))
 		{
-			playerObj.animation[name].wrapMode = mode;
-			playerObj.animation.CrossFade(name, 0.2f);
+			playerObj.GetComponent<Animation>()[name].wrapMode = mode;
+			playerObj.GetComponent<Animation>().CrossFade(name, 0.2f);
 		}
 	}
 
 	public virtual void PlayAnimationWithoutBlend(string name, WrapMode mode)
 	{
-		if (!playerObj.animation.IsPlaying(name) || mode != WrapMode.ClampForever || AnimationPlayed(name, 1f))
+		if (!playerObj.GetComponent<Animation>().IsPlaying(name) || mode != WrapMode.ClampForever || AnimationPlayed(name, 1f))
 		{
-			playerObj.animation[name].wrapMode = mode;
-			playerObj.animation.Play(name);
+			playerObj.GetComponent<Animation>()[name].wrapMode = mode;
+			playerObj.GetComponent<Animation>().Play(name);
 		}
 	}
 
 	public virtual void PlayAnimationAllLayers(string name, WrapMode mode)
 	{
-		if (!playerObj.animation.IsPlaying(name) || mode != WrapMode.ClampForever)
+		if (!playerObj.GetComponent<Animation>().IsPlaying(name) || mode != WrapMode.ClampForever)
 		{
-			playerObj.animation[name].wrapMode = mode;
-			playerObj.animation.CrossFade(name, 0.1f, PlayMode.StopAll);
+			playerObj.GetComponent<Animation>()[name].wrapMode = mode;
+			playerObj.GetComponent<Animation>().CrossFade(name, 0.1f, PlayMode.StopAll);
 		}
 	}
 
 	public virtual void StopAnimation(string name)
 	{
-		playerObj.animation.Stop(name);
+		playerObj.GetComponent<Animation>().Stop(name);
 	}
 
 	public bool AnimationPlayed(string name, float percent)
 	{
-		if (playerObj.animation[name] == null)
+		if (playerObj.GetComponent<Animation>()[name] == null)
 		{
 			return false;
 		}
-		if (playerObj.animation[name].speed >= 0f)
+		if (playerObj.GetComponent<Animation>()[name].speed >= 0f)
 		{
-			if (playerObj.animation[name].time >= playerObj.animation[name].clip.length * percent)
+			if (playerObj.GetComponent<Animation>()[name].time >= playerObj.GetComponent<Animation>()[name].clip.length * percent)
 			{
 				return true;
 			}
 			return false;
 		}
-		if (playerObj.animation[name].time <= playerObj.animation[name].clip.length * (1f - percent))
+		if (playerObj.GetComponent<Animation>()[name].time <= playerObj.GetComponent<Animation>()[name].clip.length * (1f - percent))
 		{
 			return true;
 		}
@@ -1245,21 +1246,21 @@ public class Player
 
 	public bool AnimationPlayedLoop(string name, float percent)
 	{
-		int num = (int)(playerObj.animation[name].time / playerObj.animation[name].clip.length);
-		float num2 = playerObj.animation[name].time - playerObj.animation[name].clip.length * (float)num;
-		if (playerObj.animation[name] == null)
+		int num = (int)(playerObj.GetComponent<Animation>()[name].time / playerObj.GetComponent<Animation>()[name].clip.length);
+		float num2 = playerObj.GetComponent<Animation>()[name].time - playerObj.GetComponent<Animation>()[name].clip.length * (float)num;
+		if (playerObj.GetComponent<Animation>()[name] == null)
 		{
 			return false;
 		}
-		if (playerObj.animation[name].speed >= 0f)
+		if (playerObj.GetComponent<Animation>()[name].speed >= 0f)
 		{
-			if (num2 >= playerObj.animation[name].clip.length * percent)
+			if (num2 >= playerObj.GetComponent<Animation>()[name].clip.length * percent)
 			{
 				return true;
 			}
 			return false;
 		}
-		if (num2 <= playerObj.animation[name].clip.length * (1f - percent))
+		if (num2 <= playerObj.GetComponent<Animation>()[name].clip.length * (1f - percent))
 		{
 			return true;
 		}
@@ -1330,37 +1331,37 @@ public class Player
 
 	public void AddMixingTransformAnimation(string weaponSuffix)
 	{
-		if (playerObj.animation[AnimationString.RunAttack + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.RunAttack + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.RunAttack + weaponSuffix].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.RunAttack + weaponSuffix].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
 		}
-		if (playerObj.animation[AnimationString.FlyAttack + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyAttack + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.FlyAttack + weaponSuffix].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.FlyAttack + weaponSuffix].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
 		}
-		if (playerObj.animation[AnimationString.FlyIdle + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyIdle + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.FlyIdle + weaponSuffix].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.FlyIdle + weaponSuffix].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
 		}
-		if (playerObj.animation[AnimationString.Fly + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.Fly + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.Fly + weaponSuffix].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.Fly + weaponSuffix].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
 		}
 	}
 
 	public void SetLowerBodyAnimation(string weaponSuffix, int layer)
 	{
-		if (playerObj.animation[AnimationString.Run + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.Run + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.Run + weaponSuffix].layer = layer;
+			playerObj.GetComponent<Animation>()[AnimationString.Run + weaponSuffix].layer = layer;
 		}
-		if (playerObj.animation[AnimationString.Idle + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.Idle + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.Idle + weaponSuffix].layer = layer;
+			playerObj.GetComponent<Animation>()[AnimationString.Idle + weaponSuffix].layer = layer;
 		}
-		if (playerObj.animation[AnimationString.Attack + weaponSuffix] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.Attack + weaponSuffix] != null)
 		{
-			playerObj.animation[AnimationString.Attack + weaponSuffix].layer = layer;
+			playerObj.GetComponent<Animation>()[AnimationString.Attack + weaponSuffix].layer = layer;
 		}
 	}
 
@@ -1368,30 +1369,30 @@ public class Player
 	{
 		playerObj = obj;
 		playerTransform = obj.transform;
-		cc = playerObj.collider as CharacterController;
-		if (playerObj.animation[AnimationString.FlyIdle] != null)
+		cc = playerObj.GetComponent<Collider>() as CharacterController;
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyIdle] != null)
 		{
-			playerObj.animation[AnimationString.FlyIdle].layer = -1;
+			playerObj.GetComponent<Animation>()[AnimationString.FlyIdle].layer = -1;
 		}
-		if (playerObj.animation["fly_stand_shoot_jian_lower"] != null)
+		if (playerObj.GetComponent<Animation>()["fly_stand_shoot_jian_lower"] != null)
 		{
-			playerObj.animation["fly_stand_shoot_jian_lower"].layer = -1;
+			playerObj.GetComponent<Animation>()["fly_stand_shoot_jian_lower"].layer = -1;
 		}
-		if (playerObj.animation[AnimationString.FlyForward] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyForward] != null)
 		{
-			playerObj.animation[AnimationString.FlyForward].layer = -1;
+			playerObj.GetComponent<Animation>()[AnimationString.FlyForward].layer = -1;
 		}
-		if (playerObj.animation[AnimationString.FlyBack] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyBack] != null)
 		{
-			playerObj.animation[AnimationString.FlyBack].layer = -1;
+			playerObj.GetComponent<Animation>()[AnimationString.FlyBack].layer = -1;
 		}
-		if (playerObj.animation[AnimationString.FlyLeft] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyLeft] != null)
 		{
-			playerObj.animation[AnimationString.FlyLeft].layer = -1;
+			playerObj.GetComponent<Animation>()[AnimationString.FlyLeft].layer = -1;
 		}
-		if (playerObj.animation[AnimationString.FlyRight] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyRight] != null)
 		{
-			playerObj.animation[AnimationString.FlyRight].layer = -1;
+			playerObj.GetComponent<Animation>()[AnimationString.FlyRight].layer = -1;
 		}
 		SetLowerBodyAnimation("_rifle", -1);
 		SetLowerBodyAnimation("_shotgun", -1);
@@ -1411,13 +1412,13 @@ public class Player
 		AddMixingTransformAnimation("_bow");
 		AddMixingTransformAnimation("_fist");
 		AddMixingTransformAnimation("_Sniper");
-		if (playerObj.animation[AnimationString.FlyRunAttack + "_machinegun"] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyRunAttack + "_machinegun"] != null)
 		{
-			playerObj.animation[AnimationString.FlyRunAttack + "_machinegun"].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.FlyRunAttack + "_machinegun"].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
 		}
-		if (playerObj.animation[AnimationString.FlyRunAttack + "_jian"] != null)
+		if (playerObj.GetComponent<Animation>()[AnimationString.FlyRunAttack + "_jian"] != null)
 		{
-			playerObj.animation[AnimationString.FlyRunAttack + "_jian"].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
+			playerObj.GetComponent<Animation>()[AnimationString.FlyRunAttack + "_jian"].AddMixingTransform(playerTransform.Find(BoneName.UpperBody));
 		}
 		if (GetSkills().GetSkill(SkillsType.FLY) > 0f)
 		{
@@ -1456,7 +1457,7 @@ public class Player
 		GetTransform().rotation = array[seatID].transform.rotation;
 		if (IsLocal())
 		{
-			ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+			ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 			if (null != component)
 			{
 				component.AngelH = array[seatID].transform.rotation.eulerAngles.y;
@@ -1473,7 +1474,7 @@ public class Player
 		GetTransform().rotation = gameObject.transform.rotation;
 		if (IsLocal())
 		{
-			ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+			ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 			if (null != component)
 			{
 				component.AngelH = gameObject.transform.rotation.eulerAngles.y;
@@ -1485,11 +1486,11 @@ public class Player
 
 	public void ReSpawnAtPoint(int index)
 	{
-		playerObj.animation.Stop();
+		playerObj.GetComponent<Animation>().Stop();
 		if (IsLocal())
 		{
-			Transform transform = Camera.mainCamera.transform.Find("Screen_DeadBlood");
-			transform.renderer.enabled = false;
+			Transform transform = Camera.main.transform.Find("Screen_DeadBlood");
+			transform.GetComponent<Renderer>().enabled = false;
 			GameApp.GetInstance().GetGameWorld().State = GameState.Playing;
 		}
 		GameObject[] array = GameObject.FindGameObjectsWithTag(TagName.RESPAWN);
@@ -1500,7 +1501,7 @@ public class Player
 		SendingRebirthRequest = false;
 		if (IsLocal())
 		{
-			ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+			ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 			if (null != component)
 			{
 				component.AngelH = array[index].transform.rotation.eulerAngles.y;
@@ -1619,7 +1620,7 @@ public class Player
 		{
 			if (IsLocal())
 			{
-				Transform transform = Camera.mainCamera.transform.Find("Screen_Blood");
+				Transform transform = Camera.main.transform.Find("Screen_Blood");
 				if (transform != null)
 				{
 					transform.localScale = new Vector3(2.4f * (float)Screen.width / (float)Screen.height, 2.4f, 1f);
@@ -1661,7 +1662,7 @@ public class Player
 			{
 				AudioManager.GetInstance().PlaySound("Audio/playerGotHit");
 			}
-			Transform transform = Camera.mainCamera.transform.Find("Screen_Blood");
+			Transform transform = Camera.main.transform.Find("Screen_Blood");
 			if (transform != null)
 			{
 				transform.localScale = new Vector3(2.4f * (float)Screen.width / (float)Screen.height, 2.4f, 1f);
@@ -2033,7 +2034,7 @@ public class Player
 	{
 		if (mGravityForceBallObj == null)
 		{
-			Transform transform = playerTransform.FindChild("GravityForceBall");
+			Transform transform = playerTransform.Find("GravityForceBall");
 			if (transform != null)
 			{
 				mGravityForceBallObj = transform.gameObject;
@@ -2052,7 +2053,7 @@ public class Player
 		mGravityForceBallObj.SetActive(true);
 		if (mGravityForceBeamObj == null)
 		{
-			Transform transform2 = playerTransform.FindChild("GravityForceBeam");
+			Transform transform2 = playerTransform.Find("GravityForceBeam");
 			if (transform2 != null)
 			{
 				mGravityForceBeamObj = transform2.gameObject;
@@ -2076,7 +2077,7 @@ public class Player
 	{
 		if (mGravityForceBallObj == null)
 		{
-			Transform transform = playerTransform.FindChild("GravityForceBall");
+			Transform transform = playerTransform.Find("GravityForceBall");
 			if (transform != null)
 			{
 				mGravityForceBallObj = transform.gameObject;
@@ -2088,7 +2089,7 @@ public class Player
 		}
 		if (mGravityForceBeamObj == null)
 		{
-			Transform transform2 = playerTransform.FindChild("GravityForceBeam");
+			Transform transform2 = playerTransform.Find("GravityForceBeam");
 			if (transform2 != null)
 			{
 				mGravityForceBeamObj = transform2.gameObject;

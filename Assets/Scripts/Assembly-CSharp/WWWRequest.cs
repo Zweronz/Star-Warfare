@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public abstract class WWWRequest
 {
@@ -132,7 +134,7 @@ public abstract class WWWRequest
 			throw new NotSupportedException();
 		}
 
-		private void _003C_003E__Finally0()
+		public void _003C_003E__Finally0()
 		{
 			if (_003Cwww_003E__0 != null)
 			{
@@ -206,7 +208,7 @@ public abstract class WWWRequest
 		}
 		finally
 		{
-			((_003CSend_003Ec__Iterator12)this)._003C_003E__Finally0();
+			((_003CSend_003Ec__Iterator12)(object)this)._003C_003E__Finally0();
 		}
 	}
 

@@ -35,10 +35,10 @@ public class SniperFirelineScript : MonoBehaviour
 			base.transform.localScale = new Vector3(base.transform.localScale.x, base.transform.localScale.y, base.transform.localScale.z + 8f * Time.deltaTime);
 			return;
 		}
-		Color color = base.renderer.material.GetColor("_TintColor");
+		Color color = base.GetComponent<Renderer>().material.GetColor("_TintColor");
 		float num2 = Time.time - grownTime;
 		color.a = 1f - num2 / destroyTime * (num2 / destroyTime);
-		base.renderer.material.SetColor("_TintColor", color);
+		base.GetComponent<Renderer>().material.SetColor("_TintColor", color);
 		if (Time.time - grownTime > destroyTime)
 		{
 			Object.Destroy(base.gameObject);

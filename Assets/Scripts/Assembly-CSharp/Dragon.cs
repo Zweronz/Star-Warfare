@@ -464,20 +464,20 @@ public class Dragon : EnemyBoss
 	public override void Init(GameObject gObject)
 	{
 		base.Init(gObject);
-		animation = enemyObject.transform.FindChild("Dragon").animation;
+		animation = enemyObject.transform.Find("Dragon").GetComponent<Animation>();
 		animation.wrapMode = WrapMode.Loop;
-		mouthFire = enemyObject.transform.FindChild(BoneName.DragonMouth).FindChild("dragonball_fire0").gameObject;
-		bipObject = enemyObject.transform.FindChild(BoneName.DragonBip02).gameObject;
-		bodyCollider = bipObject.collider;
-		flyBodyCollider = enemyObject.transform.FindChild(BoneName.Dragon).gameObject.collider;
-		headCollider = enemyObject.transform.FindChild(BoneName.DragonHead).gameObject.collider;
-		flyMouthFireCollider = enemyObject.transform.FindChild(BoneName.DragonFire).gameObject.collider;
+		mouthFire = enemyObject.transform.Find(BoneName.DragonMouth).Find("dragonball_fire0").gameObject;
+		bipObject = enemyObject.transform.Find(BoneName.DragonBip02).gameObject;
+		bodyCollider = bipObject.GetComponent<Collider>();
+		flyBodyCollider = enemyObject.transform.Find(BoneName.Dragon).gameObject.GetComponent<Collider>();
+		headCollider = enemyObject.transform.Find(BoneName.DragonHead).gameObject.GetComponent<Collider>();
+		flyMouthFireCollider = enemyObject.transform.Find(BoneName.DragonFire).gameObject.GetComponent<Collider>();
 		trails = new GameObject[1];
 		GameObject original = Resources.Load("Effect/Dragon/dragon_trail") as GameObject;
 		Vector3 position = new Vector3(enemyTransform.position.x, 0.5f, enemyTransform.position.z);
 		trails[0] = Object.Instantiate(original, position, Quaternion.identity) as GameObject;
-		leftArmTrail = enemyObject.transform.FindChild(BoneName.DragonLeftTeeth).FindChild("Trail").gameObject;
-		rightArmTrail = enemyObject.transform.FindChild(BoneName.DragonRightTeeth).FindChild("Trail").gameObject;
+		leftArmTrail = enemyObject.transform.Find(BoneName.DragonLeftTeeth).Find("Trail").gameObject;
+		rightArmTrail = enemyObject.transform.Find(BoneName.DragonRightTeeth).Find("Trail").gameObject;
 		dragonBigFlyAudioTimer.SetTimer(1f, false);
 		dragonSmallFlyAudioTimer.SetTimer(0.4f, false);
 		walkAudioTimer.SetTimer(0.6f, false);
@@ -510,7 +510,7 @@ public class Dragon : EnemyBoss
 	public void Fly()
 	{
 		LookAtTarget();
-		CharacterController characterController = enemyObject.collider as CharacterController;
+		CharacterController characterController = enemyObject.GetComponent<Collider>() as CharacterController;
 		if (characterController != null)
 		{
 			Vector3 vector = enemyTransform.forward * flySpeed;
@@ -658,7 +658,7 @@ public class Dragon : EnemyBoss
 	public void FlyShot()
 	{
 		GameObject original = Resources.Load("Effect/Dragonball") as GameObject;
-		Vector3 position = enemyTransform.FindChild(BoneName.DragonMouth).position;
+		Vector3 position = enemyTransform.Find(BoneName.DragonMouth).position;
 		GameObject gameObject = Object.Instantiate(original, position, Quaternion.identity) as GameObject;
 		Vector3 vector = new Vector3(targetToLookAt.x, (float)Global.FLOORHEIGHT + 0.1f, targetToLookAt.z);
 		EnemyShotScript component = gameObject.GetComponent<EnemyShotScript>();
@@ -682,7 +682,7 @@ public class Dragon : EnemyBoss
 	public void Shot()
 	{
 		GameObject original = Resources.Load("Effect/Dragonball") as GameObject;
-		Vector3 position = enemyTransform.FindChild(BoneName.DragonMouth).position;
+		Vector3 position = enemyTransform.Find(BoneName.DragonMouth).position;
 		for (int i = 0; i < 5; i++)
 		{
 			GameObject gameObject = Object.Instantiate(original, position, Quaternion.identity) as GameObject;

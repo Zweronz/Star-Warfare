@@ -38,7 +38,7 @@ public class FadeInAlphaAnimationScript : MonoBehaviour
 	public void FadeIn()
 	{
 		increasing = true;
-		Material[] materials = base.renderer.materials;
+		Material[] materials = base.GetComponent<Renderer>().materials;
 		Color color = new Color(1f, 1f, 1f, 1f);
 		Material[] array = materials;
 		foreach (Material material in array)
@@ -53,13 +53,13 @@ public class FadeInAlphaAnimationScript : MonoBehaviour
 		if (!(deltaTime < 0.02f))
 		{
 			Color white = Color.white;
-			white = base.renderer.material.GetColor(colorPropertyName);
+			white = base.GetComponent<Renderer>().material.GetColor(colorPropertyName);
 			if (increasing)
 			{
 				white.a -= animationSpeed * deltaTime;
 				white.a = Mathf.Clamp(white.a, minAlpha, maxAlpha);
 			}
-			Material[] materials = base.renderer.materials;
+			Material[] materials = base.GetComponent<Renderer>().materials;
 			Material[] array = materials;
 			foreach (Material material in array)
 			{

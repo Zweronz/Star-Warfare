@@ -42,11 +42,11 @@ public class SpiderSlimeScript : MonoBehaviour
 		}
 		else if (Time.time - startTime > disappearTime)
 		{
-			Color color = base.renderer.material.GetColor(colorPropertyName);
+			Color color = base.GetComponent<Renderer>().material.GetColor(colorPropertyName);
 			color.a -= Time.deltaTime;
 			if (color.a > 0f)
 			{
-				base.renderer.material.SetColor(colorPropertyName, color);
+				base.GetComponent<Renderer>().material.SetColor(colorPropertyName, color);
 			}
 			else
 			{

@@ -458,7 +458,7 @@ public class InputController
 				}
 			}
 		}
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
 		GameApp.GetInstance().GetGameWorld().GetPlayer()
 			.GetTransform()
 			.Rotate(new Vector3(0f, 0f - component.WeaponAngleH, 0f));

@@ -12,7 +12,7 @@ public class Spin : MonoBehaviour
 	private void Start()
 	{
 		mTrans = base.transform;
-		mRb = base.rigidbody;
+		mRb = base.GetComponent<Rigidbody>();
 	}
 
 	private void Update()

@@ -223,7 +223,7 @@ public class NetStatisticsUIBase : MonoBehaviour, UIHandler, IUIHandle
 			if (flag)
 			{
 				Debug.Log("post twitterImg");
-				Application.CaptureScreenshot("tempscreens.png");
+				ScreenCapture.CaptureScreenshot("tempscreens.png");
 				string pathToImage = Application.persistentDataPath + "/tempscreens.png";
 				try
 				{
@@ -245,7 +245,7 @@ public class NetStatisticsUIBase : MonoBehaviour, UIHandler, IUIHandle
 			{
 				return;
 			}
-			Application.CaptureScreenshot("tempscreens.png");
+			ScreenCapture.CaptureScreenshot("tempscreens.png");
 			bool flag2 = FacebookAndroid.isLoggedIn();
 			Debug.Log("isLoggedIn = " + flag2);
 			if (flag2)

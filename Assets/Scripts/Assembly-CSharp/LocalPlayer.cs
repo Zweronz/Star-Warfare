@@ -42,7 +42,7 @@ public class LocalPlayer : Player
 		SetUserID(Lobby.GetInstance().GetChannelID());
 		PlayAnimation(AnimationString.Run + "_rifle", WrapMode.Loop);
 		PlayAnimation(AnimationString.Idle + "_rifle", WrapMode.Loop);
-		Transform transform = playerTransform.FindChild(BoneName.Bag).FindChild("Bag");
+		Transform transform = playerTransform.Find(BoneName.Bag).Find("Bag");
 		if (transform != null)
 		{
 			transform.localPosition = Vector3.zero;
@@ -447,9 +447,9 @@ public class LocalPlayer : Player
 	public override void OnDead()
 	{
 		base.OnDead();
-		Transform transform = Camera.mainCamera.transform.Find("Screen_DeadBlood");
+		Transform transform = Camera.main.transform.Find("Screen_DeadBlood");
 		transform.localScale = new Vector3(2.4f * (float)Screen.width / (float)Screen.height, 2.4f, 1f);
-		transform.renderer.enabled = true;
+		transform.GetComponent<Renderer>().enabled = true;
 		deadAnimationTimer.SetTimer(4f, false);
 	}
 
@@ -591,8 +591,8 @@ public class LocalPlayer : Player
 	private void ImpactWave()
 	{
 		AudioManager.GetInstance().PlaySoundAt("Audio/light_sword/windblade", GetTransform().position);
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
-		Camera camera = component.camera;
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
+		Camera camera = component.GetComponent<Camera>();
 		Ray ray = default(Ray);
 		Vector3 vector = camera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 50f));
 		Vector3 normalized = (vector - camera.transform.position).normalized;
@@ -627,8 +627,8 @@ public class LocalPlayer : Player
 	private void TrackWave()
 	{
 		AudioManager.GetInstance().PlaySoundAt("Audio/light_sword/windblade", GetTransform().position);
-		ThirdPersonStandardCameraScript component = Camera.mainCamera.GetComponent<ThirdPersonStandardCameraScript>();
-		Camera camera = component.camera;
+		ThirdPersonStandardCameraScript component = Camera.main.GetComponent<ThirdPersonStandardCameraScript>();
+		Camera camera = component.GetComponent<Camera>();
 		Transform transform = camera.transform;
 		Ray ray = default(Ray);
 		Vector3 vector = camera.ScreenToWorldPoint(new Vector3(component.ReticlePosition.x, (float)Screen.height - component.ReticlePosition.y, 50f));

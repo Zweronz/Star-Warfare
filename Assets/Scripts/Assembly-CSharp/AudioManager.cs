@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
 	public static AudioManager GetInstance()
 	{
-		return Camera.mainCamera.GetComponent<AudioManager>();
+		return Camera.main.GetComponent<AudioManager>();
 	}
 
 	public AudioClip LoadMusic(string name)

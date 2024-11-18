@@ -69,9 +69,9 @@ public class AdvancedShotGun : Weapon
 
 	protected void PlayGunAnimation()
 	{
-		gun.animation["fire"].wrapMode = WrapMode.Once;
-		gun.animation["fire"].speed = 1f;
-		gun.animation.Play("fire");
+		gun.GetComponent<Animation>()["fire"].wrapMode = WrapMode.Once;
+		gun.GetComponent<Animation>()["fire"].speed = 1f;
+		gun.GetComponent<Animation>().Play("fire");
 	}
 
 	public override void GunOn()

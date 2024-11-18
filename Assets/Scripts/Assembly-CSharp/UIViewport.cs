@@ -17,7 +17,7 @@ public class UIViewport : MonoBehaviour
 
 	private void Start()
 	{
-		mCam = base.camera;
+		mCam = base.GetComponent<Camera>();
 		if (sourceCamera == null)
 		{
 			sourceCamera = Camera.main;

@@ -29,7 +29,7 @@ public class TwoUVAnimationScript : MonoBehaviour
 
 	private void Update()
 	{
-		Material[] materials = base.renderer.materials;
+		Material[] materials = base.GetComponent<Renderer>().materials;
 		if (materials.Length > 0)
 		{
 			float num = Time.time * scrollSpeed1 % 1f;
