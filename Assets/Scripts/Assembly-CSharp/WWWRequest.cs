@@ -208,7 +208,10 @@ public abstract class WWWRequest
 		}
 		finally
 		{
-			((_003CSend_003Ec__Iterator12)(object)this)._003C_003E__Finally0();
+			if (www != null)
+			{
+				www = null;
+			}
 		}
 	}
 

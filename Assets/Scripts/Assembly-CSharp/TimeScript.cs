@@ -546,7 +546,10 @@ public class TimeScript : MonoBehaviour
 		}
 		finally
 		{
-			((_003CGetLocalNotification_003Ec__Iterator13)(object)this)._003C_003E__Finally0();
+			if (www != null)
+			{
+				www = null;
+			}
 		}
 	}
 
@@ -600,7 +603,10 @@ public class TimeScript : MonoBehaviour
 		}
 		finally
 		{
-			((_003CGetSalesOff_003Ec__Iterator14)(object)this)._003C_003E__Finally0();
+			if (www != null)
+			{
+				www = null;
+			}
 		}
 	}
 

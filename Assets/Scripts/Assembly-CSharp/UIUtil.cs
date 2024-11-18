@@ -26,9 +26,9 @@ public class UIUtil
 		Shader shader2 = Shader.Find("iPhone/AlphaBlend_Color_TwoSides");
 		Shader shader3 = Shader.Find("iPhone/SolidAndAlphaTexture");
 		Shader shader4 = Shader.Find("iPhone/Additive");
-		Object original = Resources.Load("UI/lock");
-		Object original2 = Resources.Load("UI/unlock");
-		Object original3 = Resources.Load("UI/unlock1");
+		GameObject original = Resources.Load<GameObject>("UI/lock");
+		GameObject original2 = Resources.Load<GameObject>("UI/unlock");
+		GameObject original3 = Resources.Load<GameObject>("UI/unlock1");
 		if (type < 5)
 		{
 			List<Armor> list = armor[type];
@@ -107,11 +107,11 @@ public class UIUtil
 						gameObject7 = weapon.Gun.transform.GetChild(1).gameObject;
 						break;
 					}
-					GameObject gameObject8 = Object.Instantiate(original) as GameObject;
+					GameObject gameObject8 = Object.Instantiate(original);
 					gameObject8.transform.parent = weapon.Gun.transform;
-					GameObject gameObject9 = Object.Instantiate(original2) as GameObject;
+					GameObject gameObject9 = Object.Instantiate(original2);
 					gameObject9.transform.parent = weapon.Gun.transform;
-					GameObject gameObject10 = Object.Instantiate(original3) as GameObject;
+					GameObject gameObject10 = Object.Instantiate(original3);
 					gameObject10.transform.parent = weapon.Gun.transform;
 					BoxCollider boxCollider2 = gameObject7.AddComponent<BoxCollider>();
 					weapon.Center = boxCollider2.center;
