@@ -25,7 +25,7 @@ public class StaticLightmap : Editor
 		{
 			return new Dictionary<string, string>
 			{
-				{"iPhone/LightMap", "_texBase,_texLightmap"}
+				{"Optimized/Lightmap", "_texBase,_texLightmap"}
 			};
 		}
 	}
