@@ -21,13 +21,14 @@ CGPROGRAM
         };
 
         sampler2D _texBase, _texLightmap;
+        float4 _texLightmap_ST;
 
         input vert(input v)
         {
             input o;
 
             o.uv = v.uv;
-            o.lm = v.lm;
+            o.lm = v.lm * _texLightmap_ST.xy + _texLightmap_ST.zw;
 
             o.vertex = UnityObjectToClipPos(v.vertex);
 
