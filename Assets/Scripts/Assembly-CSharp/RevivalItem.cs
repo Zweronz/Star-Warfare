@@ -31,6 +31,10 @@ internal class RevivalItem : Item
 		player.Hp = (int)((float)player.MaxHp * itemEffect.GetEffect(EffectsType.HP_RECOVERY));
 		player.Hp = Mathf.Clamp(player.Hp, 0, player.MaxHp);
 		player.SetState(Player.IDLE_STATE);
+		if (!Application.isMobilePlatform)
+		{
+			Screen.lockCursor = true;
+		}
 		if (player.IsLocal())
 		{
 			Transform transform = Camera.main.transform.Find("Screen_DeadBlood");

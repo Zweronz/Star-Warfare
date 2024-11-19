@@ -1497,6 +1497,10 @@ public class Player
 		GetTransform().position = array[index].transform.position;
 		GetTransform().rotation = array[index].transform.rotation;
 		SetState(IDLE_STATE);
+		if (!Application.isMobilePlatform)
+		{
+			Screen.lockCursor = true;
+		}
 		Hp = MaxHp;
 		SendingRebirthRequest = false;
 		if (IsLocal())
