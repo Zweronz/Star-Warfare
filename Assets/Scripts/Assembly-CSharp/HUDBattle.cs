@@ -384,6 +384,10 @@ public class HUDBattle : GameUI, GameUIListener
 			{
 				AudioManager.GetInstance().PlaySound(AudioName.PAUSE);
 				mUIStateManager.FrGoToPhase(14, false, true, false);
+				if (!Application.isMobilePlatform)
+				{
+					Screen.lockCursor = false;
+				}
 			}
 			else
 			{

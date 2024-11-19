@@ -302,6 +302,10 @@ public abstract class BattleHUD : UIHandler, IUIHandle, IExitRoom
 			{
 			case 9:
 				msgUI.Hide();
+				if (!Application.isMobilePlatform)
+				{
+					Screen.lockCursor = true;
+				}
 				break;
 			case 10:
 				msgUI.Hide();

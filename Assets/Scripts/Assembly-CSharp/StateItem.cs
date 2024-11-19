@@ -125,6 +125,28 @@ public class StateItem : ComponentUI
 				}
 			}
 		}
+		if (!Application.isMobilePlatform)
+		{
+			//again idk how many items you can have so just in case
+			KeyCode[] itemKeys = new KeyCode[8]
+			{
+				KeyCode.E,
+				KeyCode.R,
+				KeyCode.T,
+				KeyCode.Y,
+				KeyCode.U,
+				KeyCode.I,
+				KeyCode.O,
+				KeyCode.P
+			};
+			for (int i = 0; i < itemKeys.Length; i++)
+			{
+				if (Input.GetKeyDown(itemKeys[i]) && mItemList.Count > i)
+				{
+					OnClickThumb(mItemList[i].Item);
+				}
+			}
+		}
 	}
 
 	protected override void OnClickThumb(GameObject go)

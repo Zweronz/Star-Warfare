@@ -63,6 +63,26 @@ public class StateSkill : ComponentUI
 				component2.enabled = true;
 			}
 		}
+		if (!Application.isMobilePlatform)
+		{
+			//I have no idea how many skills you can have
+			KeyCode[] skillKeys = new KeyCode[6]
+			{
+				KeyCode.F,
+				KeyCode.G,
+				KeyCode.H,
+				KeyCode.J,
+				KeyCode.K,
+				KeyCode.L
+			};
+			for (int i = 0; i < skillKeys.Length; i++)
+			{
+				if (Input.GetKeyDown(skillKeys[i]) && mSkillList.Count > i)
+				{
+					OnClickThumb(mSkillList[i].SkillButton);
+				}
+			}
+		}
 	}
 
 	protected override void OnClickThumb(GameObject go)

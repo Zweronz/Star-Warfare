@@ -41,6 +41,10 @@ public class UIHUDPause : GameUI, GameUIListener
 			mUIStateManager.FrGoToPhase(6, true, false, false);
 			Time.timeScale = 1f;
 			GameUIManager.GetInstance().RemoveUI(base.UIStatus);
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = true;
+			}
 			break;
 		case TouchEventID.HUD_Pause_Restart:
 		{

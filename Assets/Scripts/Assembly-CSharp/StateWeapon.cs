@@ -76,28 +76,17 @@ public class StateWeapon : ComponentUI, IUIDragListPlugin
 		if (!Application.isMobilePlatform)
 		{
 			Player player = GameApp.GetInstance().GetGameWorld().GetPlayer();
-			if (Input.GetKeyDown(KeyCode.Alpha1))
+			//9 just to be safe
+			for (int i = 0; i < 9; i++)
 			{
-				if (player.GetWeaponList().Count > 0 && GameApp.GetInstance().GetUserState().GetBagNum() != 0)
+				if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha" + (i + 1)))) 
 				{
-					ChangeWeapon(0);
-					ShowItem(0);
-				}
-			}
-			else if (Input.GetKeyDown(KeyCode.Alpha2))
-			{
-				if (player.GetWeaponList().Count > 1 && GameApp.GetInstance().GetUserState().GetBagNum() != 1)
-				{
-					ChangeWeapon(1);
-					ShowItem(1);
-				}
-			}
-			else if (Input.GetKeyDown(KeyCode.Alpha3))
-			{
-				if (player.GetWeaponList().Count > 2 && GameApp.GetInstance().GetUserState().GetBagNum() != 2)
-				{
-					ChangeWeapon(2);
-					ShowItem(2);
+					if (player.GetWeaponList().Count > i && GameApp.GetInstance().GetUserState().GetBagNum() != i)
+					{
+						ChangeWeapon(i);
+						ShowItem(i);
+						break;
+					}
 				}
 			}
 			foreach (SWUIDraggableItem mItem in mItemList)

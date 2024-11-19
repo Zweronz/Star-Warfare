@@ -203,7 +203,7 @@ public class InputController
 		bool flag = false;
 		if (Application.platform != RuntimePlatform.IPhonePlayer && Application.platform != RuntimePlatform.Android)
 		{
-			if (Input.GetButton("Fire1"))
+			if (Input.GetButton("Fire1") && Screen.lockCursor)
 			{
 				inputInfo.fire = true;
 			}
