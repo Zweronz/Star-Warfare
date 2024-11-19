@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class PlayerDeadState : PlayerState
 {
 	public override void NextState(Player player, float deltaTime)
@@ -17,6 +19,10 @@ public class PlayerDeadState : PlayerState
 			{
 				player.SetState(Player.LOSE_STATE);
 				GameApp.GetInstance().GetGameWorld().State = GameState.GameOverUILose;
+			}
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = false;
 			}
 		}
 	}

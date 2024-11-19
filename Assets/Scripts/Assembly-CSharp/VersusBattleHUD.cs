@@ -207,6 +207,10 @@ public abstract class VersusBattleHUD : BattleHUD
 		if (mVSRebirth != null)
 		{
 			mVSRebirth.Show();
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = true;
+			}
 		}
 	}
 
@@ -215,6 +219,10 @@ public abstract class VersusBattleHUD : BattleHUD
 		if (mVSRebirth != null)
 		{
 			mVSRebirth.Hide();
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = true;
+			}
 		}
 	}
 

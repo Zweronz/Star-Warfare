@@ -58,11 +58,19 @@ public abstract class VersusHUDBattle : GameSubUI, IWaitVSRebirth
 	public void WaitVSRebirthEnd()
 	{
 		mHudBattle.StateWaitVSRebirth.Hide();
+		if (!Application.isMobilePlatform)
+		{
+			Screen.lockCursor = true;
+		}
 	}
 
 	public void OnVSRebirth()
 	{
 		mHudBattle.StateWaitVSRebirth.OnRebirth();
+		if (!Application.isMobilePlatform)
+		{
+			Screen.lockCursor = true;
+		}
 	}
 
 	public virtual void DoAutoBalance()
