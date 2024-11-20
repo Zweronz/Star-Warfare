@@ -134,17 +134,18 @@ public class KeyboardListener : MonoBehaviour
     // I can improve this later or something I really don't feel like it - Zweronz
 	// OOF - Met
     void OnGUI()
-	{
-		GUIStyle style = new GUIStyle(GUI.skin.label) 
+    {
+        GUIStyle style = new GUIStyle(GUI.skin.label) 
 		{ 
 			alignment = TextAnchor.MiddleCenter, 
-			fontSize = 24
+			fontSize = 48,
 		};
 
-        GUI.Box(new Rect(0, 0, Screen.width, Screen.height), pcString, style);
+        GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "");
+
+        GUI.Label(new Rect(0, 0, Screen.width, Screen.height), pcString, style);
     }
 
-    //GOOD ENOUGH!!
     private void ListenForKeys()
     {
         bool isHoldingBack = Input.GetKey(KeyCode.Backspace);
