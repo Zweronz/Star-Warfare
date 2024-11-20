@@ -23,15 +23,22 @@ public class AndroidSwPluginScript
 				KeyboardListener listener = KeyboardListener.GetOrCreate();
 				listener.keyboard = keyboard;
 	
-				listener.onFinish = GameApp.GetInstance().GetUserState().SetRoleName;
+				listener.onFinish = name =>
+				{
+					GameApp.GetInstance().GetUserState().SetRoleName(name);
+					GameApp.GetInstance().isChangeName = true;
+				};
 			}
 			else
 			{
 				KeyboardListener listener = KeyboardListener.GetOrCreate();
-
 				listener.pcString = GameApp.GetInstance().GetUserState().GetRoleName();
 	
-				listener.onFinish = GameApp.GetInstance().GetUserState().SetRoleName;
+				listener.onFinish = name =>
+				{
+					GameApp.GetInstance().GetUserState().SetRoleName(name);
+					GameApp.GetInstance().isChangeName = true;
+				};
 			}
 		}
 	}
