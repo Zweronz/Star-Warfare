@@ -6,7 +6,6 @@ public class AndroidAdsPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("CallFlurryAds");
 		}
 		else
 		{
@@ -18,7 +17,6 @@ public class AndroidAdsPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("CallTapjoyOfferWall");
 		}
 		else
 		{
@@ -30,7 +28,6 @@ public class AndroidAdsPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("GetTapJoyPoints");
 		}
 		else
 		{
@@ -42,7 +39,6 @@ public class AndroidAdsPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("CallSponsorPayOfferWall");
 		}
 		else
 		{
@@ -54,7 +50,6 @@ public class AndroidAdsPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("CallAdcolonyVideo");
 		}
 		else
 		{
@@ -66,7 +61,6 @@ public class AndroidAdsPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("ChartboostAds");
 		}
 		else
 		{
@@ -78,7 +72,6 @@ public class AndroidAdsPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("InitAds", userID);
 		}
 		else
 		{
@@ -88,11 +81,6 @@ public class AndroidAdsPluginScript
 
 	public static bool OpenAds()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<bool>("OpenAds", new object[0]);
-		}
-		Debug.Log("OpenAds");
 		return true;
 	}
 
@@ -100,7 +88,6 @@ public class AndroidAdsPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("ShowTapjoyDialog", num);
 		}
 		else
 		{

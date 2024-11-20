@@ -4,23 +4,36 @@ public class AndroidSwPluginScript
 {
 	public static string GetVersionUrl()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<string>("GetVersionUrl", new object[0]);
-		}
-		Debug.Log("GetVersionUrl");
-		return string.Empty;
+		return "https://github.com/Zweronz/Star-Warfare";
 	}
 
 	public static void SetRoleName(int type)
 	{
-		if (!IsPC())
+		if (type == 1)
 		{
-			CurrentActivity.getInstance().JavaObject.Call("SetRoleName", type);
-		}
-		else
-		{
-			Debug.Log("SetRoleName");
+			if (!IsPC())
+			{
+				if (KeyboardListener.current != null)
+				{
+					Object.Destroy(KeyboardListener.current.gameObject);
+				}
+	
+				TouchScreenKeyboard keyboard = TouchScreenKeyboard.Open(GameApp.GetInstance().GetUserState().GetRoleName());
+	
+				KeyboardListener listener = new GameObject("Keyboard Listener").AddComponent<KeyboardListener>();
+				listener.keyboard = keyboard;
+	
+				listener.onFinish = GameApp.GetInstance().GetUserState().SetRoleName;
+				KeyboardListener.current = listener;
+			}
+			else
+			{
+				KeyboardListener listener = new GameObject("Keyboard Listener").AddComponent<KeyboardListener>();
+				listener.pcString = GameApp.GetInstance().GetUserState().GetRoleName();
+	
+				listener.onFinish = GameApp.GetInstance().GetUserState().SetRoleName;
+				KeyboardListener.current = listener;
+			}
 		}
 	}
 
@@ -28,7 +41,6 @@ public class AndroidSwPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("SendFreyrAdsStatus", status);
 		}
 		else
 		{

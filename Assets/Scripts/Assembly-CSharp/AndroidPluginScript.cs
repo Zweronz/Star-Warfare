@@ -4,36 +4,23 @@ public class AndroidPluginScript
 {
 	public static int GetLanguage()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<int>("GetLanguage", new object[0]);
-		}
 		return 6;
 	}
 
 	public static string GetMacAddress()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<string>("GetMacAddress", new object[0]);
-		}
-		return string.Empty;
+		return System.Environment.MachineName;
 	}
 
 	public static string GetAndroidId()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<string>("GetAndroidId", new object[0]);
-		}
-		return "freyrtest1";
+		return System.Environment.UserName;
 	}
 
 	public static void ShowFreyrGames(string bundleId, int type)
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("ShowFreyrGames", bundleId, type);
 		}
 		else
 		{
@@ -45,7 +32,6 @@ public class AndroidPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("DoStartMethod");
 		}
 		else
 		{
@@ -55,10 +41,6 @@ public class AndroidPluginScript
 
 	public static int GetRandomCount()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<int>("GetRandomCount", new object[0]);
-		}
 		return 3;
 	}
 
@@ -66,7 +48,6 @@ public class AndroidPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("isStart");
 		}
 		else
 		{
@@ -78,7 +59,6 @@ public class AndroidPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("ShowToast", str);
 		}
 		else
 		{
@@ -88,29 +68,16 @@ public class AndroidPluginScript
 
 	public static string GetUDID(string str)
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<string>("GetUDID", new object[1] { str });
-		}
-		Debug.Log("send Eclipse url = " + str);
 		return string.Empty;
 	}
 
 	public static string GetCountry()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<string>("GetCountry", new object[0]);
-		}
 		return Application.systemLanguage.ToString();
 	}
 
 	public static string GetAdvisterID()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<string>("GetAdvisterID", new object[0]);
-		}
 		return string.Empty;
 	}
 
@@ -118,7 +85,6 @@ public class AndroidPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("isGoogleServiceReady");
 		}
 		else
 		{
@@ -130,7 +96,6 @@ public class AndroidPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("CloseGame");
 		}
 		else
 		{
@@ -146,7 +111,6 @@ public class AndroidPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("OpenURL");
 		}
 		else
 		{
@@ -156,10 +120,6 @@ public class AndroidPluginScript
 
 	public static int GetVersionType()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<int>("GetVersionType", new object[0]);
-		}
 		return 0;
 	}
 

@@ -6,7 +6,6 @@ public class AndroidIAPPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("CallPurchaseProduct", productId);
 		}
 		else
 		{
@@ -16,10 +15,6 @@ public class AndroidIAPPluginScript
 
 	public static int GetPurchaseStatus()
 	{
-		if (!IsPC())
-		{
-			return CurrentActivity.getInstance().JavaObject.Call<int>("GetPurchaseStatus", new object[0]);
-		}
 		return 0;
 	}
 
@@ -27,7 +22,6 @@ public class AndroidIAPPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("InitPurchase");
 		}
 		else
 		{
@@ -39,7 +33,6 @@ public class AndroidIAPPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("DoPurchase");
 		}
 		else
 		{
@@ -51,7 +44,6 @@ public class AndroidIAPPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("FailPurchase");
 		}
 		else
 		{
@@ -63,7 +55,6 @@ public class AndroidIAPPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("CheckIap");
 		}
 		else
 		{
@@ -75,7 +66,6 @@ public class AndroidIAPPluginScript
 	{
 		if (!IsPC())
 		{
-			CurrentActivity.getInstance().JavaObject.Call("GetRestorePurchse");
 		}
 		else
 		{
