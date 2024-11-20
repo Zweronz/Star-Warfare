@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class KeyboardListener : MonoBehaviour
 {
+	// Dont feel like redoing whole ass system for one fix - met
+	public static KeyboardListener current;
+
 	public TouchScreenKeyboard keyboard;
 
 	public Action<string> onFinish;
 
 	public string pcString;
 
-	public static KeyboardListener current;
-	
+	private float holdingBackFor = 0;
+    private float timeBeforeDeletingKey;
+
 	private static Dictionary<KeyCode, string> keyMap = new Dictionary<KeyCode, string>
 	{
 		{KeyCode.A, "a"},
@@ -90,6 +94,13 @@ public class KeyboardListener : MonoBehaviour
 		{KeyCode.BackQuote, "~"},
 	};
 
+	public static KeyboardListener CreateNew()
+    {
+        if (current == null) current = new GameObject("Keyboard Listener").AddComponent<KeyboardListener>();
+
+        return current;
+    }
+
 	void Update()
 	{
 		if (Application.isMobilePlatform)
@@ -111,25 +122,39 @@ public class KeyboardListener : MonoBehaviour
 				onFinish(pcString);
 
 				Destroy(gameObject);
-				current = null;
-				
-				return;
+                current = null;
+
+                return;
 			}
 
 			ListenForKeys();
 		}
 	}
 
-	void OnGUI()
+    // I can improve this later or something I really don't feel like it - Zweronz
+	// OOF - Met
+    void OnGUI()
 	{
-		//I can improve this later or something I really don't feel like it
-		GUI.Label(new Rect(Screen.width / 2f, Screen.height / 2f, Screen.width, Screen.height), pcString);
-	}
+		GUIStyle style = new GUIStyle(GUI.skin.label) 
+		{ 
+			alignment = TextAnchor.MiddleCenter, 
+			fontSize = 24
+		};
 
-	//GOOD ENOUGH!!
-	private void ListenForKeys()
-	{
-		bool upper = Input.GetKey(KeyCode.LeftShift);
+        GUI.Box(new Rect(0, 0, Screen.width, Screen.height), pcString, style);
+    }
+
+    //GOOD ENOUGH!!
+    private void ListenForKeys()
+    {
+        bool isHoldingBack = Input.GetKey(KeyCode.Backspace);
+		if (isHoldingBack)
+		{
+			BackspaceLogic();
+			return;
+        }
+
+        bool upper = Input.GetKey(KeyCode.LeftShift);
 
 		foreach (KeyCode key in keyMap.Keys)
 		{
@@ -146,9 +171,25 @@ public class KeyboardListener : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.Backspace) && pcString.Length > 0)
-		{
-			pcString = pcString.Substring(0, pcString.Length - 1);
-		}
-	}
+        holdingBackFor = timeBeforeDeletingKey = 0; // Reseting manualy cuz caused weird behaviour
+    }
+
+	void BackspaceLogic() // fully made by me rn - met
+    {
+		// is holding and leight is not 0
+        if (pcString.Length > 0)
+        {
+            // if holding for first time or hodling for ? seconds and timeBeforeDeletingKey = 0
+            if (holdingBackFor == 0 || (holdingBackFor > 1 && timeBeforeDeletingKey <= 0))
+            {
+                pcString = pcString.Substring(0, pcString.Length - 1);
+
+                timeBeforeDeletingKey = 0.05f;
+            }
+
+			//Update timers
+            holdingBackFor += Time.unscaledDeltaTime;
+            timeBeforeDeletingKey -= Time.unscaledDeltaTime;
+        }
+    }
 }
