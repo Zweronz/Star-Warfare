@@ -94,7 +94,7 @@ public class KeyboardListener : MonoBehaviour
 		{KeyCode.BackQuote, "~"},
 	};
 
-	public static KeyboardListener CreateNew()
+	public static KeyboardListener GetOrCreate()
     {
         if (current == null) current = new GameObject("Keyboard Listener").AddComponent<KeyboardListener>();
 

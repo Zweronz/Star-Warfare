@@ -20,14 +20,14 @@ public class AndroidSwPluginScript
 	
 				TouchScreenKeyboard keyboard = TouchScreenKeyboard.Open(GameApp.GetInstance().GetUserState().GetRoleName());
 
-				KeyboardListener listener = KeyboardListener.CreateNew();
+				KeyboardListener listener = KeyboardListener.GetOrCreate();
 				listener.keyboard = keyboard;
 	
 				listener.onFinish = GameApp.GetInstance().GetUserState().SetRoleName;
 			}
 			else
 			{
-				KeyboardListener listener = KeyboardListener.CreateNew();
+				KeyboardListener listener = KeyboardListener.GetOrCreate();
 
 				listener.pcString = GameApp.GetInstance().GetUserState().GetRoleName();
 	
