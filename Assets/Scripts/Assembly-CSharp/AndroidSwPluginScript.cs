@@ -19,20 +19,19 @@ public class AndroidSwPluginScript
 				}
 	
 				TouchScreenKeyboard keyboard = TouchScreenKeyboard.Open(GameApp.GetInstance().GetUserState().GetRoleName());
-	
-				KeyboardListener listener = new GameObject("Keyboard Listener").AddComponent<KeyboardListener>();
+
+				KeyboardListener listener = KeyboardListener.GetOrCreate();
 				listener.keyboard = keyboard;
 	
 				listener.onFinish = GameApp.GetInstance().GetUserState().SetRoleName;
-				KeyboardListener.current = listener;
 			}
 			else
 			{
-				KeyboardListener listener = new GameObject("Keyboard Listener").AddComponent<KeyboardListener>();
+				KeyboardListener listener = KeyboardListener.GetOrCreate();
+
 				listener.pcString = GameApp.GetInstance().GetUserState().GetRoleName();
 	
 				listener.onFinish = GameApp.GetInstance().GetUserState().SetRoleName;
-				KeyboardListener.current = listener;
 			}
 		}
 	}
