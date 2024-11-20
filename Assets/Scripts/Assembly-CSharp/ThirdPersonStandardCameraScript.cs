@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [AddComponentMenu("Camera/ThirdPersonStandardCamera")]
@@ -142,6 +143,11 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 			return weaponAngleH;
 		}
 	}
+
+	private Dictionary<string, string> MainTextureMap = new Dictionary<string, string>()
+	{
+		{"iPhone/LightMap", "_texBase"}
+	};
 
 	public virtual void Init()
 	{
@@ -342,12 +348,16 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 					foreach (Material material in materials)
 					{
 						lastTransparentObjList[num5].shaders[num6] = material.shader;
-						Texture texture = material.mainTexture;
-						num6++;
-						if (texture == null)
+						Texture texture;
+						if (!material.HasProperty("_MainTex"))
 						{
-							texture = material.GetTexture("_MainTex");
+							texture = material.GetTexture(MainTextureMap[material.shader.name]);
 						}
+						else
+						{
+							texture = material.mainTexture;
+						}
+						num6++;
 						material.shader = transparentShader;
 						Color gray = Color.gray;
 						gray.a = 0.1f;
