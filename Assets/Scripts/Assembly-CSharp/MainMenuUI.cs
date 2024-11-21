@@ -121,8 +121,6 @@ public class MainMenuUI : UIHandler, IUIHandle
 
 	public void Init()
 	{
-		FacebookAndroid.init("318092268246897");
-		TwitterAndroid.init("U4VJIwB9Vzdq1K0rmlbxg", "pEX3EIuhZekxVJRD6emJolTwq2ibeSKeTbLmr3W30wQ");
 		userState = GameApp.GetInstance().GetUserState();
 		state = 0;
 		stateMgr.m_UIManager.SetEnable(true);
@@ -241,17 +239,6 @@ public class MainMenuUI : UIHandler, IUIHandle
 		blink.transform.Rotate(new Vector3(270f, 0f, 0f));
 		blink.transform.localScale = new Vector3(1f, 1f, 1f);
 		SetRoleName();
-		if (AndroidConstant.version == AndroidConstant.Version.Kindle)
-		{
-			if (!GameApp.GetInstance().GetUserState().bPurchaseRookie)
-			{
-				AndroidIAPPluginScript.GetRestorePurchse();
-			}
-		}
-		else if (AndroidConstant.version == AndroidConstant.Version.GooglePlay)
-		{
-			AndroidIAPPluginScript.GetRestorePurchse();
-		}
 		if (userState.GetDiscountStatus() == 2)
 		{
 			DateTime value = DateTime.Parse(userState.GetDiscountTime());
@@ -266,7 +253,6 @@ public class MainMenuUI : UIHandler, IUIHandle
 			Debug.Log("Go to Store");
 			stateMgr.FrGoToPhase(4, false, false, false);
 		}
-		AndroidAdsPluginScript.GetTapJoyPoints();
 	}
 
 	public void SetRoleName()
