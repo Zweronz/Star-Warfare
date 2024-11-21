@@ -392,6 +392,10 @@ public class HUDBattle : GameUI, GameUIListener
 			else
 			{
 				mIExitRoom.ExitRoom();
+				if (!Application.isMobilePlatform)
+				{
+					Screen.lockCursor = false;
+				}
 			}
 			break;
 		case TouchEventID.HUD_Switch_Weapon:
