@@ -14,7 +14,7 @@ public class StaticLightmap : Editor
 		{
 			return new Dictionary<string, string>()
 			{
-				{"Advanced/Lightmap", "Optimized/Lightmap"}
+				{"Advanced/Lightmap", "Optimized/LightMap"}
 			};
 		}
 	}
@@ -25,7 +25,7 @@ public class StaticLightmap : Editor
 		{
 			return new Dictionary<string, string>
 			{
-				{"Optimized/Lightmap", "_texBase,_texLightmap"}
+				{"Optimized/LightMap", "_texBase,_texLightmap"}
 			};
 		}
 	}

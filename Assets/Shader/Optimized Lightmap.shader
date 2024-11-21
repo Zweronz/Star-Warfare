@@ -37,7 +37,7 @@ CGPROGRAM
 
         half3 frag(input i) : SV_TARGET
         {
-            return tex2D(_texBase, i.uv).rgb * tex2D(_texLightmap, i.lm).rgb;
+            return tex2D(_texBase, i.uv).rgb * (tex2D(_texLightmap, i.lm).rgb * 2);
         }
 ENDCG
     }
