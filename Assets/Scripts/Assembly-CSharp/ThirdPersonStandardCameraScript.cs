@@ -157,7 +157,6 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 		cameraDistance = cameraDistanceWhenIdle;
 		base.transform.rotation = Quaternion.Euler(0f - angelV, angelH, 0f);
 		Screen.lockCursor = true;
-		Cursor.visible = true;
 		reticlePosition = new Vector3(Screen.width / 2, Screen.height / 2, 0f);
 		if (Application.platform != RuntimePlatform.WindowsPlayer)
 		{
