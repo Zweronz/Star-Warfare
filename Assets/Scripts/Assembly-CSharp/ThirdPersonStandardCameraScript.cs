@@ -273,8 +273,8 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 		float num2 = player.InputController.CameraRotation.y;
 		if (Application.platform != RuntimePlatform.IPhonePlayer && Application.platform != RuntimePlatform.Android)
 		{
-			num = Input.GetAxis("Mouse X");
-			num2 = Input.GetAxis("Mouse Y");
+			num = Screen.lockCursor ? Input.GetAxis("Mouse X") : 0f;
+			num2 = Screen.lockCursor ? Input.GetAxis("Mouse Y") : 0f;
 		}
 		if (Time.timeScale != 0f)
 		{
