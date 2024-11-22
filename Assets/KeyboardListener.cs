@@ -12,10 +12,14 @@ public class KeyboardListener : MonoBehaviour
 
 	public Action<string> onFinish;
 
+	public string pcStringDisplay;
 	public string pcString;
 
 	private float holdingBackFor = 0;
     private float timeBeforeDeletingKey;
+
+	private float timeForBlinkAnim = 1; //To update at start
+	private bool blinkAnimToggle;
 
 	private static Dictionary<KeyCode, string> keyMap = new Dictionary<KeyCode, string>
 	{
@@ -100,7 +104,6 @@ public class KeyboardListener : MonoBehaviour
 
         return current;
     }
-
 	void Update()
 	{
 		if (Application.isMobilePlatform)
@@ -135,15 +138,25 @@ public class KeyboardListener : MonoBehaviour
 	// OOF - Met
     void OnGUI()
     {
-        GUIStyle style = new GUIStyle(GUI.skin.label) 
+        GUIStyle displayStyle = new GUIStyle(GUI.skin.label) 
 		{ 
 			alignment = TextAnchor.MiddleCenter, 
 			fontSize = 48,
 		};
 
+        GUIStyle headerStyle = new GUIStyle(GUI.skin.label) 
+		{ 
+			alignment = TextAnchor.UpperCenter, 
+			fontSize = 54,
+		};
+
         GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "");
 
-        GUI.Label(new Rect(0, 0, Screen.width, Screen.height), pcString, style);
+		// The text
+        GUI.Label(new Rect(0, 0, Screen.width, Screen.height), pcStringDisplay, displayStyle);
+
+		// Im lazy as fuck to do proper scaling, someone fix this if ya want - met
+        GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "\n \n \n Input your name.", headerStyle);
     }
 
     private void ListenForKeys()
@@ -169,10 +182,24 @@ public class KeyboardListener : MonoBehaviour
 				{
 					pcString += keyMap[key];
 				}
-			}
+				// Automaticaly reset
+				timeForBlinkAnim = 1;
+            }
 		}
 
         holdingBackFor = timeBeforeDeletingKey = 0; // Reseting manualy cuz caused weird behaviour
+
+		timeForBlinkAnim += Time.unscaledDeltaTime;
+
+		if (timeForBlinkAnim >= 0.5)
+		{
+			string toAdd = blinkAnimToggle == false ? " " : "|";
+
+			pcStringDisplay = pcString + toAdd;
+
+			timeForBlinkAnim = 0;
+			blinkAnimToggle = !blinkAnimToggle;
+        }
     }
 
 	void BackspaceLogic() // fully made by me rn - met
@@ -185,7 +212,8 @@ public class KeyboardListener : MonoBehaviour
             {
                 pcString = pcString.Substring(0, pcString.Length - 1);
 
-                timeBeforeDeletingKey = 0.05f;
+                timeBeforeDeletingKey = 0.03f;
+                pcStringDisplay = pcString + " ";
             }
 
 			//Update timers
