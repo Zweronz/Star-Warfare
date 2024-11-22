@@ -175,6 +175,24 @@ public class InputController
 		bBlock = false;
 	}
 
+	private Vector3 KeyboardInput()
+	{
+		Vector3 input = new Vector3
+		(
+			Input.GetKey(KeyCode.A)  ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0,
+			0f,
+			Input.GetKey(KeyCode.S)  ? -1 : Input.GetKey(KeyCode.W) ? 1 : 0
+		);
+
+		if (input.x != 0 && input.z != 0)
+		{
+			input.x *= 0.5f;
+			input.z *= 0.5f;
+		}
+
+		return input;
+	}
+
 	public void Process()
 	{
 		if (!joyStickInit)
@@ -211,7 +229,7 @@ public class InputController
 			{
 				inputInfo.fire = false;
 			}
-			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+			moveDirection = KeyboardInput();
 		}
 		else
 		{
