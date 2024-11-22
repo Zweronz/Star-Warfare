@@ -138,12 +138,6 @@ public class KeyboardListener : MonoBehaviour
 	// OOF - Met
     void OnGUI()
     {
-        GUIStyle displayStyle = new GUIStyle(GUI.skin.label) 
-		{ 
-			alignment = TextAnchor.MiddleCenter, 
-			fontSize = 48,
-		};
-
         GUIStyle headerStyle = new GUIStyle(GUI.skin.label) 
 		{ 
 			alignment = TextAnchor.UpperCenter, 
@@ -152,8 +146,17 @@ public class KeyboardListener : MonoBehaviour
 
         GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "");
 
-		// The text
-        GUI.Label(new Rect(0, 0, Screen.width, Screen.height), pcStringDisplay, displayStyle);
+		if (!Application.isMobilePlatform)
+		{
+			GUIStyle displayStyle = new GUIStyle(GUI.skin.label) 
+			{ 
+				alignment = TextAnchor.MiddleCenter, 
+				fontSize = 48,
+			};
+
+			// The text
+        	GUI.Label(new Rect(0, 0, Screen.width, Screen.height), pcStringDisplay, displayStyle);
+		}
 
 		// Im lazy as fuck to do proper scaling, someone fix this if ya want - met
         GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "\n \n \n Input your name.", headerStyle);

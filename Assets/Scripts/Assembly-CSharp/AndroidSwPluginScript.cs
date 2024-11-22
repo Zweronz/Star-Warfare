@@ -9,37 +9,34 @@ public class AndroidSwPluginScript
 
 	public static void SetRoleName(int type)
 	{
-		if (type == 1)
+		if (!IsPC())
 		{
-			if (!IsPC())
+			if (KeyboardListener.current != null)
 			{
-				if (KeyboardListener.current != null)
-				{
-					Object.Destroy(KeyboardListener.current.gameObject);
-				}
+				Object.Destroy(KeyboardListener.current.gameObject);
+			}
 	
-				TouchScreenKeyboard keyboard = TouchScreenKeyboard.Open(GameApp.GetInstance().GetUserState().GetRoleName());
+			TouchScreenKeyboard keyboard = TouchScreenKeyboard.Open(GameApp.GetInstance().GetUserState().GetRoleName());
 
-				KeyboardListener listener = KeyboardListener.GetOrCreate();
-				listener.keyboard = keyboard;
+			KeyboardListener listener = KeyboardListener.GetOrCreate();
+			listener.keyboard = keyboard;
 	
-				listener.onFinish = name =>
-				{
-					GameApp.GetInstance().GetUserState().SetRoleName(name);
-					GameApp.GetInstance().isChangeName = true;
-				};
-			}
-			else
+			listener.onFinish = name =>
 			{
-				KeyboardListener listener = KeyboardListener.GetOrCreate();
-				listener.pcString = GameApp.GetInstance().GetUserState().GetRoleName();
+				GameApp.GetInstance().GetUserState().SetRoleName(name);
+				GameApp.GetInstance().isChangeName = true;
+			};
+		}
+		else
+		{
+			KeyboardListener listener = KeyboardListener.GetOrCreate();
+			listener.pcString = GameApp.GetInstance().GetUserState().GetRoleName();
 	
-				listener.onFinish = name =>
-				{
-					GameApp.GetInstance().GetUserState().SetRoleName(name);
-					GameApp.GetInstance().isChangeName = true;
-				};
-			}
+			listener.onFinish = name =>
+			{
+				GameApp.GetInstance().GetUserState().SetRoleName(name);
+				GameApp.GetInstance().isChangeName = true;
+			};
 		}
 	}
 
