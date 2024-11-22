@@ -438,6 +438,20 @@ public class HUDBattle : GameUI, GameUIListener
 		}
 	}
 
+	private void LateUpdate()
+	{
+		if (!Application.isMobilePlatform)
+		{
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				if (mUIStateManager.FrGetCurrentPhase() != 14 && mUIStateManager.FrGetCurrentPhase() != 15)
+				{
+					OnTouch(new GameUITouchEvent { EventID = TouchEventID.HUD_Pause });
+				}
+			}
+		}
+	}
+
 	private void InitHP()
 	{
 		Debug.Log("player.Hp : " + mPlayer.Hp);
