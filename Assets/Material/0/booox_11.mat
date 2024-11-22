@@ -2,31 +2,30 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 3
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: booox_11
-  m_Shader: {fileID: 4800000, guid: 54385c4e91496fc4c92094d01dc177db, type: 3}
-  m_ShaderKeywords: []
+  m_Shader: {fileID: 4800000, guid: 15ae1332544608f4d8cecb7fa7eb5272, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TexEnvs:
-    - first:
-        name: _texBase
-      second:
+    - _texBase:
         m_Texture: {fileID: 2800000, guid: f6d315278d6ea4342b248444c7196c77, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _texLightmap
-      second:
+    - _texLightmap:
         m_Texture: {fileID: 2800000, guid: 8091deed6c949ee4fadb405fc9828d94, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+    m_Floats: []
     m_Colors:
-    - first:
-        name: _Color
-      second: {r: 0.588, g: 0.588, b: 0.588, a: 1}
+    - _Color: {r: 0.588, g: 0.588, b: 0.588, a: 1}
