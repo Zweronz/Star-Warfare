@@ -186,8 +186,8 @@ public class InputController
 
 		if (input.x != 0 && input.z != 0)
 		{
-			input.x *= 0.5f;
-			input.z *= 0.5f;
+			input.x *= 0.75f;
+			input.z *= 0.75f;
 		}
 
 		return input;
