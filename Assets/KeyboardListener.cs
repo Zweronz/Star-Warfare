@@ -211,11 +211,11 @@ public class KeyboardListener : MonoBehaviour
         if (pcString.Length > 0)
         {
             // if holding for first time or hodling for ? seconds and timeBeforeDeletingKey = 0
-            if (holdingBackFor == 0 || (holdingBackFor > 1 && timeBeforeDeletingKey <= 0))
+            if (holdingBackFor == 0 || (holdingBackFor > 0.5f && timeBeforeDeletingKey <= 0))
             {
                 pcString = pcString.Substring(0, pcString.Length - 1);
 
-                timeBeforeDeletingKey = 0.03f;
+                timeBeforeDeletingKey = 0.02f;
                 pcStringDisplay = pcString + " ";
             }
 
