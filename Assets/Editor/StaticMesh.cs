@@ -124,6 +124,7 @@ public class StaticMesh : Editor
         if (source.uv4 != null && source.uv4.Length > 0) mesh.uv4 = source.uv4;
         
         mesh.triangles = source.triangles;
+        mesh.RecalculateBounds();
 
         return mesh;
     }
@@ -191,6 +192,8 @@ public static class MeshManager
             mesh.SetTriangles(subMeshes[i].triangles, i, false, i == 0 ? 0 : subMeshes[i - 1].vertexCount);
         }
 
+        mesh.RecalculateBounds();
+
         return mesh;
     }
 
@@ -250,6 +253,7 @@ public static class MeshManager
             }
 
             meshes[i].triangles = triangles;
+            meshes[i].RecalculateBounds();
         }
 
         return meshes;

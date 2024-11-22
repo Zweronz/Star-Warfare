@@ -48,7 +48,7 @@ public class GameApp
 
 	public bool GameStart;
 
-	public bool openfreemithril = true;
+	public bool openfreemithril = false;
 
 	public bool UIInit;
 

@@ -97,6 +97,7 @@ public class IAPUI : UIPanelX, UIHandler
 
 	public void Create()
 	{
+		Debug.LogError("hi");
 		NetworkManager networkManagerIAP = GameApp.GetInstance().GetNetworkManagerIAP();
 		if (GameApp.GetInstance().IsConnectedToInternet() && networkManagerIAP == null && AndroidConstant.version == AndroidConstant.Version.GooglePlay)
 		{

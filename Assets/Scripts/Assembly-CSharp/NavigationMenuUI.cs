@@ -197,7 +197,7 @@ public class NavigationMenuUI : UIPanelX, UIHandler
 		customizeTxtBtn.SetTextOffset(0f, -40f);
 		customizeTxtBtn.SetTextColor(UIConstant.fontColor_cyan, UIConstant.fontColor_cyan);
 		customizeOffset.x = customizeTxtBtn.Rect.x - rect.x;
-		customizeOffset.y = customizeTxtBtn.Rect.y - rect.y;
+		customizeOffset.y = IAPImg.Rect.y - rect.y;
 		shopTxtBtn = new UITextButton();
 		byte[] module5 = new byte[2] { 14, 16 };
 		byte[] module6 = new byte[2] { 13, 15 };
@@ -208,7 +208,7 @@ public class NavigationMenuUI : UIPanelX, UIHandler
 		shopTxtBtn.SetTextOffset(0f, -40f);
 		shopTxtBtn.SetTextColor(UIConstant.fontColor_cyan, UIConstant.fontColor_cyan);
 		shopOffset.x = shopTxtBtn.Rect.x - rect.x;
-		shopOffset.y = shopTxtBtn.Rect.y - rect.y;
+		shopOffset.y = IAPImg.Rect.y - rect.y;
 		Add(shadowImg);
 		Add(navigationMenuImg);
 		Add(activeMenuImg);
@@ -218,7 +218,7 @@ public class NavigationMenuUI : UIPanelX, UIHandler
 		Add(roleNameTxt);
 		Add(customizeTxtBtn);
 		Add(shopTxtBtn);
-		Add(IAPImg);
+		//Add(IAPImg);
 		iapUI = new IAPUI(stateMgr);
 		Add(iapUI);
 		Rect = rect;
