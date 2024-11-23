@@ -22,7 +22,7 @@
   
 ## Building
 #### Preparing for building
-If you are on windows and want to build for it, nothing required, same goes to Linux, i dont know much about Mac OS.
+If you are on windows and want to build for it, nothing required.
 
 If you want to build for Other Standalone platform than OS installed on your computer:
 1. Open __Unity Hub__.
