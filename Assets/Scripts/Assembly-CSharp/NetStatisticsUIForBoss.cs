@@ -726,14 +726,6 @@ public class NetStatisticsUIForBoss : NetStatisticsUIBase
 		if (player.Hp <= 0)
 		{
 			userState.AtomicDeadTimer();
-			if (userState.GetDeadTimer() == 0)
-			{
-				int num = Random.Range(0, 2);
-				string msg = UIConstant.GetMessage(19 + num).Replace("[n]", "\n");
-				msgUI.CreateQuery(msg, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_DEAD_TIPS);
-				msgUI.Show();
-				return;
-			}
 		}
 		GotoNextLevel();
 	}

@@ -184,6 +184,28 @@ public class MessageBoxUI : UIPanelX, UIHandler
 		Add(m_message);
 	}
 
+	public void CreateQueryNoCancel(string msg, byte flag, byte eventID)
+	{
+		DestoryMsg();
+		UnitUI unitUI = Res2DManager.GetInstance().vUI[23];
+		m_message = new UIDialog(stateMgr, 2);
+		m_message.Create();
+		m_eventID = eventID;
+		m_message.Show();
+		m_message.AddBGFrame(unitUI, 0, BACKGROUND_BEGIN_IMG, BACKGROUND_COUNT_IMG);
+		m_message.AddBGImage(unitUI.GetModulePositionRect(0, 0, 3), unitUI, 1, flag);
+		byte[] module1 = new byte[2] { 0, 3 };
+		byte[] module2 = new byte[2] { 2, 4 };
+		m_message.AddButton(1, UIButtonBase.State.Normal, unitUI, 2, module1);
+		m_message.AddButton(1, UIButtonBase.State.Pressed, unitUI, 2, module2);
+		m_message.SetButtonPosition(1, unitUI.GetModulePositionRect(0, 0, 6));
+		Rect modulePositionRect = unitUI.GetModulePositionRect(0, 0, 4);
+		m_message.SetTextShowRect(modulePositionRect.x, modulePositionRect.y, modulePositionRect.width, modulePositionRect.height);
+		m_message.SetText("font2", msg, UIConstant.FONT_COLOR_DESCRIPTION, FrUIText.enAlignStyle.TOP_LEFT);
+		m_message.SetBlock(false);
+		Add(m_message);
+	}
+
 	public void CreateQueryUpload(string msg, byte flag, byte eventID)
 	{
 		DestoryMsg();
