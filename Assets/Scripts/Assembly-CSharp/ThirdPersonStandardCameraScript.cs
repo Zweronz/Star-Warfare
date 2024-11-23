@@ -147,6 +147,7 @@ public class ThirdPersonStandardCameraScript : MonoBehaviour
 	private Dictionary<string, string> MainTextureMap = new Dictionary<string, string>()
 	{
 		{"iPhone/LightMap", "_texBase"},
+		{"iPhone/LightMap_AlphaBlend", "_texBase"},
 		{"Optimized/LightMap", "_texBase"}
 	};
 
