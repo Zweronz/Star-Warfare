@@ -370,11 +370,24 @@ public class MainMenuUI : UIHandler, IUIHandle
 			break;
 		case 5:
 		{
-			if (Input.GetKeyDown(KeyCode.Escape))
+			if (logining)
 			{
-				msgUI.CreateQuery("Quit game?", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_QUIT_GAME);
-				msgUI.Show();
 			}
+			ShowRewardMsg();
+			ShowPromotion();
+			UITouchInner[] array = iPhoneInputMgr.MockTouches();
+			foreach (UITouchInner touch in array)
+			{
+				if (!(stateMgr.m_UIManager != null) || stateMgr.m_UIManager.HandleInput(touch))
+				{
+				}
+			}
+			if (!Input.GetKeyDown(KeyCode.Escape))
+			{
+				break;
+			}
+			msgUI.CreateQuery("Quit game?", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_QUIT_GAME);
+			msgUI.Show();
 			break;
 		}
 		}
