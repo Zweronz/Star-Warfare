@@ -370,50 +370,6 @@ public class MainMenuUI : UIHandler, IUIHandle
 			break;
 		case 5:
 		{
-			if (logining)
-			{
-			}
-			ShowRewardMsg();
-			ShowPromotion();
-			UITouchInner[] array = iPhoneInputMgr.MockTouches();
-			foreach (UITouchInner touch in array)
-			{
-				if (!(stateMgr.m_UIManager != null) || stateMgr.m_UIManager.HandleInput(touch))
-				{
-				}
-			}
-			if (!Input.GetKeyDown(KeyCode.Escape))
-			{
-				break;
-			}
-			if (GameApp.GetInstance().AppSNSStatus == 0)
-			{
-				msgUI.CreateQuery("Quit game?", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_QUIT_GAME);
-				msgUI.Show();
-				break;
-			}
-			int num = Random.Range(0, 10);
-			if (GameApp.bShowAds)
-			{
-				msgUI.CreateQuery("Quit game?", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_QUIT_GAME);
-				msgUI.Show();
-			}
-			else if (num < 3)
-			{
-				if (AndroidConstant.version == AndroidConstant.Version.Kindle)
-				{
-					GameUIManager.GetInstance().LoadBountyHunter();
-				}
-				else if (AndroidConstant.version == AndroidConstant.Version.GooglePlay)
-				{
-					GameUIManager.GetInstance().LoadCallOfArena();
-				}
-			}
-			else
-			{
-				msgUI.CreateQuery("Quit game?", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_QUIT_GAME);
-				msgUI.Show();
-			}
 			break;
 		}
 		}
