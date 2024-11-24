@@ -217,12 +217,10 @@ public class GameUIManager : MonoBehaviour
 
 	public void LoadBountyHunter()
 	{
-		LoadUI(GameUIStatus.BOUNTYHUNTER);
 	}
 
 	public void LoadCallOfArena()
 	{
-		LoadUI(GameUIStatus.CALLOFARENA);
 	}
 
 	public void RemoveAll()

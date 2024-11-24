@@ -113,6 +113,14 @@ public class HUDBattle : GameUI, GameUIListener
 
 	private IExitRoom mIExitRoom;
 
+	public UIStateManager StateManager
+	{
+		get
+		{
+			return mUIStateManager;
+		}
+	}
+
 	public GameObject ButtonExitRoom
 	{
 		get

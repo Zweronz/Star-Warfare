@@ -16,4 +16,17 @@ public class Locker : MonoBehaviour
 			Screen.lockCursor = !Screen.lockCursor;
 		}
 	}
+
+	void OnApplicationFocus(bool focus)
+	{
+		if (focus)
+		{
+			HUDBattle hud = FindObjectOfType<HUDBattle>();
+
+			if (hud != null && hud.StateManager.FrGetCurrentPhase() == 6)
+			{
+				Screen.lockCursor = true;
+			}
+		}
+	}
 }
