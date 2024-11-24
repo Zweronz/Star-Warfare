@@ -370,6 +370,11 @@ public class MainMenuUI : UIHandler, IUIHandle
 			break;
 		case 5:
 		{
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				msgUI.CreateQuery("Quit game?", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_QUIT_GAME);
+				msgUI.Show();
+			}
 			break;
 		}
 		}
