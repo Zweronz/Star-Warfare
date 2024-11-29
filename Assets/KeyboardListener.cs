@@ -98,10 +98,11 @@ public class KeyboardListener : MonoBehaviour
 		{KeyCode.BackQuote, "~"},
 	};
 
-	public static KeyboardListener GetOrCreate()
+	public static KeyboardListener GetOrCreate(Action<string> onFinish)
     {
         if (current == null) current = new GameObject("Keyboard Listener").AddComponent<KeyboardListener>();
 
+		current.onFinish = onFinish;
         return current;
     }
 	void Update()
@@ -120,7 +121,7 @@ public class KeyboardListener : MonoBehaviour
 		}
 		else
 		{
-			if (Input.GetKeyDown(KeyCode.Return))
+			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
 			{
 				onFinish(pcString);
 
@@ -171,7 +172,7 @@ public class KeyboardListener : MonoBehaviour
 			return;
         }
 
-        bool upper = Input.GetKey(KeyCode.LeftShift);
+        bool upper = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
 		foreach (KeyCode key in keyMap.Keys)
 		{
@@ -185,8 +186,7 @@ public class KeyboardListener : MonoBehaviour
 				{
 					pcString += keyMap[key];
 				}
-				// Automaticaly reset
-				timeForBlinkAnim = 1;
+				UpdateDisplayString();
             }
 		}
 
@@ -196,14 +196,19 @@ public class KeyboardListener : MonoBehaviour
 
 		if (timeForBlinkAnim >= 0.5)
 		{
+			UpdateDisplayString();
+        }
+    }
+
+	void UpdateDisplayString()
+	{
 			string toAdd = blinkAnimToggle == false ? " " : "|";
 
 			pcStringDisplay = pcString + toAdd;
 
 			timeForBlinkAnim = 0;
 			blinkAnimToggle = !blinkAnimToggle;
-        }
-    }
+	}
 
 	void BackspaceLogic() // fully made by me rn - met
     {
@@ -216,7 +221,7 @@ public class KeyboardListener : MonoBehaviour
                 pcString = pcString.Substring(0, pcString.Length - 1);
 
                 timeBeforeDeletingKey = 0.02f;
-                pcStringDisplay = pcString + " ";
+                UpdateDisplayString();
             }
 
 			//Update timers
