@@ -395,8 +395,8 @@ public class CustomizeUI : UIHandler, IUIHandle
 		stateMgr.m_UIManager.Add(selectTagNavImg);
 		stateMgr.m_UIManager.Add(packTxtBtn);
 		stateMgr.m_UIManager.Add(packFlagImg);
-		stateMgr.m_UIManager.Add(iapTxtBtn);
-		stateMgr.m_UIManager.Add(iapFlagImg);
+		//stateMgr.m_UIManager.Add(iapTxtBtn);
+		//stateMgr.m_UIManager.Add(iapFlagImg);
 		for (int num2 = 0; num2 < 3; num2++)
 		{
 			for (int num3 = 0; num3 < 4; num3++)
@@ -1694,7 +1694,7 @@ public class CustomizeUI : UIHandler, IUIHandle
 						else
 						{
 							string msg = UIConstant.GetMessage(12).Replace("[n]", "\n");
-							msgUI.CreateQuery(msg, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
+							msgUI.CreateQueryNoCancel("Not enough gold.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
 							msgUI.Show();
 						}
 					}
@@ -1712,12 +1712,6 @@ public class CustomizeUI : UIHandler, IUIHandle
 			else if (eventID == MessageBoxUI.EVENT_PURCHASE_CASH)
 			{
 				msgUI.Hide();
-				if (command == 10)
-				{
-					iapUI.Create();
-					iapUI.SetSelection(2);
-					iapUI.Show();
-				}
 			}
 			else if (eventID == MessageBoxUI.EVENT_SEND_TWITTER_CONFIRM)
 			{

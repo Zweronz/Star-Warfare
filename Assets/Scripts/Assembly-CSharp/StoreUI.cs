@@ -273,10 +273,10 @@ public class StoreUI : UIHandler, IUIHandle
 		stateMgr.m_UIManager.Add(navigationBar);
 		stateMgr.m_UIManager.Add(propsTxtBtn);
 		stateMgr.m_UIManager.Add(refuelTxtBtn);
-		stateMgr.m_UIManager.Add(iapTxtBtn);
+		//stateMgr.m_UIManager.Add(iapTxtBtn);
 		stateMgr.m_UIManager.Add(propsFlagImg);
 		stateMgr.m_UIManager.Add(refuelFlagImg);
-		stateMgr.m_UIManager.Add(iapFlagImg);
+		//stateMgr.m_UIManager.Add(iapFlagImg);
 		mTitleFrame = new UIImage();
 		mTitleFrame.AddObject(unitUI, 0, TITLE_FRAME_BEGIN_IMG, TITLE_FRAME_COUNT_IMG);
 		mTitleFrame.Rect = mTitleFrame.GetObjectRect();
@@ -1607,7 +1607,7 @@ public class StoreUI : UIHandler, IUIHandle
 									int unlockLevel = armor2.UnlockLevel;
 									text = text.Replace("[RankX]", unlockLevel + 1 + string.Empty);
 								}
-								msgUI.CreateQuery(text, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
+								msgUI.CreateQueryNoCancel("Not enough gold.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
 								msgUI.Show();
 							}
 						}
@@ -1632,7 +1632,7 @@ public class StoreUI : UIHandler, IUIHandle
 						else
 						{
 							string msg = UIConstant.GetMessage(11).Replace("[n]", "\n");
-							msgUI.CreateQuery(msg, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_MITHRIL);
+							msgUI.CreateQueryNoCancel("Not enough mithril.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_MITHRIL);
 							msgUI.Show();
 						}
 					}
@@ -1644,7 +1644,7 @@ public class StoreUI : UIHandler, IUIHandle
 							int unlockLevel2 = armor2.UnlockLevel;
 							text2 = text2.Replace("[RankX]", unlockLevel2 + 1 + string.Empty);
 						}
-						msgUI.CreateQuery(text2, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_RANK);
+						msgUI.CreateQueryNoCancel("This equipment is too high rank for you.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_RANK);
 						msgUI.Show();
 					}
 				}
@@ -1671,7 +1671,7 @@ public class StoreUI : UIHandler, IUIHandle
 						else
 						{
 							string msg2 = UIConstant.GetMessage(12).Replace("[n]", "\n");
-							msgUI.CreateQuery(msg2, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
+							msgUI.CreateQueryNoCancel("Not enough gold.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
 							msgUI.Show();
 						}
 					}
@@ -1720,7 +1720,7 @@ public class StoreUI : UIHandler, IUIHandle
 						else
 						{
 							string msg3 = UIConstant.GetMessage(11).Replace("[n]", "\n");
-							msgUI.CreateQuery(msg3, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
+							msgUI.CreateQueryNoCancel("Not enough mithril.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
 							msgUI.Show();
 						}
 					}
@@ -1733,7 +1733,7 @@ public class StoreUI : UIHandler, IUIHandle
 						int unlockLevel3 = weapon2.UnlockLevel;
 						text3 = text3.Replace("[RankX]", unlockLevel3 + 1 + string.Empty);
 					}
-					msgUI.CreateQuery(text3, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_RANK);
+					msgUI.CreateQueryNoCancel("This equipment is too high rank for you.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_RANK);
 					msgUI.Show();
 				}
 			}
@@ -1814,9 +1814,6 @@ public class StoreUI : UIHandler, IUIHandle
 				{
 				case 10:
 					msgUI.Hide();
-					iapUI.Create();
-					iapUI.SetSelection(2);
-					iapUI.Show();
 					break;
 				case 9:
 					msgUI.Hide();
@@ -1829,9 +1826,6 @@ public class StoreUI : UIHandler, IUIHandle
 				{
 				case 10:
 					msgUI.Hide();
-					iapUI.Create();
-					iapUI.SetSelection(0);
-					iapUI.Show();
 					break;
 				case 9:
 					msgUI.Hide();

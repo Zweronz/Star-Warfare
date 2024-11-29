@@ -11,13 +11,10 @@
    
 ## Setup
 1. Get [Unity 2017.4.40f1](https://unity.com/releases/editor/whats-new/2017.4.40#installs)
-   - Make sure you have [Unity Hub](https://unity.com/download) installed.
+   - Make sure you have [Unity Hub](https://unity.com/download) or Unity 2017.4.40f1 standalone installed.
    - Optional: Use [UniHacker](https://github.com/tylearymf/UniHacker) to unlock dark theme and get rid of license related stuff.
-2. Optional: Install Visual Studio or any other IDE to edit scripts, there *should* be option for Visual Studio in instalation window.
-3. Clone this repo on your computer.
-4. Open it with Unity Hub.
-   - Make sure that you have proper unity version installed first.
-6. Open it and you're done.
+2. Clone this repo on your computer.
+3. Open it and you're done.
    - The *proper* way of playing it, is opening scene called Freyr and then running it.
   
 ## Building
@@ -26,7 +23,7 @@ If you are on windows and want to build for it, nothing required.
 
 If you want to build for Other Standalone platform than OS installed on your computer:
 1. Open __Unity Hub__.
-2. Move to __Instalations__.
+2. Move to __Installations__.
 3. Scroll down until you see *Your Unity Version* and click gear icon on it.
 4. Choose __Add Modules__ option.
 5. Select Windows/Linux/Mac checkbox, depends on your needs.
@@ -45,19 +42,24 @@ If you want to build for Other Standalone platform than OS installed on your com
 5. Done! Now you can enjoy your build!
 
 ## Contributing
-Bugs that weren't in original/unmodded version of game are allowed to be fixed.
-Also Shader/Material/Other errors that weren't in original version of the game are allowed too.
+Make sure to report bugs or commit bug fixes for any bug caused by the decompilation process!
+Bug fixes for significant bugs from the original games will also usually be accepted.
 
-It is also allowed to change stuff to make PC gameplay better, and not change the og game at the same time, for example:
-To edit player name we had to add some kind of screen that reads player inputs and sets nickname at the end.
+Improvements to PC support are also welcomed.
 
-If you want to add guns/maps/other stuff into the game, this is not allowed, please make copy of repo and then do whatever you want.
-
-For other stuff, if you are not sure, just make a request, ill accept it or explain why we wont.
+Otherwise, this is meant as a vanilla repository for the original game to be modded/enjoyed on all platforms.
 
 ## Credits
-- Zweronz: everything, project owner.
-- overmet15: few nickname changing script adjustements.
+- Zweronz: everything except for the actual base game
+- overmet15: a few nickname changing script adjustments, writing most of this readme
+
+And of course the people who helped test!
+
+- Hunter651/ChoppySloppy542
+- ZedsDev
+- Gucko714
+- Virjoinga
 
 ## Links
 https://recompilation.net/
+VIDEO UPCOMING

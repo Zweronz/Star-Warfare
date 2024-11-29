@@ -618,14 +618,6 @@ public class StatisticsUI : StatisticsBaseUI
 		if (player.Hp <= 0)
 		{
 			base.userState.AtomicDeadTimer();
-			if (base.userState.GetDeadTimer() == 0)
-			{
-				int num3 = Random.Range(0, 2);
-				string msg = UIConstant.GetMessage(19 + num3).Replace("[n]", "\n");
-				msgUI.CreateQuery(msg, MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_DEAD_TIPS);
-				msgUI.Show();
-				return;
-			}
 		}
 		stateMgr.FrFree();
 		Application.LoadLevel("SoloMenu");

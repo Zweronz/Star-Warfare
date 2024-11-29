@@ -331,7 +331,7 @@ public class PropsStoreUI : UIHandler, IUIHandle
 					}
 					else
 					{
-						msgUI.CreateQuery(UIConstant.GetMessage(12), MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
+						msgUI.CreateQueryNoCancel("Not enough gold.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_CASH);
 						msgUI.Show();
 					}
 				}
@@ -351,7 +351,7 @@ public class PropsStoreUI : UIHandler, IUIHandle
 				}
 				else
 				{
-					msgUI.CreateQuery(UIConstant.GetMessage(11), MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_MITHRIL);
+					msgUI.CreateQueryNoCancel("Not enough mithril.", MessageBoxUI.MESSAGE_FLAG_QUERY, MessageBoxUI.EVENT_PURCHASE_MITHRIL);
 					msgUI.Show();
 				}
 				AudioManager.GetInstance().PlaySound(AudioName.CLICK);
@@ -369,9 +369,6 @@ public class PropsStoreUI : UIHandler, IUIHandle
 				{
 				case 10:
 					msgUI.Hide();
-					iapUI.Create();
-					iapUI.SetSelection(2);
-					iapUI.Show();
 					break;
 				case 9:
 					msgUI.Hide();
