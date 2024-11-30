@@ -61,5 +61,4 @@ And of course the people who helped test!
 - Virjoinga
 
 ## Links
-https://recompilation.net/
 VIDEO UPCOMING
