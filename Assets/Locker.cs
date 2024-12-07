@@ -19,7 +19,7 @@ public class Locker : MonoBehaviour
 
 	void OnApplicationFocus(bool focus)
 	{
-		if (focus)
+		if (!Application.isEditor && focus)
 		{
 			HUDBattle hud = FindObjectOfType<HUDBattle>();
 

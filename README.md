@@ -1,4 +1,4 @@
-# Star Warfare Recompilation (Work In Progress)
+# Star Warfare Recompilation
 
 ## Contents
 1. [Setup](#setup)
