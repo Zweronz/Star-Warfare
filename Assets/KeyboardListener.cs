@@ -10,7 +10,7 @@ public class KeyboardListener : MonoBehaviour
 
 	public TouchScreenKeyboard keyboard;
 
-	public Action<string> onFinish;
+	public Action<string, bool> onFinish;
 
 	public string pcStringDisplay;
 	public string pcString;
@@ -21,6 +21,7 @@ public class KeyboardListener : MonoBehaviour
 	private float timeForBlinkAnim = 1; //To update at start
 	private bool blinkAnimToggle;
 
+	private bool isCanceled = false;
 	private static Dictionary<KeyCode, string> keyMap = new Dictionary<KeyCode, string>
 	{
 		{KeyCode.A, "a"},
@@ -75,16 +76,16 @@ public class KeyboardListener : MonoBehaviour
 
 	private static Dictionary<KeyCode, string> upperKeyMap = new Dictionary<KeyCode, string>
 	{
-		{KeyCode.Alpha0, "!"},
-		{KeyCode.Alpha1, "@"},
-		{KeyCode.Alpha2, "#"},
-		{KeyCode.Alpha3, "$"},
-		{KeyCode.Alpha4, "%"},
-		{KeyCode.Alpha5, "^"},
-		{KeyCode.Alpha6, "&"},
-		{KeyCode.Alpha7, "*"},
-		{KeyCode.Alpha8, "("},
-		{KeyCode.Alpha9, ")"},
+		{KeyCode.Alpha1, "!"},
+		{KeyCode.Alpha2, "@"},
+		{KeyCode.Alpha3, "#"},
+		{KeyCode.Alpha4, "$"},
+		{KeyCode.Alpha5, "%"},
+		{KeyCode.Alpha6, "^"},
+		{KeyCode.Alpha7, "&"},
+		{KeyCode.Alpha8, "*"},
+		{KeyCode.Alpha9, "("},
+		{KeyCode.Alpha0, ")"},
 		{KeyCode.Comma, "<"},
 		{KeyCode.Period, ">"},
 		{KeyCode.Slash, "?"},
@@ -98,45 +99,49 @@ public class KeyboardListener : MonoBehaviour
 		{KeyCode.BackQuote, "~"},
 	};
 
-	public static KeyboardListener GetOrCreate(Action<string> onFinish)
+	public static KeyboardListener GetOrCreate(Action<string, bool> onFinish)
     {
         if (current == null) current = new GameObject("Keyboard Listener").AddComponent<KeyboardListener>();
 
 		current.onFinish = onFinish;
         return current;
     }
+
 	void Update()
 	{
-		if (Application.isMobilePlatform)
+#if !UNITY_STANDALONE
+		if (keyboard.status == TouchScreenKeyboard.Status.Done)
 		{
-			if (keyboard.status == TouchScreenKeyboard.Status.Done)
-			{
-				onFinish(keyboard.text);
+			onFinish(keyboard.text, true);
 
-				Destroy(gameObject);
-				current = null;
+			Destroy(gameObject);
+			current = null;
 
-				return;
-			}
+			return;
 		}
-		else
+		else if (keyboard.status == TouchScreenKeyboard.Status.Canceled)
 		{
-			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-			{
-				onFinish(pcString);
+            Destroy(gameObject);
+            current = null;
 
-				Destroy(gameObject);
-                current = null;
+            return;
+        }
+#else
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || isCanceled)
+		{
+			onFinish(pcString, !isCanceled);
 
-                return;
-			}
+			Destroy(gameObject);
+            current = null;
 
-			ListenForKeys();
-		}
-	}
+            return;
+        }
+#endif
+        ListenForKeys();
+    }
 
     // I can improve this later or something I really don't feel like it - Zweronz
-	// OOF - Met
+    // OOF - Met
     void OnGUI()
     {
         GUIStyle headerStyle = new GUIStyle(GUI.skin.label) 
@@ -160,11 +165,21 @@ public class KeyboardListener : MonoBehaviour
 		}
 
 		// Im lazy as fuck to do proper scaling, someone fix this if ya want - met
-        GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "\n \n \n Input your name.", headerStyle);
+#if UNITY_STANDALONE
+		GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "\nInput your name.\n(Tab to cancel)", headerStyle);
+#else
+		GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "\nInput your name.", headerStyle);
+#endif
     }
 
     private void ListenForKeys()
     {
+		if (Input.GetKeyDown(KeyCode.Tab))
+		{
+			isCanceled = true;
+			return;
+		}
+
         bool isHoldingBack = Input.GetKey(KeyCode.Backspace);
 		if (isHoldingBack)
 		{
@@ -202,12 +217,12 @@ public class KeyboardListener : MonoBehaviour
 
 	void UpdateDisplayString()
 	{
-			string toAdd = blinkAnimToggle == false ? " " : "|";
+		string toAdd = blinkAnimToggle == false ? " " : "|";
 
-			pcStringDisplay = pcString + toAdd;
+		pcStringDisplay = pcString + toAdd;
 
-			timeForBlinkAnim = 0;
-			blinkAnimToggle = !blinkAnimToggle;
+		timeForBlinkAnim = 0;
+		blinkAnimToggle = !blinkAnimToggle;
 	}
 
 	void BackspaceLogic() // fully made by me rn - met

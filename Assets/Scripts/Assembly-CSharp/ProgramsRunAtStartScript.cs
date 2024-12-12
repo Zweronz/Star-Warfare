@@ -10,10 +10,10 @@ public class ProgramsRunAtStartScript : MonoBehaviour
 	{
 		if (!GameApp.GetInstance().AdsInit)
 		{
-			GameObject prefab = Resources.Load("Ads&Social/AdsManager") as GameObject;
+			/*GameObject prefab = Resources.Load("Ads&Social/AdsManager") as GameObject;
 			GameObject go = UnityEngine.Object.Instantiate(prefab) as GameObject;
 			UnityEngine.Object.DontDestroyOnLoad(go);
-			UnityEngine.Object.Instantiate(prefab);
+			UnityEngine.Object.Instantiate(prefab);*/
 			GameApp.GetInstance().AdsInit = true;
 		}
 		GameApp.GetInstance().UUID = AndroidPluginScript.GetAndroidId();

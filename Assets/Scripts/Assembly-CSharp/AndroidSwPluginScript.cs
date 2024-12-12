@@ -18,9 +18,10 @@ public class AndroidSwPluginScript
 	
 			TouchScreenKeyboard keyboard = TouchScreenKeyboard.Open(GameApp.GetInstance().GetUserState().GetRoleName());
 
-			KeyboardListener listener = KeyboardListener.GetOrCreate(name => 
-			{
-				GameApp.GetInstance().GetUserState().SetRoleName(name);
+			KeyboardListener listener = KeyboardListener.GetOrCreate((name, succes) =>
+            {
+                if (!succes) return;
+                GameApp.GetInstance().GetUserState().SetRoleName(name);
 				GameApp.GetInstance().isChangeName = true;
 			});
 
@@ -28,8 +29,9 @@ public class AndroidSwPluginScript
 		}
 		else
 		{
-			KeyboardListener listener = KeyboardListener.GetOrCreate(name =>
+			KeyboardListener listener = KeyboardListener.GetOrCreate((name, succes) =>
 			{
+				if (!succes) return;
 				GameApp.GetInstance().GetUserState().SetRoleName(name);
 				GameApp.GetInstance().isChangeName = true;
 			});

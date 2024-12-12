@@ -61,4 +61,4 @@ And of course the people who helped test!
 - Virjoinga
 
 ## Links
-VIDEO UPCOMING
+[Video](https://youtu.be/gg7sK-8-Lik)
